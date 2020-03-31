@@ -1,0 +1,89 @@
+.article-container{
+    position: relative;
+    width: 95%;
+    height: auto;
+    padding: 30px;
+    border-radius: 25px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: #E6EBF0;
+    box-shadow:  -8px 8px 16px #c4c8cc, 
+             8px -8px 16px #ffffff;
+}
+
+.article-container .article-title{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-family: Nunito-Regular;
+    letter-spacing: 1px;
+    color: #434755;
+    font-size: 2em;
+}
+
+.article-container .article-review{
+    font-family: Nunito-Regular;
+    letter-spacing: 1px;
+    color: #54596b;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.article-container .read-article-btn{
+    padding-top: 12px;
+    color: #F55E5E;
+    text-decoration: none;
+    font-family: Nunito-Bold;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    background: #E6EBF0;
+    box-shadow:  -5px 5px 10px #c4c8cc, 
+                 5px -5px 10px #ffffff;
+    transition: all .3s;
+}
+
+.article-container .read-article-btn:hover{
+    background: #E6EBF0;
+    box-shadow:  -11px 11px 22px #c4c8cc, 
+             11px -11px 22px #ffffff;
+}
+
+.article-container .read-article-btn:focus{
+    background: #E6EBF0;
+    box-shadow: inset -5px 5px 10px #c4c8cc, 
+            inset 5px -5px 10px #ffffff;
+}
+
+/*Dark mode*/
+
+body.dark-mode .article-container{
+    background: #1A1D21;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: rgba(41, 45, 51, 0.7);
+    box-shadow:  14px 14px 28px #121417, 
+             -14px -14px 28px #22262b;
+}
+
+body.dark-mode .article-title, body.dark-mode .article-review{
+    color: #8DAEFC;
+}
+
+body.dark-mode .read-article-btn{
+    background: #1A1D21;
+    box-shadow:  5px 5px 10px #121417, 
+             -5px -5px 10px #22262b;
+}
+
+body.dark-mode .read-article-btn:hover{
+    background: #1A1D21;
+    box-shadow:  11px 11px 22px #121417, 
+                 -11px -11px 22px #22262b;
+}
+
+body.dark-mode .read-article-btn:focus{
+    background: #1A1D21;
+    box-shadow: inset 11px 11px 22px #121417, 
+                inset -11px -11px 22px #22262b;
+}
