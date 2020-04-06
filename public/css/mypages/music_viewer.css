@@ -1,0 +1,53 @@
+* {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+   
+.track-container{
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    background: #F5F7F9;
+    box-shadow:  8px 8px 16px #d0d2d4, 
+             -8px -8px 16px #ffffff;
+}
+
+.track-name,.track-type{
+    font-family: Nunito-Bold;
+    font-size: 1.2em;
+    color: #3E4251;
+}
+
+.track-type{
+    font-family: Nunito-Regular;
+    font-size: 18px;
+}
+
+.play-track-toggle input[type="checkbox"]{
+    display: none;
+}
+
+.play-track-toggle div{
+    padding-top: 8px;
+}
+
+.play-track-toggle div:after{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f04b";
+    color: #455478;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.play-track-toggle input[type="checkbox"]:checked + div:after{
+    content: '\f04c';
+}

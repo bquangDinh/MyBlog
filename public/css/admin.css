@@ -95,8 +95,8 @@ button{
 .sidebar-btn{
     height: 100%;
     width: 100%;
-    color: #FE3276;
-    font-size: 2em;
+    color: #FF73A1;
+    font-size: 1.5em;
 }
 
 .sidebar-btn.active{
@@ -419,3 +419,204 @@ box-shadow:  10px 10px 20px #d0d2d4,
   .tippy-box[data-theme~='tomato'][data-placement^='right'] > .tippy-arrow::before {
     border-top-color: #F5F7F9;
   }
+
+.form-container{
+    overflow: auto;
+    height: 80%;
+}
+
+.custom-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.custom-form .input-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    background: #F5F7F9;
+    transition: all .4s;
+    box-shadow:  5px 5px 10px #d0d2d4, 
+             -5px -5px 10px #ffffff;
+}
+
+.custom-form .input-field:hover{
+    box-shadow:  21px 21px 42px #b7c3cf, 
+             -21px -21px 42px #f7ffff;
+}
+
+.custom-form .input-field .txt-input{
+    height: 100%;
+    width: 90%;
+    border: 0;
+    background-color: transparent;
+    font-family: Nunito-Regular;
+    font-size: 20px;
+    color: #3E4251;
+}
+
+.custom-form .input-field:focus-within{
+    background: #F5F7F9;
+    box-shadow: inset 5px 5px 10px #d0d2d4, 
+            inset -5px -5px 10px #ffffff;
+}
+
+.custom-form .custom-select-field{
+    position: relative;
+    font-family: Nunito-Bold;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    height: 70px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    background: #F5F7F9;
+    transition: all .4s;
+    box-shadow:  5px 5px 10px #d0d2d4, 
+             -5px -5px 10px #ffffff;
+}
+
+.custom-form .custom-select-field select{
+    display: none;
+}
+
+.custom-form .custom-select-field .select-selected{
+    height: 70px;
+    color: #49ADE6;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.custom-form .custom-select-field .select-selected:after{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f107";
+    font-size: 1.5em;
+    position: absolute;
+    top: 12px;
+    right: 26px;
+}
+
+.custom-form .custom-select-field:hover{
+    box-shadow:  21px 21px 42px #b7c3cf, 
+             -21px -21px 42px #f7ffff;
+}
+
+.custom-form .custom-select-field .select-selected:focus{
+    outline: 0;
+    box-shadow: inset 12px 12px 12px #b7c3cf, 
+            inset -12px -12px 12px #f7ffff;
+}
+
+.custom-form .custom-select-field .select-selected.select-arrow-active:after{
+    content: "\f106";
+}
+
+.custom-form .custom-select-field .select-selected p{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.custom-form .custom-select-field .select-items{
+    position: absolute;
+    top: 120%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    background: #F5F7F9;
+    box-shadow:  12px 12px 24px #d0d2d4, 
+             -12px -12px 24px #ffffff;
+}
+
+.custom-form .custom-select-field .select-items div:first-child{
+    margin-top: 10px;
+}
+
+.custom-form .custom-select-field .select-items div:last-child{
+    margin-bottom: 10px;
+}
+
+.custom-form .custom-select-field .select-items div{
+    background-color: #F5F7F9;
+    border-radius: 5px;
+    padding: 10px;
+    color: #3E4251;
+    cursor: pointer;
+}
+
+.custom-form .custom-select-field .select-items.hide{
+    display: none;
+}
+.custom-form .custom-select-field .select-items div:hover:not(.same-as-selected){
+    background-color: #e8f1fa;
+    color: #49ADE6; 
+}
+
+.custom-form .custom-select-field .select-items .same-as-selected{
+    background-color: #D7E5F3;
+    color: #49ADE6;
+}
+
+.custom-form .custom-textarea-field{
+    min-height: 350px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+    background: #F5F7F9;
+    box-shadow:  5px 5px 10px #d0d2d4, 
+             -5px -5px 10px #ffffff;
+}
+
+.custom-form .custom-textarea-field .text-area__inner{
+    margin: 10px;
+    height: 100%;
+}
+
+.dropzone-field__outer{
+    border-radius: 10px;
+    background: #F5F7F9;
+    box-shadow:  6px 6px 12px #d0d2d4, 
+             -6px -6px 12px #ffffff;
+}
+
+.dropzone-field__inner{
+    width: 100%;
+    border-radius: 10px;
+    background: #F5F7F9;
+}
+
+.dropzone-field__inner input[type="file"]{
+    display: none;
+}
+
+.dropzone-field{
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: repeating-linear-gradient(45deg, #F5F7F9, #ecf0f3 15px, #ecf0f3 15px);
+    box-shadow: inset 6px 6px 12px #d0d2d4, 
+            inset -6px -6px 12px #ffffff;
+}
+
+.dropzone-field i{
+    font-size: 2em;
+    color: #3E4251;
+}

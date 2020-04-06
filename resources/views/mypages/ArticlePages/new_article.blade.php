@@ -17,7 +17,7 @@ New Article
     <div class="container-title text-center mt-3">New Article</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
-        <form id="article-form" class="w-100">
+        <form id="article-form" class="w-100 custom-form">
             
             <div class="form-group w-75">
                 <div class="input-field w-100">

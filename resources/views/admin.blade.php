@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ URL::asset('css/vendors/bootstrap.min.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -174,13 +175,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('music_viewer') }}" class="sub-option">
                                     <i class="far fa-eye"></i>
                                     <span>Musics</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('playlist_viewer') }}" class="sub-option">
                                     <i class="far fa-eye"></i>
                                     <span>Playlists</span>
                                 </a>
@@ -193,6 +194,12 @@
                             Manage
                         </div>
                         <ul class="sub-option-list list-unstyled">
+                            <li>
+                                <a href="{{ route('adding_track_page') }}" class="sub-option">
+                                    <i class="fas fa-plus"></i>
+                                    <span>New track</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="#" class="sub-option">
                                     <i class="fas fa-plus"></i>

@@ -1,0 +1,24 @@
+#upload-btn{
+    font-family: Nunito-Bold;
+    color: #3E4251;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background: #F5F7F9;
+    box-shadow:  7px 7px 14px #d0d2d4, 
+             -7px -7px 14px #ffffff;
+}
+
+.dropzone-field.highlighted{
+    border: 2px solid #70CE5A;
+    background: repeating-linear-gradient(45deg, #F5F7F9, #70CE5A 15px,#70CE5A 15px, #F5F7F9 15px);
+    opacity: 0.5;
+}
+
+.file-info-container{
+    font-family: Nunito-Regular;
+}
+
+#file-name,#file-extension,#file-size{
+    font-family: Nunito-Bold;
+}

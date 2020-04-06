@@ -1,0 +1,45 @@
+#message-container{
+    height: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#message-header{
+    font-family: Nunito-Bold;
+    font-size: 18px;
+    color: #3E4251;
+    height: 50px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    background: #F5F7F9;
+    box-shadow:  7px 7px 14px #d0d2d4, 
+             -7px -7px 14px #ffffff;
+}
+
+.message-status__success{
+    color: #70CE5A;
+}
+
+.message-status__warning{
+    color: #f1c40f;
+}
+
+.message-status__error{
+    color: #e74c3c;
+}
+
+#message-content{
+    padding: 20px;
+    font-family: Nunito-Regular;
+    font-size: 16px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 8px;
+    background: #F5F7F9;
+    box-shadow:  7px 7px 14px #d0d2d4, 
+             -7px -7px 14px #ffffff;
+}

@@ -30,5 +30,15 @@ Route::post('/loginattempt','LoginController@login')->name('login');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/','AdminController@index')->name('show_admin_dashboard');
-    Route::get('/article/new','AdminController@show_new_article')->name('new_article');
+
+    Route::prefix('article')->group(function(){
+        Route::get('/new','AdminController@show_new_article')->name('new_article');
+    });
+
+    Route::prefix('media')->group(function(){
+        Route::get('/music_viewer','AdminController@show_music_viewer_page')->name('music_viewer');
+        Route::get('/playlist_viewer','AdminController@show_playlist_viewer_page')->name('playlist_viewer');
+        Route::get('/add_new_track','AdminController@show_adding_track_page')->name('adding_track_page');
+        Route::post('/add_track','MediaController@add_track')->name('add_track');
+    });
 });
