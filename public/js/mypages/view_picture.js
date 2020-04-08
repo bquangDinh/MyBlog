@@ -144,4 +144,5 @@ function initButtonEvent(){
 $(document).ready(function(){
     initPictureDropzone();
     initButtonEvent();
+    $("#picture-container").attachDragger();
 });

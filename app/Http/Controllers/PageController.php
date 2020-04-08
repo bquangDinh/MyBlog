@@ -15,7 +15,7 @@ class PageController extends Controller
     public function reading_article($id){
         $article = ArticleService::get_article_by_id($id);
 
-        if($article == null || $article->state->current_state != "publish"){
+        if($article == null || $article->state->current_state == "publish"){
             return redirect()->to("/");
         }
 

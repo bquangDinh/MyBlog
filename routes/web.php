@@ -24,9 +24,9 @@ Route::get('/projects','PageController@show_projects_page')->name('projects_page
 
 
 Route::get('/login','LoginController@index');
-Route::post('/loginattempt','LoginController@login')->name('login');
+Route::post('/loginattempt','LoginController@login')->name('login')->middleware('throttle');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/','AdminController@index')->name('show_admin_dashboard');
 
     Route::prefix('article')->group(function(){
