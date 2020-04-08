@@ -17,11 +17,20 @@ New Article
     <div class="container-title text-center mt-3">New Article</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
-        <form id="article-form" class="w-100 custom-form">
-            
+        <form id="article-form" action="{{ route('create_article') }}" class="w-100 custom-form" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="text" name="cover_id" id="selected-image-id-input" value="" style="display: none">
+            <input type="text" name="track_id" id="selected-track-id-input" value="" style="display: none">
+            <input type="text" name="playlist_id" id="selected-playlist-id-input" value="" style="display: none">
+
             <div class="form-group w-75">
                 <div class="input-field w-100">
-                    <input type="text" name="article_name" class="txt-input" placeholder="Article Name" tabindex="1">
+                    <input type="text" name="article_name" class="txt-input" placeholder="Article Name" tabindex="1" required>
+                </div>
+            </div>
+            <div class="form-group w-75">
+                <div class="input-field w-100">
+                    <input type="text" name="description" class="txt-input" placeholder="Description" tabindex="2">
                 </div>
             </div>
             <div class="form-group w-75">
@@ -55,13 +64,13 @@ New Article
             <div class="form-group w-75">
                 <div class="row">
                     <div class="col-6">
-                        <div class="picking-container">
+                        <div class="picking-container" id="cover-picking-container">
                             <i class="fas fa-check-circle used-icon"></i>
                             <div class="row">
                                 <div class="col-6">
                                     <div class="picking-btn-container d-flex justify-content-center align-items-center">
                                         <div class="picking-btn-container__inner d-flex justify-content-center align-items-center">
-                                            <button class="picking-btn" type="button">
+                                            <button class="picking-btn" type="button" data-form-target="cover-form">
                                                 <i class="far fa-image"></i>
                                             </button>
                                         </div>
@@ -78,13 +87,13 @@ New Article
                         </div>
                     </div>
                     <div class="col-6">
-                    <div class="picking-container used">
+                    <div class="picking-container" id="music-picking-container">
                             <i class="fas fa-check-circle used-icon"></i>
                             <div class="row">
                                 <div class="col-6">
                                     <div class="picking-btn-container d-flex justify-content-center align-items-center">
                                         <div class="picking-btn-container__inner d-flex justify-content-center align-items-center">
-                                            <button class="picking-btn" type="button">
+                                            <button class="picking-btn" type="button" data-form-target="music-form">
                                                 <i class="fas fa-file-audio"></i>
                                             </button>
                                         </div>
@@ -104,21 +113,21 @@ New Article
             </div>
             <div class="form-group w-75">
                 <div class="picking-form">
-                    <div id="cover-form w-100 h-100" class="picking-form-container hide">
+                    <div id="cover-form" class="picking-form-container hide">
                         <div class="tab-container d-flex justify-content-center">
                             <div class="tab-outer mt-3" style="width: 50%">
                                 <div class="tab-slider" style="width: 40%;"></div>
                                 <div class="row h-100">
                                     <div class="col-6">
                                         <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                            <button type="button" class="tab-btn" data-tab-panel="database-picking-form">
+                                            <button type="button" class="tab-btn" data-tab-panel="database-picking-form" data-parent-form="cover-form">
                                                 Database
                                             </button>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                            <button type="button" class="tab-btn" data-tab-panel="computer-picking-form">
+                                            <button type="button" class="tab-btn" data-tab-panel="computer-picking-form" data-parent-form="cover-form">
                                                 Computer
                                             </button>
                                         </div>
@@ -129,158 +138,29 @@ New Article
                         <div class="panel-content w-100">
                             <div id="database-picking-form" class="form-child w-100 d-flex justify-content-center align-items-center flex-column">
                                 <div id="image-records" style="width: 90%">
-                                    <div class="image-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="image_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <a href="http://127.0.0.1:8000/sources/media/images/private/author_avatar.jpg" class="image-name record-tab-1-cl" target="_blank">
-                                                        author_avatar
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="image-type record-tab-2-cl">JPG</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="image-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="image_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <a href="http://127.0.0.1:8000/sources/media/images/private/author_avatar.jpg" class="image-name record-tab-1-cl" target="_blank">
-                                                        author_avatar
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="image-type record-tab-2-cl">JPG</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="image-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="image_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <a href="http://127.0.0.1:8000/sources/media/images/private/author_avatar.jpg" class="image-name record-tab-1-cl" target="_blank">
-                                                        author_avatar
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="image-type record-tab-2-cl">JPG</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="image-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="image_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <a href="http://127.0.0.1:8000/sources/media/images/private/author_avatar.jpg" class="image-name record-tab-1-cl" target="_blank">
-                                                        author_avatar
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="image-type record-tab-2-cl">JPG</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="image-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="image_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <a href="http://127.0.0.1:8000/sources/media/images/private/author_avatar.jpg" class="image-name record-tab-1-cl" target="_blank">
-                                                        author_avatar
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="image-type record-tab-2-cl">GIF</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pagination mt-3 w-100 d-flex justify-content-center align-items-center">
-                                    <button type="button" id="previous-pagination-btn" class="pagination-btn">
-                                        <i class="fas fa-angle-left"></i>
-                                    </button>
-                                    <button type="button" id="next-pagination-btn" class="pagination-btn ml-2">
-                                        <i class="fas fa-angle-right"></i>
-                                    </button>
                                 </div>
                                 <div class="picking-form-direction w-100 mt-3 mb-3 d-flex justify-content-end">
                                     <button type="button" data-direction="cancel" data-name="db-cover" class="direction-btn mr-3">
-                                        Cancel
+                                        Hide
                                     </button>
-                                    <button type="button" data-direction="ok" data-name="db-cover" class="direction-btn mr-3">
+                                    <button type="button" data-direction="notused" data-name="db-cover" class="direction-btn mr-3">
+                                        Not use
+                                    </button>
+                                    <button type="button" data-direction="ok" data-name="db-cover" class="direction-btn mr-3 disabled" disabled>
                                         OK
                                     </button>
                                 </div>
                             </div>
                             <div id="computer-picking-form" class="form-hided form-child">
-                                <div class="mt-3 w-100 d-flex justify-content-center align-items-center">
-                                    <div id="cp-form-outer">
+                                <div class="mt-3 w-100 d-flex justify-content-center align-items-center flex-column">
+                                    <div class="w-100 d-flex justify-content-around file-info-container">
+                                        <div>Name: <span id="file-name">None</span></div>
+                                        <div>Ext: <span id="file-extension">None</span></div>
+                                        <div>Size: <span id="file-size">None</span></div>
+                                    </div>
+                                    <div id="cp-form-outer" class="mt-3">
                                        <div id="cp-form-inner">
+                                            <input type="file" id="cover-file" style="display: none" name="cover_file">
                                            <div id="droppable-file-zone" class="d-flex justify-content-center align-items-center">
                                                 <i class="fas fa-plus"></i>
                                            </div>
@@ -288,39 +168,35 @@ New Article
                                     </div>
                                 </div>
                                 <div class="picking-form-direction w-100 py-3 d-flex justify-content-end">
-                                    <button type="button" id="cp-cancel-btn" class="direction-btn mr-3">
-                                        Cancel
+                                    <button type="button" data-direction="cancel" data-name="db-cover" class="direction-btn mr-3">
+                                        Hide
                                     </button>
-                                    <button type="button" id="cp-ok-btn" class="direction-btn mr-3">
+                                    <button type="button" data-direction="notused" data-name="db-cover" class="direction-btn mr-3">
+                                        Not use
+                                    </button>
+                                    <button type="button" data-direction="ok" data-name="db-cover" class="direction-btn mr-3 disabled" disabled>
                                         OK
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="music-form w-100 h-100" class="picking-form-container">
+                    <div id="music-form" class="w-100 h-100 picking-form-container hide">
                         <div class="tab-container d-flex justify-content-center">
-                            <div class="tab-outer mt-3" style="width: 80%">
-                                <div class="tab-slider" style="width: 25%"></div>
+                            <div class="tab-outer mt-3" style="width: 50%">
+                                <div class="tab-slider" style="width: 40%"></div>
                                 <div class="row h-100">
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                            <button type="button" class="tab-btn" data-tab-panel="playlist-picking-form">
+                                            <button type="button" class="tab-btn" data-tab-panel="playlist-picking-form" data-parent-form="music-form">
                                                 Playlists
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                            <button type="button" class="tab-btn" data-tab-panel="singletrack-picking-form">
+                                            <button type="button" class="tab-btn" data-tab-panel="singletrack-picking-form" data-parent-form="music-form">
                                                 Single Tracks
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                            <button type="button" class="tab-btn" data-tab-panel="computer-track-picking-form">
-                                                Computer
                                             </button>
                                         </div>
                                     </div>
@@ -330,140 +206,15 @@ New Article
                         <div class="panel-content w-100">
                             <div id="playlist-picking-form" class="form-child w-100 d-flex justify-content-center align-items-center flex-column">
                                 <div id="playlist-records" style="width: 90%">
-                                    <div class="playlist-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="playlist_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="playlist-name record-tab-1-cl">Minecraft Soundtracks</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-count record-tab-2-cl">6 tracks</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="playlist-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="playlist_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="playlist-name record-tab-1-cl">Minecraft Soundtracks</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-count record-tab-2-cl">6 tracks</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="playlist-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="playlist_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="playlist-name record-tab-1-cl">Minecraft Soundtracks</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-count record-tab-2-cl">6 tracks</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="playlist-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="playlist_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="playlist-name record-tab-1-cl">Minecraft Soundtracks</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-count record-tab-2-cl">6 tracks</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="playlist-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="playlist_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="playlist-name record-tab-1-cl">Minecraft Soundtracks</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-count record-tab-2-cl">6 tracks</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pagination mt-3 w-100 d-flex justify-content-center align-items-center">
-                                    <button type="button" id="pl-previous-pagination-btn" class="pagination-btn">
-                                        <i class="fas fa-angle-left"></i>
-                                    </button>
-                                    <button type="button" id="pl-next-pagination-btn" class="pagination-btn ml-2">
-                                        <i class="fas fa-angle-right"></i>
-                                    </button>
                                 </div>
                                 <div class="picking-form-direction w-100 mt-3 mb-3 d-flex justify-content-end">
                                     <button type="button" data-direction="cancel" data-name="playlist" class="direction-btn mr-3">
                                         Cancel
                                     </button>
-                                    <button type="button" data-direction="ok" data-name="playlist" class="direction-btn mr-3">
+                                    <button type="button" data-direction="notused" data-name="playlist" class="direction-btn mr-3">
+                                        Not use
+                                    </button>
+                                    <button type="button" data-direction="ok" data-name="playlist" class="direction-btn mr-3 disabled" disabled>
                                         OK
                                     </button>
                                 </div>
@@ -471,160 +222,15 @@ New Article
 
                             <div id="singletrack-picking-form" class="form-child form-hided d-flex justify-content-center align-items-center flex-column">
                                 <div id="singletrack-records" style="width: 90%">
-                                    <div class="singletrack-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="singletrack_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="singletrack-name record-tab-1-cl">A thoudsand year</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-type record-tab-2-cl">MP3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="singletrack-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="singletrack_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="singletrack-name record-tab-1-cl">A thoudsand year</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-type record-tab-2-cl">MP3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="singletrack-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="singletrack_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="singletrack-name record-tab-1-cl">A thoudsand year</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-type record-tab-2-cl">MP3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="singletrack-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="singletrack_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="singletrack-name record-tab-1-cl">A thoudsand year</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-type record-tab-2-cl">MP3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="singletrack-record mt-2 record">
-                                        <div class="row h-100">
-                                            <div class="col-1">
-                                                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                                                    <label class="custom-radio-box">
-                                                        <input type="radio" name="singletrack_radio">
-                                                        <span class="checkmark">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="singletrack-name record-tab-1-cl">A thoudsand year</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                                                    <span class="track-type record-tab-2-cl">MP3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pagination mt-3 w-100 d-flex justify-content-center align-items-center">
-                                    <button type="button" id="sg-previous-pagination-btn" class="pagination-btn">
-                                        <i class="fas fa-angle-left"></i>
-                                    </button>
-                                    <button type="button" id="sg-next-pagination-btn" class="pagination-btn ml-2">
-                                        <i class="fas fa-angle-right"></i>
-                                    </button>
                                 </div>
                                 <div class="picking-form-direction w-100 mt-3 mb-3 d-flex justify-content-end">
                                     <button type="button" data-direction="cancel" data-name="singletrack" class="direction-btn mr-3">
-                                        Cancel
+                                        Hide
                                     </button>
-                                    <button type="button" data-direction="ok" data-name="singletrack" class="direction-btn mr-3">
-                                        OK
+                                    <button type="button" data-direction="notused" data-name="singletrack" class="direction-btn mr-3">
+                                        Not use
                                     </button>
-                                </div>
-                            </div>
-
-                            <div id="computer-track-picking-form" class="form-child form-hided d-flex justify-content-center align-items-center flex-column">
-                                <div class="mt-3 w-100 d-flex justify-content-center align-items-center">
-                                    <div id="sg-cp-form-outer">
-                                       <div id="sg-cp-form-inner">
-                                           <div id="sg-droppable-file-zone" class="d-flex justify-content-center align-items-center">
-                                                <i class="fas fa-plus"></i>
-                                           </div>
-                                       </div>
-                                    </div>
-                                </div>
-                                <div class="picking-form-direction w-100 py-3 d-flex justify-content-end">
-                                    <button type="button" id="sg-cp-cancel-btn" class="direction-btn mr-3">
-                                        Cancel
-                                    </button>
-                                    <button type="button" id="sg-cp-ok-btn" class="direction-btn mr-3">
+                                    <button type="button" data-direction="ok" data-name="singletrack" class="direction-btn mr-3 disabled" disabled>
                                         OK
                                     </button>
                                 </div>
@@ -642,10 +248,10 @@ New Article
             </div>
             <div class="form-group w-75">
                 <div class="w-100 d-flex justify-content-around">
-                    <button class="manage-article-btn" name="save-btn" type="submit" style="color: #F5F7F9">
+                    <button class="manage-article-btn" name="submit_btn" type="submit" style="color: #F5F7F9" value="save">
                         Save
                     </button>
-                    <button class="manage-article-btn" style="color: #F55E5E" type="submit" name="publish-btn">
+                    <button class="manage-article-btn" style="color: #F55E5E" type="submit" name="submit_btn" value="publish">
                         Publish now
                     </button>
                 </div>
@@ -658,5 +264,6 @@ New Article
 @section('js')
 <script src="https://cdn.tiny.cloud/1/j3z8kdc0di1465wji07upkwwuc7exvti07rixz2ewht51abv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ URL::asset('js/vendors/smooth-scrollbar.js') }}" charset="utf-8"></script>
+<script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
 <script src="{{ URL::asset('js/mypages/new_article.js') }}"></script>
 @endsection

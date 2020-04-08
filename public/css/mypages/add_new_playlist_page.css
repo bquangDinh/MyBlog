@@ -1,0 +1,103 @@
+#tl-title{
+    font-family: Nunito-Bold;
+    color: #3E4251;
+}
+
+.tracks-list{
+    height: 300px;
+}
+
+.track-record{
+    height: 50px;
+    border-radius: 10px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    background: #F5F7F9;
+    box-shadow:  6px 6px 12px #d0d2d4, 
+             -6px -6px 12px #ffffff;
+}
+
+.track-record .checkbox-lb{
+    position: relative;
+}
+
+.track-record .checkbox-lb input{
+    display: none;
+}
+
+.checkbox-lb .checkmark{
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #F5F7F9;
+    box-shadow: inset 5px 5px 10px #d0d2d4, 
+            inset -5px -5px 10px #ffffff;   
+}
+
+.checkbox-lb .checkmark i{
+    display: none;
+    color: #70CE5A;
+}
+
+.checkbox-lb input[type="checkbox"]:checked + .checkmark i{
+    display: block;
+}
+
+.track-record .track-name{
+    font-family: Nunito-Bold;
+}
+
+.track-record .track-type{
+    font-family: Nunito-Regular;
+}
+
+.tracks-pagination{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tracks-pagination li{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background: #F5F7F9;
+    box-shadow:  5px 5px 10px #d0d2d4, 
+             -5px -5px 10px #ffffff;
+}
+
+.tracks-pagination li i{
+    color: #3E4251;
+}
+
+.paginationjs-prev.disabled{
+    opacity: 0.7;
+}
+
+.paginationjs-next.disabled{
+    opacity: 0.7;
+}
+
+#upload-btn{
+    font-family: Nunito-Bold;
+    color: #3E4251;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background: #F5F7F9;
+    box-shadow:  7px 7px 14px #d0d2d4, 
+             -7px -7px 14px #ffffff;
+}

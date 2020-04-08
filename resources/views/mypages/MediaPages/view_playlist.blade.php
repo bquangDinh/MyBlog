@@ -17,46 +17,50 @@ View playlist
     <div class="container-title text-center mt-3">Playlists</div>
 
     <div class="playlists w-100 mt-2 mb-2 disable-scrollbars d-flex justify-content-center align-items-center flex-column">
+        @foreach($playlists as $playlist)
         <div class="playlist-container mt-2 mb-2">
             <div class="row h-100">
                 <div class="col-7">
                     <div class="w-100 h-100 playlist-name d-flex justify-content-center align-items-center">
                         <div>
-                            <a data-toggle="collapse" href="#playlist-panel-1" role="button" aria-expanded="false" aria-controls="playlist-panel-1">Minecraft - Volume 1</a>
+                            <a data-toggle="collapse" href="#playlist-panel-{{ $playlist->id }}" role="button" aria-expanded="false" aria-controls="playlist-panel-{{ $playlist->id }}">
+                                {{ $playlist->name }}
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-5">
                     <div class="w-100 h-100 playlist-date d-flex justify-content-center align-items-center">
                         <div>
-                            Jun 20, 2020
+                            {{ $playlist->created_at }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="playlist-detail-panel w-100" id="playlist-panel-1">
-            <div class=" d-flex justify-content-center align-items-center flex-column">
-                <div class="track-record mt-2 mb-2 w-75" data-track-source="http://127.0.0.1:8000/sources/media/musics/track_5e8ac64cbf255_1586153036.mp3" data-track-title="Key">
+        <div class="playlist-detail-panel w-100" id="playlist-panel-{{ $playlist->id }}">
+            <div class="d-flex justify-content-center align-items-center flex-column">
+                @foreach($playlist->tracks as $index => $mtrack)
+                <div class="track-record mt-2 mb-2 w-75" data-track-source="{{ $mtrack->track->source }}" data-track-title="{{ $mtrack->track->title }}">
                     <div class="row h-100">
                         <div class="col-7">
                             <div class="w-100 h-100 track-name d-flex justify-content-center align-items-center">
                                 <div>
-                                    Key
+                                    {{ $mtrack->track->title }}
                                 </div>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="w-100 h-100 track-type d-flex justify-content-center align-items-center">
                                 <div>
-                                    mp3
+                                    {{ $mtrack->track->type }}
                                 </div>
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="w-100 h-100 track-controls d-flex justify-content-center align-items-center">
                                 <label class="play-track-toggle" class="px-3">
-                                    <input type="checkbox" data-track-index="0">
+                                    <input type="checkbox" data-track-index="{{ $index }}">
                                     <div>
                                     </div>
                                 </label>
@@ -64,57 +68,10 @@ View playlist
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>    
         </div>
-        <div class="playlist-container mt-2 mb-2">
-            <div class="row h-100">
-                <div class="col-7">
-                    <div class="w-100 h-100 playlist-name d-flex justify-content-center align-items-center">
-                        <div>
-                            <a data-toggle="collapse" href="#playlist-panel-2" role="button" aria-expanded="false" aria-controls="playlist-panel-1">Minecraft - Volume 1</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div class="w-100 h-100 playlist-date d-flex justify-content-center align-items-center">
-                        <div>
-                            Jun 20, 2020
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="playlist-detail-panel w-100" id="playlist-panel-2">
-            <div class=" d-flex justify-content-center align-items-center flex-column">
-                <div class="track-record mt-2 mb-2 w-75" data-track-source="http://127.0.0.1:8000/sources/media/musics/track_5e8b69d50cc52_1586194901.mp3" data-track-title="Subwoofer Lullaby">
-                    <div class="row h-100">
-                        <div class="col-7">
-                            <div class="w-100 h-100 track-name d-flex justify-content-center align-items-center">
-                                <div>
-                                    Key
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="w-100 h-100 track-type d-flex justify-content-center align-items-center">
-                                <div>
-                                    mp3
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="w-100 h-100 track-controls d-flex justify-content-center align-items-center">
-                                <label class="play-track-toggle" class="px-3">
-                                    <input type="checkbox" data-track-index="0">
-                                    <div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>    
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

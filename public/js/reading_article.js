@@ -213,6 +213,8 @@ Player.prototype = {
     }
 }
 
+
+
 var player = new Player([
     {
         title: 'Subwoofer Lullaby',
@@ -235,23 +237,37 @@ $("#duration-slider").on("slider:update",function(e,percentage){
 });
 
 $(document).ready(function(){
-    player.play(0);
-    
     $("#play-toggle > input").change(function(){
         if(this.checked){
-            player.pause(); 
+            if(player) player.pause(); 
             $("#duration-slider").addClass("stop");
         }else{
-            player.play();
+            if(player) player.play();
             $("#duration-slider").removeClass("stop");
         }
     });
 
     $("#previous-song").on('click', function(e){
-        player.skip("prev");
+        if(player) player.skip("prev");
     });
 
     $("#next-song").on('click', function(e){
-        player.skip('next');
+        if(player) player.skip('next');
     });
+
+    var playlist = [];
+
+    $(".track-source").each(function(index){
+        let title = $(this).data("track-title");
+        let source = $(this).val();
+        playlist.push({
+            title: title,
+            file: source,
+            howl: null
+        });
+    });
+
+    if(playlist.length > 0) player = new Player(playlist);
+
+    player.play(0);
 });

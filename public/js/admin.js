@@ -44,6 +44,53 @@ $.fn.attachDragger = function(){
     });
 };
 
+if(typeof URL === "undefined"){
+    var parse_query_string = function(query){
+      var vars = query.split("&");
+      var query_string = {};
+      for(var i = 0; i < vars.length;i++){
+        var pair = vars[i].split("=");
+        var key = decodeURLComponent(pair[0]);
+        var value = decodeURLComponent(pair[1]);
+  
+        if(typeof query_string[key] === "undefined"){
+          query_string[key] = decodeURLComponent(value);
+        }else if (typeof query_string[key] === "string"){
+          var arr = [query_string[key],decodeURLComponent(value)];
+          query_string[key] = arr;
+        }else{
+          query_string[key].push(decodeURLComponent(value));
+        }
+      }
+      return query_string;
+    }
+  
+    var url = window.location.href;
+    var parsed_qs = parse_query_string(url);
+    console.log(parsed_qs.initform);
+  }else{
+    var url = new URL(window.location.href);
+    var initform = url.searchParams.get("panel");
+
+    if(initform != null){
+        var sidebarBtn = $(".sidebar-btn[data-panel-id='" + initform + "']").first();
+        var parentContainer = $(sidebarBtn).parent();
+
+        $(".panel").each(function(index){
+            $(this).hide();
+        });
+        
+        $(".sidebar-btn").each(function(index){
+            $(this).removeClass("active");
+            $(this).parent().removeClass("active");
+        });
+
+        $("#" + initform).fadeIn("slow");
+        $(sidebarBtn).addClass("active");
+        $(parentContainer).addClass("active");
+    }
+  }
+
 $(document).ready(function(e){
     $(".sidebar-btn").click(function(){
         let panelId = $(this).data("panel-id");
@@ -97,5 +144,9 @@ $(document).ready(function(e){
             $("#author-panel").removeClass("deactive");
             animateCSSJquery($("#author-panel"), "slideInRight");
         });
+    });
+
+    tippy(".sub-option.unavailabled",{
+        content: 'This option is unavailabled'
     });
 });

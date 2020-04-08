@@ -16,8 +16,8 @@ Add new track
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
     <div class="container-title text-center mt-3">Add new track</div>
 
-    <div class="form-container w-100 mt-2 mb-2 disable-scrollbars" id="add-track-form">
-        <form action="{{ route('add_track') }}" method="POST" class="w-100 custom-form" enctype="multipart/form-data">
+    <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
+        <form action="{{ route('add_track') }}" method="POST" class="w-100 custom-form" id="add-track-form" enctype="multipart/form-data">
             @csrf
             <div class="form-group w-75">
                 <div class="input-field w-100">

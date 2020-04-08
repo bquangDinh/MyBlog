@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ URL::asset('css/admin.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/vendors/sweetalert2.min.css') }}">
         @yield('css')
     </head>
     <body>
@@ -138,13 +139,13 @@
                         </div>
                         <ul class="sub-option-list list-unstyled">
                             <li>
-                                <a href="/admin/article/new" class="sub-option">
+                                <a href="{{ route('new_article') }}?panel=article-panel" class="sub-option">
                                     <i class="fas fa-plus"></i>
                                     <span>New</span>
                                 </a>
                             </li> 
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="/admin?panel=article-panel" class="sub-option">
                                     <i class="far fa-edit"></i>
                                     <span>Manager</span>
                                 </a>
@@ -163,25 +164,25 @@
                         </div>
                         <ul class="sub-option-list list-unstyled">
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('picture_viewer') }}?panel=media-panel" class="sub-option">
                                     <i class="far fa-eye"></i>
                                     <span>Pictures</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="/admin?panel=media-panel" class="sub-option unavailabled">
                                     <i class="far fa-eye"></i>
                                     <span>Videos</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('music_viewer') }}" class="sub-option">
+                                <a href="{{ route('music_viewer') }}?panel=media-panel" class="sub-option">
                                     <i class="far fa-eye"></i>
                                     <span>Musics</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('playlist_viewer') }}" class="sub-option">
+                                <a href="{{ route('playlist_viewer') }}?panel=media-panel" class="sub-option">
                                     <i class="far fa-eye"></i>
                                     <span>Playlists</span>
                                 </a>
@@ -195,13 +196,13 @@
                         </div>
                         <ul class="sub-option-list list-unstyled">
                             <li>
-                                <a href="{{ route('adding_track_page') }}" class="sub-option">
+                                <a href="{{ route('adding_track_page') }}?panel=media-panel" class="sub-option">
                                     <i class="fas fa-plus"></i>
                                     <span>New track</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('adding_playlist_page') }}?panel=media-panel" class="sub-option">
                                     <i class="fas fa-plus"></i>
                                     <span>New playlist</span>
                                 </a>
@@ -250,6 +251,7 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
         <script src="{{ URL::asset('js/vendors/bootstrap.min.js') }}" charset="utf-8"></script>
+        <script src="{{ URL::asset('js/vendors/sweetalert2.min.js') }}" charset="utf-8"></script>
         <script src="{{ URL::asset('js/admin.js') }}" charset="utf-8"></script>
         @yield('js')
     </body>

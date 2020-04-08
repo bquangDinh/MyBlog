@@ -201,7 +201,12 @@ button{
     transition: color .2s;
 }
 
-.menubar .panel .sub-option-container .sub-option:hover{
+.menubar .panel .sub-option-container .sub-option.unavailabled{
+    opacity: 0.5;
+    cursor: default;
+}
+
+.menubar .panel .sub-option-container .sub-option:not(.unavailabled):hover{
     color: #FF73A1;
 }
 

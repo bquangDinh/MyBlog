@@ -13,6 +13,6 @@ class MusicPlaylist extends Model
     }
 
     public function track(){
-        return $this->hasOne('App\Music','music_id');
+        return $this->belongsTo('App\Music','music_id');
     }
 }

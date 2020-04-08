@@ -23,10 +23,20 @@ class AdminController extends Controller
     }
 
     public function show_playlist_viewer_page(){
-        return view('mypages/MediaPages/view_playlist');
+        $playlists = MediaService::get_all_playlists();
+        return view('mypages/MediaPages/view_playlist')->with('playlists',$playlists);
     }
 
     public function show_adding_track_page(){
         return view('mypages/MediaPages/add_new_track');
+    }
+
+    public function show_adding_playlist_page(){
+        return view('mypages/MediaPages/add_new_playlist');
+    }
+
+    public function show_picture_viewer_page(){
+        $images = MediaService::get_all_images();
+        return view('mypages/MediaPages/view_picture')->with('images',$images);
     }
 }
