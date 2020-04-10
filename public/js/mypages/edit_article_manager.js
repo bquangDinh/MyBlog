@@ -50,12 +50,66 @@ var trashCanContainer = (function(){
             showUpperLayer();
         },
         resetTrashCan: function(){
+            var self = this;
             changingAnimate(SIZE.WIDTH,SIZE.HEIGHT);
             hideUpperLayer();
+            $("#trash-can").removeClass("draggable-dropzone--occupied");
+            $("#trash-can .draggable").remove();
         },
         removeArticle: function(articleId){
-            console.log("removed article");
-            //TODO
+            var self = this;
+            var undo = function(){
+                $("#article-holder-" + articleId).append($("#article-control-container-" + articleId));
+                self.resetTrashCan();
+            }
+
+            Swal.fire({
+                title:'Delete this article',
+                text: 'This process cannot be undo. Please careful before execute this. Do you want to continue?',
+                type:'warning',
+                showCancelButton:true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Delele anyway',
+                cancelButtonText: 'Cancel'
+              }).then((result) => {
+                if(result.value){
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/admin/article/delete_article',
+                        data:{
+                            article_id: articleId
+                        },
+                        success: function(response){
+                            if(response == 0){
+                                Swal.fire(
+                                    'Deleted article',
+                                    'Deleted article succeed',
+                                    'success'
+                                  );
+                                
+                                $("#article-whole-container-" + articleId).remove();
+                                self.resetTrashCan();
+                            }else{
+                                Swal.fire(
+                                    'Deleted article',
+                                    'Cannot delete the article. Please reset the page and try again',
+                                    'error'
+                                );
+                                undo();
+                            }        
+                        },
+                        error: function(jqXHR, exception){
+                            Swal.fire(
+                                'Deleted article',
+                                'Something went wrong !!! Please reset the page and try again',
+                                'error'
+                              );
+                              undo();
+                        }
+                    });
+                }else undo();
+              });
         }
     };
 })();
@@ -83,6 +137,11 @@ tippy(".trash-can-container",{
 
 tippy(".switch",{
     content: "Hide this article, so people can't see it",
+    theme: 'neumorphism',
+});
+
+tippy(".disabled-switch",{
+    content: "This option is turned off because the current state of the article is saved",
     theme: 'neumorphism',
 });
 
@@ -118,10 +177,72 @@ droppable.on('droppable:dropped',function(p){
 
 droppable.on('droppable:stop',function(p){
     if($(p.data.dropzone).attr("id") == trashCanContainer.nameId){
-        trashCanContainer.removeArticle(0);
+        let articleId = $(p.data.dragEvent.data.originalSource).data("article-id");
+        trashCanContainer.removeArticle(articleId);
     }
 });
 
 $(document).ready(function(){
+    $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
     $(".edit-manager-container").attachDragger();
+
+    $(".hide-article-checkbox").change(function(e){
+        let articleId = $(this).data("article-id");
+        let url = "";
+        let self = this;
+
+        if(this.checked){
+            url = "/admin/article/hide_article/" + articleId;
+            $("#state-container-" + articleId).attr("data-status","hided");
+            $("#state-container-" + articleId).find("div").first().text("Hided");
+        }else{
+            url = "/admin/article/unhide_article/" + articleId;
+            $("#state-container-" + articleId).attr("data-status","published");
+            $("#state-container-" + articleId).find("div").first().text("Published");
+        }
+
+        $.ajax({
+            type:'GET',
+            url: url,
+            success: function(response){
+                if(response == 0){
+                    Swal.fire({
+                        type: 'success',
+                        title: self.checked ? 'Hided the article' : 'Unhided the article',
+                        toast: true,
+                        position: 'top-end',
+                        timer: 3000,
+                        showConfirmButton: false
+                    });
+                }else{
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Failed to hide article',
+                        text: 'Cannot find the article. Reset the page and try again',
+                        toast: true,
+                        position: 'top-end',
+                        timer: 3000,
+                        showConfirmButton: false
+                    });
+                }
+            },
+            error: function(jqXHR, exception){
+                Swal.fire({
+                    type: 'error',
+                    title: 'Failed to hide article',
+                    text: 'Something went wrong !!! Reset the page and try again',
+                    toast: true,
+                    position: 'top-end',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+                console.log(jqXHR.responseText);
+            }
+        });
+    });
 });

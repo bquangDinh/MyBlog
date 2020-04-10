@@ -1,5 +1,10 @@
 var checkedOptions = [];
 
+$(".playlist-track-id").each(function(index){
+    let trackId = $(this).val();
+    checkedOptions.push(parseInt(trackId));
+});
+
 function template(data){
     //clear container
     $("#tracks-list").find('.track-record').remove();
@@ -75,11 +80,7 @@ $(".tracks-list").on('click',"input[type='checkbox']", function(){
 
 $("#add-playlist-form").on('submit',function(e){
     if(!checkedOptions || checkedOptions.length < 2){
-        Swal.fire({
-            type: 'error',
-            title: 'No track selected',
-            text: 'Please select at least 2 tracks'
-        });
+        alert("No track is selected. Please select at least 2 tracks");
         return false;
     }
 

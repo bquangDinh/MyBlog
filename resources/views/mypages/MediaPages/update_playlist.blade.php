@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-Add new track
+{{ $playlist->name }}
 @endsection
 
 @section('css')
@@ -14,31 +14,24 @@ Add new track
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">Add new playlist</div>
+    <div class="container-title text-center mt-3">Update Playlist</div>
+
+    @foreach($playlist->tracks as $mtrack)
+    <input type="text" class="playlist-track-id" style="display: none" value="{{ $mtrack->track->id }}">
+    @endforeach
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
-        <form action="{{ route('add_playlist') }}" method="POST" class="w-100 custom-form" id="add-playlist-form">
+        <form action="{{ route('update_playlist') }}" method="POST" class="w-100 custom-form" id="add-playlist-form">
             @csrf
+            <input type="text" name="playlist_id" style="display: none" value="{{ $playlist->id }}">
             <div class="form-group w-75">
-                @error('playlist_title')
-                <div class="error-message-container ml-2 mb-2 w-100">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span>{{ $message }}</span>
-                </div>
-                @enderror
                 <div class="input-field w-100">
-                    <input type="text" name="playlist_title" class="txt-input" placeholder="Playlist's title" tabindex="1" required>
+                    <input type="text" name="playlist_title" class="txt-input" placeholder="Playlist's title" tabindex="1" value="{{ $playlist->name }}" required>
                 </div>
             </div>
             <div class="form-group w-75">
-                @error('playlist_description')
-                <div class="error-message-container ml-2 mb-2 w-100">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span>{{ $message }}</span>
-                </div>
-                @enderror
                 <div class="input-field w-100">
-                    <input type="text" name="playlist_description" class="txt-input" placeholder="Description" tabindex="2">
+                    <input type="text" name="playlist_description" class="txt-input" placeholder="Description" tabindex="2" value="{{ $playlist->description }}">
                 </div>
             </div>
             <input type="text" style="display: none" name="selected_tracks" id="selected-tracks-input">
@@ -48,7 +41,7 @@ Add new track
                 </div>
             </div>
             <div class="form-group w-75 d-flex justify-content-center">
-                <button type="submit" name="submit" id="upload-btn">Upload</button>
+                <button type="submit" name="submit" id="upload-btn">Update</button>
             </div>
         </form>
     </div>
@@ -58,5 +51,5 @@ Add new track
 @section('js')
 <script src="{{ URL::asset('js/vendors/howler.min.js') }}"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script src="{{ URL::asset('js/mypages/add_new_playlist_page.js') }}"></script>
+<script src="{{ URL::asset('js/mypages/update_playlist_page.js') }}"></script>
 @endsection

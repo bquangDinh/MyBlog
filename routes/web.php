@@ -22,7 +22,6 @@ Route::get('/admin', function(){
 Route::get('/','PageController@index')->name('homepage');
 Route::get('/projects','PageController@show_projects_page')->name('projects_page');
 
-
 Route::get('/login','LoginController@index');
 Route::post('/loginattempt','LoginController@login')->name('login')->middleware('throttle');
 
@@ -30,8 +29,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/','AdminController@index')->name('show_admin_dashboard');
 
     Route::prefix('article')->group(function(){
+        Route::get('/overview/{state?}','AdminController@show_overview_articles')->name('overview_articles');
         Route::get('/new','AdminController@show_new_article')->name('new_article');
         Route::post('/create','ArticleController@create_article')->name('create_article');
+        Route::get('/editing_manager','AdminController@show_editing_manager_page')->name('editing_manager');
+        Route::delete('/delete_article','ArticleController@delete_article');
+        Route::get('/edit_article/{id}','AdminController@show_editing_article_page')->name('edit_article');
+        Route::get('/hide_article/{id}','ArticleController@hide_article');
+        Route::get('/unhide_article/{id}','ArticleController@unhide_article');
+        Route::post('/update_article','ArticleController@update_article')->name('update_article');
     });
 
     Route::prefix('media')->group(function(){
@@ -43,6 +49,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
         Route::post('/add_playlist','MediaController@add_playlist')->name('add_playlist');
         Route::get('/picture_viewer','AdminController@show_picture_viewer_page')->name('picture_viewer');
         Route::post('/add_image','MediaController@add_image');
+        Route::get('/edit_playlist/{id}','AdminController@show_editting_playlist_page')->name('edit_playlist');
+        Route::post('/update_playlist','MediaController@update_playlist')->name('update_playlist');
     });
 
     Route::prefix('action')->group(function(){

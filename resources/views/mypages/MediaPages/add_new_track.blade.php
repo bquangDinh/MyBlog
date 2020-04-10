@@ -20,6 +20,12 @@ Add new track
         <form action="{{ route('add_track') }}" method="POST" class="w-100 custom-form" id="add-track-form" enctype="multipart/form-data">
             @csrf
             <div class="form-group w-75">
+                @error('track_title')
+                <div class="error-message-container ml-2 mb-2 w-100">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ $message }}</span>
+                </div>
+                @enderror
                 <div class="input-field w-100">
                     <input type="text" name="track_title" class="txt-input" placeholder="Track's title" tabindex="1" required>
                 </div>
@@ -30,6 +36,12 @@ Add new track
                 <div>Size: <span id="file-size">None</span></div>
             </div>
             <div class="form-group w-75">
+                @error('track_file')
+                <div class="error-message-container ml-2 mb-2 w-100">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ $message }}</span>
+                </div>
+                @enderror
                 <div class="dropzone-field__outer">
                     <div class="dropzone-field__inner">
                         <input type="file" id="track-file" name="track_file">

@@ -28,39 +28,38 @@ Edit Articles
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-12 mt-5 d-flex justify-content-center">
+            @foreach($articles as $article)
+            <div class="col-md-6 col-12 mt-5 d-flex justify-content-center" id="article-whole-container-{{ $article->id }}">
                 <div class="article-holder-container">
-                    <div class="article-holder-container__inner dropzone">
-                        <div class="article-control-container draggable">
+                    <div class="article-holder-container__inner dropzone" id="article-holder-{{ $article->id }}">
+                        <div class="article-control-container draggable" id="article-control-container-{{ $article->id }}" data-article-id="{{ $article->id }}">
                             <div class="article-title mt-3 ml-3">
-                                Making Minecraft Demo processing
+                                {{ $article->title }}
                             </div>
                             <div class="article-status-chip mt-3 ml-3">
-                                <div class="status__inner d-flex justify-content-center align-items-center" data-status="published">
+                                <div class="status__inner d-flex justify-content-center align-items-center" data-status="{{ strtolower($article->state->current_state) }}" id="state-container-{{ $article->id }}">
                                     <div>
-                                        Published
-                                    </div>
+                                        {{ $article->state->current_state }}
+                                    </div>  
                                 </div>
                             </div>
                             <div class="article-info-container mt-4 ml-3">
                                 <span class="article-info__published-date">
-                                    June 20, 2020
+                                    {{ $article->type->name }}
                                 </span>
                                 <span class="article-info__language ml-4">
-                                    English
+                                    {{ $article->language->name }}
                                 </span>
                             </div>
                             <div class="article-controlling mt-3 mb-3 d-flex justify-content-around align-items-center">
                                 <div class="article-controlling-btn">
-                                    <button>
-                                        <a href="#">Edit</a>
-                                    </button>
+                                    <a href="{{ route('edit_article',['id' => $article->id]) }}" class="btn d-flex justify-content-center align-items-center">Edit</a>
                                 </div>
-                                <label class="switch d-flex justify-content-between">
+                                <label class="switch d-flex justify-content-between {{ $article->state->current_state == 'Saved' ? 'disabled-switch' : '' }}">
                                     <div class="switch-title mr-3">
                                         Hide
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" {{ $article->state->current_state == 'Saved' ? 'disabled' : '' }} class="hide-article-checkbox" data-article-id="{{ $article->id }}" {{ $article->state->current_state == 'Hided' ? 'checked' : ''}}>
                                     <div class="slider"></div>
                                 </label>
                             </div>
@@ -68,94 +67,13 @@ Edit Articles
                     </div>
                 </div>
             </div>
+            @endforeach
             <div class="col-md-6 col-12 mt-5 d-flex justify-content-center">
                 <div class="article-holder-container">
                     <div class="article-holder-container__inner dropzone">
-                        <div class="article-control-container draggable">
-                            <div class="article-title mt-3 ml-3">
-                                Making Minecraft Demo processing
-                            </div>
-                            <div class="article-status-chip mt-3 ml-3">
-                                <div class="status__inner d-flex justify-content-center align-items-center" data-status="published">
-                                    <div>
-                                        Published
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="article-info-container mt-4 ml-3">
-                                <span class="article-info__published-date">
-                                    June 20, 2020
-                                </span>
-                                <span class="article-info__language ml-4">
-                                    English
-                                </span>
-                            </div>
-                            <div class="article-controlling mt-3 mb-3 d-flex justify-content-around align-items-center">
-                                <div class="article-controlling-btn">
-                                    <button>
-                                        <a href="#">Edit</a>
-                                    </button>
-                                </div>
-                                <label class="switch d-flex justify-content-between">
-                                    <div class="switch-title mr-3">
-                                        Hide
-                                    </div>
-                                    <input type="checkbox">
-                                    <div class="slider"></div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-12 mt-5 d-flex justify-content-center">
-                <div class="article-holder-container">
-                    <div class="article-holder-container__inner dropzone">
-                        <div class="article-control-container draggable">
-                            <div class="article-title mt-3 ml-3">
-                                Making Minecraft Demo processing
-                            </div>
-                            <div class="article-status-chip mt-3 ml-3">
-                                <div class="status__inner d-flex justify-content-center align-items-center" data-status="published">
-                                    <div>
-                                        Published
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="article-info-container mt-4 ml-3">
-                                <span class="article-info__published-date">
-                                    June 20, 2020
-                                </span>
-                                <span class="article-info__language ml-4">
-                                    English
-                                </span>
-                            </div>
-                            <div class="article-controlling mt-3 mb-3 d-flex justify-content-around align-items-center">
-                                <div class="article-controlling-btn">
-                                    <button>
-                                        <a href="#">Edit</a>
-                                    </button>
-                                </div>
-                                <label class="switch d-flex justify-content-between">
-                                    <div class="switch-title mr-3">
-                                        Hide
-                                    </div>
-                                    <input type="checkbox">
-                                    <div class="slider"></div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-12 mt-5 d-flex justify-content-center">
-                <div class="article-holder-container">
-                    <div class="article-holder-container__inner dropzone">
-                        <button class="controlling-context-btn" data-context="add">
-                            <a href="#">
-                                <i class="fas fa-plus"></i>
-                            </a>
-                        </button>
+                        <a class="controlling-context-btn btn" data-context="add" href="{{ route('new_article') }}?panel=article-panel">
+                            <i class="fas fa-plus"></i>
+                        </a>
                     </div>
                 </div>
             </div>

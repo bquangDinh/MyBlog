@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-New Article
+{{ $article->title }}
 @endsection
 
 @section('css')
@@ -14,16 +14,20 @@ New Article
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">New Article</div>
+    <div class="container-title text-center mt-3">Edit Article</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
-        <form id="article-form" action="{{ route('create_article') }}" class="w-100 custom-form" method="POST" enctype="multipart/form-data">
+        <form id="article-form" action="{{ route('update_article') }}" class="w-100 custom-form" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="text" name="cover_id" id="selected-image-id-input" value="" style="display: none">
+            <input type="text" name="article_id" value="{{ $article->id }}" style="display: none">
+            <input type="text" name="cover_id" id="selected-image-id-input" value="{{ $article->cover_id }}" style="display: none">
+            @if(isset($article->music))
+            <input type="text" name="track_id" id="selected-track-id-input" value="{{ $article->music->single_track_id }}" style="display: none">
+            <input type="text" name="playlist_id" id="selected-playlist-id-input" value="{{ $article->music->playlist_id }}" style="display: none">
+            @else
             <input type="text" name="track_id" id="selected-track-id-input" value="" style="display: none">
             <input type="text" name="playlist_id" id="selected-playlist-id-input" value="" style="display: none">
-
-
+            @endif
             <div class="form-group w-75">
                 @error('article_name')
                 <div class="error-message-container ml-2 mb-2 w-100">
@@ -32,7 +36,7 @@ New Article
                 </div>
                 @enderror
                 <div class="input-field w-100">
-                    <input type="text" name="article_name" class="txt-input" placeholder="Article Name" tabindex="1" required>
+                    <input type="text" name="article_name" class="txt-input" placeholder="Article Name" tabindex="1" value="{{ $article->title }}" required>
                 </div>
             </div>
             <div class="form-group w-75">
@@ -43,7 +47,7 @@ New Article
                 </div>
                 @enderror
                 <div class="input-field w-100">
-                    <input type="text" name="description" class="txt-input" placeholder="Description" tabindex="2">
+                    <input type="text" name="description" class="txt-input" placeholder="Description" tabindex="2" value="{{ $article->description }}">
                 </div>
             </div>
             <div class="form-group w-75">
@@ -56,7 +60,11 @@ New Article
                     </div>
                     <select name="article_type" id="article-type-select">
                         @foreach($types as $type)
-                        <option value="{{ $type->id }}">{{ $type->name }}</option> 
+                        @if($article->type_id == $type->id)
+                        <option value="{{ $type->id }}" selected>{{ $type->name }}</option>
+                        @else
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endif 
                         @endforeach
                     </select>
                 </div>
@@ -71,7 +79,11 @@ New Article
                     </div>
                     <select name="article_language" id="article-language-select">
                         @foreach($languages as $language)
+                        @if($article->language_id == $language->id)
+                        <option value="{{ $language->id }}" selected>{{ $language->name }}</option>
+                        @else
                         <option value="{{ $language->id }}">{{ $language->name }}</option>
+                        @endif 
                         @endforeach
                     </select>
                 </div>
@@ -79,7 +91,7 @@ New Article
             <div class="form-group w-75">
                 <div class="row">
                     <div class="col-6">
-                        <div class="picking-container" id="cover-picking-container">
+                        <div class="picking-container {{ $article->cover_id != '' ? 'used' : '' }}" id="cover-picking-container">
                             <i class="fas fa-check-circle used-icon"></i>
                             <div class="row">
                                 <div class="col-6">
@@ -102,7 +114,7 @@ New Article
                         </div>
                     </div>
                     <div class="col-6">
-                    <div class="picking-container" id="music-picking-container">
+                    <div class="picking-container {{ isset($article->music) ? 'used' : '' }}" id="music-picking-container">
                             <i class="fas fa-check-circle used-icon"></i>
                             <div class="row">
                                 <div class="col-6">
@@ -263,7 +275,9 @@ New Article
                 @enderror
                 <div class="custom-textarea-field">
                     <div class="text-area__inner">
-                        <textarea name="article_content" id="article_content" tabindex="4"></textarea>
+                        <textarea name="article_content" id="article_content" tabindex="4">
+                            {{ $article->content }}
+                        </textarea>
                     </div>
                 </div>
             </div>
@@ -286,5 +300,5 @@ New Article
 <script src="https://cdn.tiny.cloud/1/j3z8kdc0di1465wji07upkwwuc7exvti07rixz2ewht51abv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ URL::asset('js/vendors/smooth-scrollbar.js') }}" charset="utf-8"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script src="{{ URL::asset('js/mypages/new_article.js') }}"></script>
+<script src="{{ URL::asset('js/mypages/update_article.js') }}"></script>
 @endsection

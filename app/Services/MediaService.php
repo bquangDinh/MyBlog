@@ -51,6 +51,14 @@ class MediaService{
         $playlist_description = $request->playlist_description;
         $selectedTracks = json_decode($request->selected_tracks);
 
+        if(json_last_error() !== JSON_ERROR_NONE){
+            throw new Exception("Invalid JSON of the selected tracks list");
+        }
+
+        if(count($selectedTracks) < 2){
+            throw new Exception("The playlist must have at least 2 tracks");
+        }
+
         $playlist = new Playlist;
         $playlist->name = $playlist_name;
         $playlist->description = $playlist_description;
@@ -89,6 +97,47 @@ class MediaService{
 
     public static function get_all_images(){
         return Media::where('type','image')->where('status','public')->get();
+    }
+
+    public static function get_playlist_by_id($id){
+        return Playlist::findOrFail($id);
+    }
+
+    public static function update_playlist($request){
+        $playlist = Playlist::findOrFail($request->playlist_id);
+
+        $playlist_name = $request->playlist_title;
+        $playlist_description = $request->playlist_description;
+
+        $selectedTracks = json_decode($request->selected_tracks);
+
+        $playlist->name = $playlist_name;
+        $playlist->description = $playlist_description;
+        $playlist->save();
+
+        $old_selected_tracks = $playlist->tracks;
+
+        foreach($old_selected_tracks as $mtrack){
+            $trackId = $mtrack->track->id;
+            if(in_array($trackId, $selectedTracks) == false){
+                //delete this track because it is not longer in selected list
+                $mtrack->delete();
+            }else{
+                //delete the track id in selected track, it means it will be ignore
+                // in the next step
+                array_splice($selectedTracks,array_search($trackId, $selectedTracks),1);
+            }
+        }
+
+        //add the rest of the selected list to db
+        foreach($selectedTracks as $track_id){
+            $musicPlaylist = new MusicPlaylist;
+            $musicPlaylist->playlist_id = $playlist->id;
+            $musicPlaylist->music_id = $track_id;
+            $musicPlaylist->save();
+        }
+
+        return $playlist;
     }
 }
 

@@ -81,17 +81,17 @@
     font-size: 1.3em;
 }
 
-#viewing-table tbody tr td.status[data-status="saved"]:before{
+#viewing-table tbody tr td.status[data-status="Saved"]:before{
     content: '\f0c7';
     color: #3EA2E1;
 }
 
-#viewing-table tbody tr td.status[data-status="published"]:before{
+#viewing-table tbody tr td.status[data-status="Published"]:before{
     content: '\f00c';
     color: #70CE5A;
 }
 
-#viewing-table tbody tr td.status[data-status="hided"]:before{
+#viewing-table tbody tr td.status[data-status="Hided"]:before{
     content: '\f056';
     color: #F55F5E;
 }

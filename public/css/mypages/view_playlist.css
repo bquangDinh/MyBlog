@@ -20,17 +20,23 @@
              -8px -8px 16px #ffffff;
 }
 
-.playlist-name,.playlist-date{
+.playlist-name{
+    font-family: Nunito-Bold;
     color: #3E4251;
     font-size: 18px;
 }
 
-.playlist-name{
+.edit-playlist-btn{
     font-family: Nunito-Bold;
-}
-
-.playlist-date{
-    font-family: Nunito-Regular;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    background: #F5F7F9;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    box-shadow:  6px 6px 12px #d0d2d4, 
+             -6px -6px 12px #ffffff;
 }
 
 .track-record{

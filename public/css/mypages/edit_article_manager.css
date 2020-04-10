@@ -75,21 +75,18 @@
 .article-holder-container .article-holder-container__inner .controlling-context-btn{
     width: 100%;
     height: 100%;
+    font-size: 2.5em;
+    text-decoration: none;
+    color: #3E4251;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 25px;
     background-color: transparent;
 }
 
-.article-holder-container .article-holder-container__inner .controlling-context-btn{
-    font-size: 2.5em;
-}
-
 .article-holder-container .article-holder-container__inner .controlling-context-btn:hover{
     background-color: rgba(255, 255, 255, 0.4);
-}
-
-.article-holder-container .article-holder-container__inner .controlling-context-btn a{
-    text-decoration: none;
-    color: #3E4251;
 }
 
 .article-other-controls{
@@ -190,17 +187,14 @@
              -6px -6px 12px #ffffff;
 }
 
-.article-control-container .article-controlling .article-controlling-btn button{
+.article-control-container .article-controlling .article-controlling-btn a{
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    border: 2px solid white;
-}
-
-.article-control-container .article-controlling .article-controlling-btn button a{
     text-decoration: none;
     font-family: Nunito-Bold;
     color: #F55E5E;
+    border: 2px solid white;
 }
 
 .switch{
@@ -255,6 +249,10 @@
     -webkit-transform: translateX(35px);
     -ms-transform: translateX(35px);
     transform: translateX(35px);
+}
+
+.switch.disabled-switch .slider{
+    cursor: default;
 }
 
 .trash-can-container{

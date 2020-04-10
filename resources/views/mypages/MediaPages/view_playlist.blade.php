@@ -30,9 +30,9 @@ View playlist
                     </div>
                 </div>
                 <div class="col-5">
-                    <div class="w-100 h-100 playlist-date d-flex justify-content-center align-items-center">
+                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
                         <div>
-                            {{ $playlist->created_at }}
+                            <a href="{{ route('edit_playlist',['id' => $playlist->id]) }}" class="edit-playlist-btn btn">Edit</a>
                         </div>
                     </div>
                 </div>

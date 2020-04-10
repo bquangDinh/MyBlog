@@ -107,27 +107,27 @@
                         </div>
                         <ul class="sub-option-list list-unstyled">
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('overview_articles') }}?panel=article-panel" class="sub-option">
                                     <i class="far fa-eye"></i>
                                     <span>Overview</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('overview_articles') }}/Published?panel=article-panel" class="sub-option">
                                     <i class="fas fa-upload"></i>
                                     <span>Published</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
+                                <a href="{{ route('overview_articles') }}/Hided?panel=article-panel" class="sub-option">
                                     <i class="fas fa-minus-circle"></i>
                                     <span>Hided</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sub-option">
-                                    <i class="far fa-trash-alt"></i>
-                                    <span>Deleted</span>
+                                <a href="{{ route('overview_articles') }}/Saved?panel=article-panel" class="sub-option">
+                                    <i class="far fa-save"></i>
+                                    <span>Saved</span>
                                 </a>
                             </li>
                         </ul>
@@ -145,7 +145,7 @@
                                 </a>
                             </li> 
                             <li>
-                                <a href="/admin?panel=article-panel" class="sub-option">
+                                <a href="{{ route('editing_manager') }}?panel=article-panel" class="sub-option">
                                     <i class="far fa-edit"></i>
                                     <span>Manager</span>
                                 </a>
@@ -165,25 +165,25 @@
                         <ul class="sub-option-list list-unstyled">
                             <li>
                                 <a href="{{ route('picture_viewer') }}?panel=media-panel" class="sub-option">
-                                    <i class="far fa-eye"></i>
+                                    <i class="far fa-image"></i>
                                     <span>Pictures</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/admin?panel=media-panel" class="sub-option unavailabled">
-                                    <i class="far fa-eye"></i>
+                                <a href="#" class="sub-option unavailabled">
+                                    <i class="fas fa-video"></i>
                                     <span>Videos</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('music_viewer') }}?panel=media-panel" class="sub-option">
-                                    <i class="far fa-eye"></i>
+                                    <i class="fas fa-music"></i>
                                     <span>Musics</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('playlist_viewer') }}?panel=media-panel" class="sub-option">
-                                    <i class="far fa-eye"></i>
+                                    <i class="fas fa-compact-disc"></i>
                                     <span>Playlists</span>
                                 </a>
                             </li>

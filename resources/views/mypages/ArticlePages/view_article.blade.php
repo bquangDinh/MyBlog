@@ -3,9 +3,9 @@
 @section('title')
 View Article
 @endsection
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/view_article.css') }}">
-@section('css')
 
+@section('css')
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/view_article.css') }}">
 @endsection
 
 @section('main-content')
@@ -26,25 +26,14 @@ View Article
             <col style="width:30%">
         </colgroup>  
         <tbody>
+            @foreach($articles as $article)
             <tr>
-                <td>Go to the Moon !</td>
-                <td>Note</td>
-                <td>June 7, 2020</td>
-                <td class="status" data-status="saved">Saved</td>
+                <td>{{ $article->title }}</td>
+                <td>{{ $article->type->name }}</td>
+                <td>{{ $article->formattedCreatedAt() }}</td>
+                <td class="status" data-status="{{ $article->state->current_state }}">{{ $article->state->current_state }}</td>
             </tr>
-            <tr>
-                <td>Hey what's up? !</td>
-                <td>Diary</td>
-                <td>June 9, 2020</td>
-                <td class="status" data-status="published">Published</td>
-            </tr>
-            <tr>
-                <td>Minecraft demo !</td>
-                <td>Note</td>
-                <td>June 20, 2020</td>
-                <td class="status" data-status="hided">Hided</td>
-            </tr>
-            
+            @endforeach
         </tbody>
     </table>
 </div>

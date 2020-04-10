@@ -625,3 +625,11 @@ box-shadow:  10px 10px 20px #d0d2d4,
     font-size: 2em;
     color: #3E4251;
 }
+
+.error-message-container{
+    font-family: Nunito-Bold;
+}
+
+.error-message-container i{
+    color: #e74c3c;
+}

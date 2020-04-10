@@ -53,14 +53,22 @@ function initDropzone(){
 
     function handleFormSubmit(e){
         if(!$(fileInput)[0].files || $(fileInput)[0].files.length == 0){
-            alert("No track selected");
+            Swal.fire({
+                type: 'error',
+                title: 'No track selected',
+                text: 'Please select a track'
+            });
             return false;
         }
 
         let fileSize = $(fileInput)[0].files[0].size / 1000000;
 
         if(fileSize > MAX_FILE_SIZE){
-            alert("The selected track is too large. Track file must be less then 5 MB");
+            Swal.fire({
+                type: 'error',
+                title: 'The file is too large',
+                text: 'Please select a smaller track file'
+            });
             return false;
         }
 

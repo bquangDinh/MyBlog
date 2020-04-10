@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Article extends Model
 {
@@ -30,5 +31,10 @@ class Article extends Model
 
     public function music(){
         return $this->hasOne('App\ArticleMusic');
+    }
+
+    public function formattedCreatedAt(){
+        //return $this->created_at;
+        return Carbon::parse($this->created_at)->toFormattedDateString();
     }
 }
