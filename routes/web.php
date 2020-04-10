@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/reading/{id}','PageController@reading_article')->name('reading_article');
-
-Route::get('/admin', function(){
-    return view('mypages/view_article');
-});
+Route::get('/show/{id}','PageController@show_project')->name('show_project');
 
 Route::get('/','PageController@index')->name('homepage');
-Route::get('/projects','PageController@show_projects_page')->name('projects_page');
+Route::get('/my_projects','PageController@show_projects_page')->name('projects_page');
 
 Route::get('/login','LoginController@index');
 Route::post('/loginattempt','LoginController@login')->name('login')->middleware('throttle');
@@ -51,6 +48,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
         Route::post('/add_image','MediaController@add_image');
         Route::get('/edit_playlist/{id}','AdminController@show_editting_playlist_page')->name('edit_playlist');
         Route::post('/update_playlist','MediaController@update_playlist')->name('update_playlist');
+    });
+
+    Route::prefix('project')->group(function(){
+        Route::get('/new_project','AdminController@show_new_project_page')->name('new_project');
+        Route::post('/create_project','ProjectController@create')->name('create_project');
     });
 
     Route::prefix('action')->group(function(){

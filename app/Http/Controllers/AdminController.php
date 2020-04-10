@@ -64,4 +64,10 @@ class AdminController extends Controller
         $articles = ArticleService::get_article_by_state($state);
         return view('mypages/ArticlePages/view_article')->with('articles',$articles);
     }
+
+    public function show_new_project_page(){
+        $types = ArticleService::get_all_article_types();
+        $languages = ArticleService::get_all_article_languages();
+        return view('mypages/ProjectPages/new_project_page')->with('types',$types)->with('languages',$languages);
+    }
 }

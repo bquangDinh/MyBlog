@@ -13,7 +13,7 @@
 
     @yield('css')
   </head>
-  <body class="dark-mode">
+  <body>
     <!-- For mobile -->
     <header class="header-mobile d-block d-lg-none">
         <div class="header-mobile__bar">

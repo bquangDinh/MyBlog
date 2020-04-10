@@ -76,6 +76,8 @@ class ArticleService{
 
             $article_music->save();
         }
+
+        return $article;
     }   
 
     public static function get_published_articles(){

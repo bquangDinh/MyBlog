@@ -43,6 +43,11 @@
                             <i class="far fa-images"></i>
                         </button>
                     </div> 
+                    <div class="sidebar-btn-container">
+                        <button class="sidebar-btn" data-panel-id="project-panel">
+                            <i class="fas fa-atom"></i>
+                        </button>
+                    </div> 
                 </div>   
             </div>
 
@@ -210,6 +215,63 @@
                         </ul>
                     </div>
                 </div>
+
+                <div id="project-panel" class="panel" style="display: none">
+                    <div class="title">
+                        Project
+                    </div>
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title">
+                            View
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li>
+                                <a href="?panel=project-panel" class="sub-option">
+                                    <i class="far fa-eye"></i>
+                                    <span>Overview</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?panel=project-panel" class="sub-option">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Published</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?panel=project-panel" class="sub-option">
+                                    <i class="far fa-save"></i>
+                                    <span>Saved</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?panel=project-panel" class="sub-option">
+                                    <i class="fas fa-minus-circle"></i>
+                                    <span>Hided</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title">
+                            Manage
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li>
+                                <a href="{{ route('new_project') }}?panel=media-panel" class="sub-option">
+                                    <i class="fas fa-plus"></i>
+                                    <span>New Project</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?panel=project-panel" class="sub-option">
+                                    <i class="fas fa-archive"></i>
+                                    <span>Project Manager</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- MainContent -->
@@ -237,6 +299,8 @@
                 <div class="line" style="width: 80%">
 
                 </div>
+
+                
             </div>
             
             <!-- Author Mini Panel -->

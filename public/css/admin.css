@@ -633,3 +633,63 @@ box-shadow:  10px 10px 20px #d0d2d4,
 .error-message-container i{
     color: #e74c3c;
 }
+
+.folder-container{
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    border-width: 2px 0 0 2px;
+    border-style: solid;
+    border-color: white;
+    background: #F5F7F9;
+    box-shadow:  7px 7px 14px #d0d2d4, 
+             -7px -7px 14px #ffffff;
+}
+
+.folder-container .folder-icon{
+    color: #5964FF;
+    font-size: 2.5em;
+}
+
+.folder-container .upload-folder-btn{
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    color: #3E4251;
+    border-radius: 5px;
+    border-width: 2px 0 0 2px;
+    border-style: solid;
+    border-color: white;
+    background: #F5F7F9;
+    box-shadow:  5px 5px 10px #d8d9db, 
+             -5px -5px 10px #ffffff;
+}
+
+.folder-container .folder-name{
+    color: #3E4251;
+    font-family: Nunito-Bold;
+    font-size: 1.1em;
+}
+
+.folder-container .folder-count-files{
+    color: rgba(62, 66, 81, 0.664);
+    font-family: Nunito-Regular;
+    font-size: 16px;
+}
+
+.folder-container .folder-additional-message{
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+    border-radius: 5px;
+    border-width: 2px 0 0 2px;
+    border-style: solid;
+    border-color: white;
+    background: #F5F7F9;
+    box-shadow:  5px 5px 10px #d8d9db, 
+             -5px -5px 10px #ffffff;
+}
+
+.folder-container input[type="file"]{
+    display: none;
+}

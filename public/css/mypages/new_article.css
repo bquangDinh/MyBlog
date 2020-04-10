@@ -18,7 +18,7 @@
     height: 95%;
 }
 
-#article-form .manage-article-btn{
+.manage-article-btn{
     width: 150px;
     height: 50px;
     border-radius: 10px;
@@ -29,22 +29,22 @@
              -6px -6px 12px #ffffff;
 }
 
-#article-form .manage-article-btn a{
+.manage-article-btn a{
     text-decoration: none;
 }
 
-#article-form .manage-article-btn:first-child{
+.manage-article-btn:first-child{
     background-color: #70CE5A;
     box-shadow:  3px 3px 12px #d0d2d4, 
              -3px -3px 12px #ffffff;
 }
 
-#article-form .manage-article-btn:hover{
+.manage-article-btn:hover{
     box-shadow:  12px 12px 24px #d0d2d4, 
              -12px -12px 24px #ffffff;
 }
 
-#article-form .picking-container{
+.picking-container{
     position: relative;
     width: 180px;
     height: 80px;
@@ -54,7 +54,7 @@
              -5px -5px 10px #ffffff;
 }
 
-#article-form .picking-container .used-icon{
+.picking-container .used-icon{
     display: none;
     position: absolute;
     top: 5px;
@@ -62,15 +62,15 @@
     color: #E6EBF0;
 }
 
-#article-form .picking-container.used{
+.picking-container.used{
     background-color: #70CE5A;
 }
 
-#article-form .picking-container.used .used-icon{
+.picking-container.used .used-icon{
     display: block;
 }
 
-#article-form .picking-container.used .picking-container-name{
+.picking-container.used .picking-container-name{
     color: #E6EBF0;
 }
 

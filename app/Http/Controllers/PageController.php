@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ArticleService;
+use App\Services\ProjectService;
 
 class PageController extends Controller
 {
@@ -23,7 +24,8 @@ class PageController extends Controller
     }
 
     public function show_projects_page(){
-        return view('projects');
+        $projects = ProjectService::get_projects_by_state("Published");
+        return view('projects')->with('projects',$projects);
     }
 
     public function show_portfolio_page(){
@@ -32,5 +34,15 @@ class PageController extends Controller
 
     public function show_gallery_page(){
         //TODO: gallery page
+    }
+
+    public function show_project($id){
+        $project = ProjectService::get_project_by_id($id);
+
+        if($project->state->current_state != "Published"){
+            return redirect()->to('/');
+        }
+
+        return view('projects/'.$project->project_source_file);
     }
 }
