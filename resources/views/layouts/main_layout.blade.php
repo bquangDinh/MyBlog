@@ -16,34 +16,21 @@
   <body>
     <!-- For mobile -->
     <header class="header-mobile d-block d-lg-none">
-        <div class="header-mobile__bar">
-          <div class="author-name">
-            <a href="/"> QUANG DINH BUI</a>
-          </div>
-        </div>
-        <div class="header-mobile-inner">
-          <button type="button" name="button" class="hamburger hamburger--spring js-harmburger">
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-            </span>
-          </button>
+        <div class="header-mobile-inner d-flex justify-content-center align-items-center">
+          <div class="point-deep-shadow" style="top: 10px; left: 10px"></div>
+          <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
+          <a href="{{ route('homepage') }}" id="me-anchor">qdinh.</a>
         </div>
 
-        <nav class="navbar-mobile">
-          <ul class="navbar-mobile__list list_unstyled">
-            <li>
-              <a href="{{ route('homepage') }}">Home</a>
-            </li>
-            <li>
-              <a href="{{ route('projects_page') }}">Projects</a>
-            </li>
-            <li>
-              <a href="/">Gallery</a>
-            </li>
-            <li>
-              <a href="/">About</a>
-            </li>
-          </ul>
+        <nav class="navbar-mobile" id="navbar-mobile" state="hide">
+          <div class="d-flex justify-content-center align-items-center flex-column w-100 h-100 mt-5">
+            <a href="{{ route('homepage') }}" class="navbar-anchor">Home</a>
+            <a href="{{ route('projects_page') }}" class="navbar-anchor">Projects</a>
+            <a href="{{ route('about_me') }}" class="navbar-anchor">About</a>
+            <button type="button" id="navbar-toggle-btn">
+              <i class="fas fa-angle-down"></i>
+            </button>
+          </div>
         </nav>
     </header>
 
@@ -55,7 +42,7 @@
         <div class="point-deep-shadow" style="top: 17px; right: 10px"></div>
         <div class="navbar-outer w-100 h-100 d-flex justify-content-around align-items-center flex-row">
           <a href="{{ route('homepage') }}" class="btn navbar-btn">Home</a>
-          <a href="/" class="btn navbar-btn">About me</a>
+          <a href="{{ route('about_me') }}" class="btn navbar-btn">About me</a>
           <a href="{{ route('projects_page') }}" class="btn navbar-btn">Projects</a>
         </div>
       </div>
@@ -67,6 +54,7 @@
     <script src="{{ URL::asset('js/vendors/jquery-3.4.1.min.js') }}" charset="utf-8"></script>
     <script src="{{ URL::asset('js/vendors/popper.min.js') }}" charset="utf-8"></script>
     <script src="{{ URL::asset('js/vendors/bootstrap.min.js') }}" charset="utf-8"></script>
+    <script src="{{ URL::asset('js/main_layout.js') }}"></script>
     @yield('js')
   </body>
 </html>

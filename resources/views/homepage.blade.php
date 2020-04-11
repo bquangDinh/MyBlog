@@ -13,7 +13,7 @@ Hello world !!!
 <div class="articles-container w-100 py-3">
     <div class="row">
         @foreach($articles as $article)
-        <div class="col-4">
+        <div class="col-md-4 col-12">
             <div class="article-container">
                 <div class="article-title">
                     {{ $article->title }}

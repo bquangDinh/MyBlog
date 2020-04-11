@@ -123,6 +123,60 @@ button{
             17px -17px 34px #ffffff;
 }
 
+.header-mobile-inner{
+  position: relative;
+  z-index: 99;
+  height: 60px;
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+  background: #EDF0F2;
+  box-shadow:  5px 5px 10px #c9ccce, 
+             -5px -5px 10px #ffffff;
+}
+
+.hamburger-box .hamburger-inner,.hamburger-box .hamburger-inner:after,.hamburger-box .hamburger-inner:before{
+  background-color: #3E4251;
+}
+
+.navbar-anchor{
+  font-family: Nunito-ExtraBold;
+  font-size: 1.2em;
+  color: #3E4251;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+#me-anchor{
+  font-family: Nunito-ExtraBold;
+  font-size: 1.2em;
+  color: #3E4251;
+  text-decoration: none;
+}
+
+.navbar-mobile{
+  position: absolute;
+  top: -170px;
+  z-index: 10;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  background: #EDF0F2;
+  box-shadow:  5px 5px 10px #c9ccce, 
+             -5px -5px 10px #ffffff;
+}
+
+#navbar-toggle-btn{
+  margin-bottom: 20px;
+  color: #3E4251;
+  font-size: 1.2em;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #EDF0F2;
+  box-shadow:  5px 5px 10px #c9ccce, 
+             -5px -5px 10px #ffffff;
+}
+
 /*Dark Mode*/
 body.dark-mode{
   background-color: #1A1D21;

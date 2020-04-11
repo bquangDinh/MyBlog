@@ -13,6 +13,10 @@ class PageController extends Controller
         return view('homepage')->with('articles',$articles);
     }
 
+    public function show_about_me_page(){
+        return view('about_me');
+    }
+
     public function reading_article($id){
         $article = ArticleService::get_article_by_id($id);
 

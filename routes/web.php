@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/who_am_i','PageController@show_about_me_page')->name('about_me');
+
 Route::get('/reading/{id}','PageController@reading_article')->name('reading_article');
 Route::get('/show/{id}','PageController@show_project')->name('show_project');
 
