@@ -49,4 +49,14 @@ class PageController extends Controller
 
         return view('projects/'.$project->project_source_file);
     }
+
+    public function reading_project($id){
+        $project = ProjectService::get_project_by_id($id);
+
+        if($project->state->current_state != "Published"){
+            return redirect()->to('/');
+        }
+
+        return view('reading_project')->with('project',$project);
+    }
 }

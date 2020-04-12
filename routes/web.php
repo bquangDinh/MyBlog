@@ -17,6 +17,7 @@ Route::get('/who_am_i','PageController@show_about_me_page')->name('about_me');
 
 Route::get('/reading/{id}','PageController@reading_article')->name('reading_article');
 Route::get('/show/{id}','PageController@show_project')->name('show_project');
+Route::get('/reading_project/{id}','PageController@reading_project')->name('reading_project');
 
 Route::get('/','PageController@index')->name('homepage');
 Route::get('/my_projects','PageController@show_projects_page')->name('projects_page');

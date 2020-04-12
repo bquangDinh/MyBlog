@@ -69,3 +69,37 @@ box-shadow:  17px 17px 34px #c4c8cc,
     box-shadow:  7px 7px 14px #c4c8cc, 
              -7px -7px 14px #ffffff;
 }
+
+/*Dark mode settings*/
+body.dark-mode #login-form{
+    background: #1A1D21;
+    border: 2px solid #292D33;
+    box-shadow:  14px 14px 28px #121417, 
+             -14px -14px 28px #22262b;
+}
+
+body.dark-mode #login-form .field{
+    background: #1A1D21;
+    border: 0;
+    box-shadow: none;
+    border: 1px solid #292D33;
+}
+
+body.dark-mode #login-form .field input{
+    color: #E6EBF0;
+}
+
+body.dark-mode .input-icon{
+    background: #1A1D21;
+    border: 0;
+    box-shadow: none;
+    border: 1px solid #292D33;
+}
+
+body.dark-mode #login-btn{
+    color: #E6EBF0;
+    background: #1A1D21;
+    border: 0;
+    box-shadow: none;
+    border: 1px solid #292D33;
+}

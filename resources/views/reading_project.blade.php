@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('title')
-{{ $article->title }}
+{{ $project->title }}
 @endsection
 
 @section('css')
@@ -12,30 +12,30 @@
 <input type="text" style="display: none" id="song-source" value="{{ URL::asset('sources/media/musics/Subwoofer_Lullaby.mp3') }}">
 <div style="margin-top: 70px"></div>
 <div class="reading-article-container container-fluid py-3">
-    @if($article->cover != null)
+    @if($project->cover != null)
     <div class="animated fadeInDown slow article-cover d-flex justify-content-center align-items-center">
-        <img src="{{ $article->cover->url }}" alt="article cover picture">
+        <img src="{{ $project->cover->url }}" alt="article cover picture">
     </div>
     @endif
     <div class="row w-100 mt-4">
         <div class="col-md-2"></div>
         <div class="col-md-8 col-12">
-            @if($article->music != null)
+            @if($project->music != null)
 
-            @if($article->music->playlist != null)
-            @foreach($article->music->playlist->tracks as $mtrack)
+            @if($project->music->playlist != null)
+            @foreach($project->music->playlist->tracks as $mtrack)
             <input type="text" class="track-source" value="{{ $mtrack->track->source }}" data-track-title="{{ $mtrack->track->title }}" style="display: none">
             @endforeach
             @endif
 
-            @if($article->music->track != null)
-            <input type="text" class="track-source" value="{{ $article->music->track->source }}" data-track-title="{{ $article->music->track->title }}" style="display: none">
+            @if($project->music->track != null)
+            <input type="text" class="track-source" value="{{ $project->music->track->source }}" data-track-title="{{ $project->music->track->title }}" style="display: none">
             @endif
             <div class="music-container animated fadeInDown slow">
                 <div class="music-name text-center pt-4" id="music-name">None</div>
                 <div class="music-controlable-panel">
                     <div class="control-panel d-flex justify-content-center align-items-center">
-                        @if($article->music->playlist == null && $article->music->track != null)
+                        @if($project->music->playlist == null && $project->music->track != null)
                         <button id="previous-song" class="song-direction-btn disabled" disabled>
                             <i class="fas fa-backward"></i>
                         </button>
@@ -49,7 +49,7 @@
                             <div>
                             </div>
                         </label>
-                        @if($article->music->playlist == null && $article->music->track != null)
+                        @if($project->music->playlist == null && $project->music->track != null)
                         <button id="next-song" class="song-direction-btn disabled" disabled>
                             <i class="fas fa-forward"></i>
                         </button>
@@ -101,14 +101,19 @@
                 <div class="point-deep-shadow" style="bottom: 15px; right: 15px"></div>
                 <div class="point-deep-shadow" style="bottom: 15px; left: 15px"></div>
                 <div class="article-title text-center pt-5">
-                    {{ $article->title }}
+                    {{ $project->title }}
                 </div>
-                <div class="article-info text-center pb-5">
-                    <span>{{ $article->created_at }}</span>
-                    <span><b>{{ $article->type->name }}</b></span>
+                <div class="article-info text-center pb-3">
+                    <span>{{ $project->created_at }}</span>
+                    <span><b>{{ $project->type->name }}</b></span>
+                </div>
+                <div class="w-100 d-flex justify-content-center my-3">
+                    <a href="{{ route('show_project',['id' => $project->id]) }}" target="_blank" class="btn" id="show-project-btn">
+                        Run this project
+                    </a>
                 </div>
                 <div class="article-content px-5 pb-5">
-                    {!! $article->content !!}
+                    {!! $project->content !!}
                 </div>
                 <div class="w-100 direction-container mt-5 mb-5 d-flex justify-content-center align-items-center flex-column">
                     <button type="button" id="share-btn">

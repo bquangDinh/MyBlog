@@ -36,7 +36,7 @@ Projects
                                 <a href="{{ route('show_project',['id' => $project->id] ) }}" target="_blank" class="btn run-project-btn mr-3">
                                     <i class="far fa-play-circle"></i> Run Project
                                 </a>
-                                <a href="#" class="btn read-project-btn">
+                                <a href="{{ route('reading_project',['id' => $project->id]) }}" class="btn read-project-btn">
                                     Read More
                                 </a>
                             </div>
