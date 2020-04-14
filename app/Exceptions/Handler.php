@@ -50,7 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        //return redirect()->to('/');
-        return parent::render($request, $exception);
+        return view('error');
+
+        //comment this line when publish
+        //return parent::render($request, $exception);
     }
 }
