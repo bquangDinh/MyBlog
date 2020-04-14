@@ -1,5 +1,9 @@
 @extends('layouts.main_layout')
 
+@section('meta')
+<meta name="description" content="{{ $article->description }}">
+@endsection
+
 @section('title')
 {{ $project->title }}
 @endsection
@@ -14,7 +18,7 @@
 <div class="reading-article-container container-fluid py-3">
     @if($project->cover != null)
     <div class="animated fadeInDown slow article-cover d-flex justify-content-center align-items-center">
-        <img src="{{ $project->cover->url }}" alt="article cover picture">
+        <img id="cover" src="{{ $project->cover->url }}" alt="article cover picture">
     </div>
     @endif
     <div class="row w-100 mt-4">
@@ -109,15 +113,15 @@
                 </div>
                 <div class="w-100 d-flex justify-content-center my-3">
                     <a href="{{ route('show_project',['id' => $project->id]) }}" target="_blank" class="btn" id="show-project-btn">
-                        Run this project
+                        @lang('messages.run_project')
                     </a>
                 </div>
                 <div class="article-content px-5 pb-5">
                     {!! $project->content !!}
                 </div>
                 <div class="w-100 direction-container mt-5 mb-5 d-flex justify-content-center align-items-center flex-column">
-                    <button type="button" id="share-btn">
-                        <i class="fas fa-share-alt"></i> Share
+                    <button type="button" id="share-btn" data-href="{{ route('reading_project',['id' => $project->id]) }}">
+                        <i class="fas fa-share-alt"></i> @lang('messages.share')
                     </button>
                 </div>
             </div>

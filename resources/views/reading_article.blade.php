@@ -1,5 +1,9 @@
 @extends('layouts.main_layout')
 
+@section('meta')
+<meta name="description" content="{{ $article->description }}">
+@endsection
+
 @section('title')
 {{ $article->title }}
 @endsection
@@ -14,7 +18,7 @@
 <div class="reading-article-container container-fluid py-3">
     @if($article->cover != null)
     <div class="animated fadeInDown slow article-cover d-flex justify-content-center align-items-center">
-        <img src="{{ $article->cover->url }}" alt="article cover picture">
+        <img id="cover" src="{{ $article->cover->url }}" alt="article cover picture">
     </div>
     @endif
     <div class="row w-100 mt-4">
@@ -100,7 +104,7 @@
                 <div class="point-deep-shadow" style="top: 15px; right: 15px"></div>
                 <div class="point-deep-shadow" style="bottom: 15px; right: 15px"></div>
                 <div class="point-deep-shadow" style="bottom: 15px; left: 15px"></div>
-                <div class="article-title text-center pt-5">
+                <div class="article-title text-center pt-5" id="article-title">
                     {{ $article->title }}
                 </div>
                 <div class="article-info text-center pb-5">
@@ -111,8 +115,8 @@
                     {!! $article->content !!}
                 </div>
                 <div class="w-100 direction-container mt-5 mb-5 d-flex justify-content-center align-items-center flex-column">
-                    <button type="button" id="share-btn">
-                        <i class="fas fa-share-alt"></i> Share
+                    <button type="button" id="share-btn" data-href="{{ route('reading_article',['id' => $article->id]) }}">
+                        <i class="fas fa-share-alt"></i> @lang('messages.share')
                     </button>
                 </div>
             </div>

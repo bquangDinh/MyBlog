@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('title')
-Projects
+@lang('messages.project_nav_btn')
 @endsection
 
 @section('css')
@@ -34,10 +34,10 @@ Projects
                             </div>
                             <div class="project-control mt-3 d-flex justify-content-start w-100">
                                 <a href="{{ route('show_project',['id' => $project->id] ) }}" target="_blank" class="btn run-project-btn mr-3">
-                                    <i class="far fa-play-circle"></i> Run Project
+                                    <i class="far fa-play-circle"></i> @lang('messages.run_project')
                                 </a>
                                 <a href="{{ route('reading_project',['id' => $project->id]) }}" class="btn read-project-btn">
-                                    Read More
+                                    @lang('messages.read_more')
                                 </a>
                             </div>
                         </div>

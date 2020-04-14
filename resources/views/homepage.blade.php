@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('title')
-Hello world !!!
+Home
 @endsection
 
 @section('css')
@@ -22,7 +22,7 @@ Hello world !!!
                     {{ $article->description }}
                 </div>
                 <div class="article-control py-2 d-flex justify-content-around align-items-center">
-                    <a href="{{ route('reading_article',['id' => $article->id]) }}" class="btn read-article-btn">Read more</a>
+                    <a href="{{ route('reading_article',['id' => $article->id]) }}" class="btn read-article-btn">@lang('messages.read_more')</a>
                 </div>
             </div>
         </div>
