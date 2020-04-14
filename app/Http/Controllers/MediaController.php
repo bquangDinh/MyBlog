@@ -10,7 +10,7 @@ class MediaController extends Controller
     public function add_track(Request $request){
         $request->validate([
             'track_title' => 'string|required',
-            'track_file' => 'required|file|mimes:wav,mp3,ogg|max:5000'
+            'track_file' => 'required|file|max:5000'
         ]);
 
         $messageObj = array('header' => '', 'status' => '', 'content' => '');

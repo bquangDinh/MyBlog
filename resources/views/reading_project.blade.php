@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('meta')
-<meta name="description" content="{{ $article->description }}">
+<meta name="description" content="{{ $project->description }}">
 @endsection
 
 @section('title')

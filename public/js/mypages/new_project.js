@@ -343,6 +343,7 @@ function initCoverDropzone(){
         }else{
             $("#file-size").removeClass("text-danger");
         }
+        $(".direction-btn[data-name='db-cover'][data-direction='ok']").removeClass("disabled").prop("disabled", false);
     }
 
     //prevent default behavior
