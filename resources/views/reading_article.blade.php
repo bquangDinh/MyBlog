@@ -1,7 +1,12 @@
 @extends('layouts.main_layout')
 
 @section('meta')
-<meta name="description" content="{{ $article->description }}">
+<meta name="description" content="{{ $project->description }}">
+<meta property="og:url"                content="{{ route('reading_article',['id' => $article->id]) }}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="{{ $article->title }}" />
+<meta property="og:description"        content="{{ $article->description }}" />
+<meta property="og:image"              content="{{ $article->cover->url }}" />
 @endsection
 
 @section('title')

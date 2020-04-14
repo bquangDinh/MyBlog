@@ -297,8 +297,7 @@ $(document).ready(function(){
             imageURL = $(image).attr("src");
         }
 
-        console.log(imageURL);
-        postToFeed($("#article-title").text(),$("meta[name='description']").attr("content") , 'http://www.google.com', imageURL);
+        postToFeed($("#article-title").text(),$("meta[name='description']").attr("content") , $(this).data("href"), imageURL);
         return false;
       });
 });
