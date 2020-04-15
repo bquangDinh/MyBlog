@@ -340,3 +340,7 @@ body.dark-mode #share-btn{
 body.dark-mode .lds-ripple div{
     border-color: #fff;
 }
+
+body.dark-mode code{
+    color: #E6EBF0;
+}
