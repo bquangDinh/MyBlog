@@ -205,3 +205,28 @@ body.dark-mode .point-deep-shadow{
 body.dark-mode .point-deep-shadow:after{
   background-color: #EDF0F2;
 }
+
+body.dark-mode .navbar-mobile{
+  background: #1A1D21;
+  box-shadow:  11px 11px 22px #0a0c0d, 
+             -11px -11px 22px #2a2e35;
+}
+
+body.dark-mode .header-mobile-inner{
+  background: #1A1D21;
+  box-shadow:  11px 11px 22px #0a0c0d, 
+             -11px -11px 22px #2a2e35;
+}
+
+body.dark-mode #navbar-toggle-btn{
+  color: #EDF0F2;
+  background: #1A1D21;
+  border: 1px solid rgba(41, 45, 51, 0.7);
+  box-shadow:  24px 24px 48px #121417, 
+             -24px -24px 48px #22262b;
+}
+
+body.dark-mode .navbar-anchor,
+body.dark-mode #me-anchor{
+  color: #EDF0F2;
+}

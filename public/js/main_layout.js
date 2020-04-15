@@ -9,7 +9,7 @@ $(document).ready(function(e){
                 top: 0
             },1000);
             $(this).animate({deg: 180},{
-                duration: 1000,
+                duration: 800,
                 step: function(now){
                     $(this).css({transform: 'rotate(' + now + 'deg)'});
                 }
@@ -20,14 +20,20 @@ $(document).ready(function(e){
                 top: -170
             },1000);
             $(this).animate({deg: 0},{
-                duration: 1000,
+                duration: 800,
                 step: function(now){
                     $(this).css({transform: 'rotate(' + now + 'deg)'});
                 }
             });
         }
-        
-
-        
     });
 });
+
+//changeing to dark mode depend on time
+let hr = new Date().getHours();
+
+if(hr > 6 && hr < 18){
+    $("body").removeClass("dark-mode");
+}else{
+    $("body").addClass("dark-mode");
+}

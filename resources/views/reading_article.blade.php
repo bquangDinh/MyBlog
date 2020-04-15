@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('meta')
-<meta name="description" content="{{ $project->description }}">
+<meta name="description" content="{{ $article->description }}">
 <meta property="og:url"                content="{{ route('reading_article',['id' => $article->id]) }}" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="{{ $article->title }}" />
@@ -26,9 +26,9 @@
         <img id="cover" src="{{ $article->cover->url }}" alt="article cover picture">
     </div>
     @endif
-    <div class="row w-100 mt-4">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 col-12">
+    <div class="row mt-4">
+        <div class="col-md-2 col-sm-1 d-none d-sm-block"></div>
+        <div class="col-md-8 col-sm-10 col-12 d-flex justify-content-center flex-column">
             @if($article->music != null)
 
             @if($article->music->playlist != null)
@@ -41,7 +41,7 @@
             <input type="text" class="track-source" value="{{ $article->music->track->source }}" data-track-title="{{ $article->music->track->title }}" style="display: none">
             @endif
             <div class="music-container animated fadeInDown slow">
-                <div class="music-name text-center pt-4" id="music-name">None</div>
+                <div class="music-name text-center pt-4" id="music-name">Loading</div>
                 <div class="music-controlable-panel">
                     <div class="control-panel d-flex justify-content-center align-items-center">
                         @if($article->music->playlist == null && $article->music->track != null)
@@ -53,11 +53,12 @@
                             <i class="fas fa-backward"></i>
                         </button>
                         @endif     
-                        <label id="play-toggle" class="px-3">
+                        <label id="play-toggle" class="px-3" style="display: none">
                             <input type="checkbox">
                             <div>
                             </div>
                         </label>
+                        <div class="lds-ripple" id="loading-spinner"><div></div><div></div></div>
                         @if($article->music->playlist == null && $article->music->track != null)
                         <button id="next-song" class="song-direction-btn disabled" disabled>
                             <i class="fas fa-forward"></i>
@@ -69,8 +70,8 @@
                         @endif     
                     </div>
                     <div class="row mt-3 pb-4 no-gutters">
-                        <div class="col-md-2 col-3">
-                        <div class="d-flex justify-content-end align-items-center w-100">
+                        <div class="col-md-2 col-sm-3 col-10 px-5 px-md-0">
+                            <div class="d-flex justify-content-end align-items-center w-100">
                                 <div id="volume-icon">
                                     <i class="fas fa-volume-up"></i>    
                                 </div>
@@ -84,9 +85,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8 col-9">
+                        <div class="col-md-8 col-sm-9 col-12 px-5 mt-2 mt-md-0 px-md-0">
                             <div class="w-100 d-flex justify-content-center align-items-center">
-                                <div id="current-song-time">0:00</div>
+                                <div id="current-song-time">...</div>
                                 <div class="slider-container px-2" id="duration-slider">
                                     <input type="range" min="0" max="100">
                                     <div class="slider-outer">
@@ -95,7 +96,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="song-duration" class="pl-2">None</div>
+                                <div id="song-duration" class="pl-2">...</div>
                             </div>
                         </div>
                         <div class="col-md-2 d-none">
@@ -126,7 +127,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2 col-sm-1 d-none d-sm-block"></div>
     </div>
 </div>
 @endsection

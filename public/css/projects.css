@@ -56,6 +56,13 @@
 
 .project-container .project-control .read-project-btn{
     background: #E6EBF0;
+    transition: all .3s;
+}
+
+.project-container .project-control .read-project-btn:hover{
+    background: #E6EBF0;
+    box-shadow:  12px 12px 24px #c4c8cc, 
+             -12px -12px 24px #ffffff;
 }
 
 .line{
@@ -93,4 +100,10 @@ body.dark-mode .line{
     border: 2px solid #292D33;
     box-shadow:  14px 14px 28px #121417, 
              -14px -14px 28px #22262b;
+}
+
+body.dark-mode .project-container .project-control .read-project-btn:hover{
+    background: #1A1D21;
+    box-shadow:  22px 22px 44px #16191c, 
+             -22px -22px 44px #1e2126;  
 }

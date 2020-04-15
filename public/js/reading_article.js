@@ -105,6 +105,9 @@ Player.prototype = {
         if(data.howl){
             sound = data.howl;
         }else{
+            $("#loading-spinner").show();
+            $("#play-toggle").hide();
+
             sound = data.howl = new Howl({
                 src: [data.file],
                 onplay: function(){
@@ -113,6 +116,8 @@ Player.prototype = {
                 },
                 onload: function(){
                     $(songDuration).text(self.formatTime(Math.round(sound.duration())));
+                    $("#loading-spinner").hide();
+                    $("#play-toggle").show();
                 },
                 onend: function(){
                     self.skip('next');
