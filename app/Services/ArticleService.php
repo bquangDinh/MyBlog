@@ -191,7 +191,8 @@ class ArticleService{
         $article->language_id = $language_id;
         $article->type_id = $type_id;
 
-        if($cover_id != ""){
+        if($cover_id != "" && $cover_id != $article->cover_id){
+            //it means I really did update it
             $article->cover_id = $cover_id;
         }else if($cover_file != null){
             $image = MediaService::add_image($cover_file);
