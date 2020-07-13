@@ -311,8 +311,6 @@ function initCoverDropzone(){
 
     function handleDrop(e){
         if(e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.files.length){
-            //upload file here
-            $(".direction-btn[data-name='db-cover'][data-direction='ok']").removeClass("disabled").prop("disabled", false);
             handleFile(e.originalEvent.dataTransfer.files);
         }
     }
@@ -333,6 +331,9 @@ function initCoverDropzone(){
     }
 
     function showFileInfo(files){
+        //show ok button
+        $(".direction-btn[data-name='db-cover'][data-direction='ok']").removeClass("disabled").prop("disabled", false);
+        
         $("#file-name").text(files[0].name);
         $("#file-extension").text(files[0].type);
         let fileSize = (files[0].size / 1000000);
