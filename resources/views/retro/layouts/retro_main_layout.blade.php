@@ -6,6 +6,7 @@
         <meta name="author" content="Dinh Quang Bui">
         @yield('meta')
 
+        <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ URL::asset('css/vendors/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/vendors/hamburgers.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">

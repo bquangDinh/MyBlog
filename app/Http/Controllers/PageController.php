@@ -12,7 +12,7 @@ class PageController extends Controller
         //$articles = ArticleService::get_published_articles();
         //return view('homepage')->with('articles',$articles);
 
-        return view('retro.homepage');
+        return view('retro.about_me');
     }
 
     public function show_about_me_page(){

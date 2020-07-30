@@ -17,51 +17,63 @@ var CustomSlider = function(){
 };
 
 CustomSlider.prototype = {
-    initialize: function(container,setPercentage){
+    initialize: function(container, setPercentage, isVertical = false){
         var that = this;
         if(that.init == false){
             that.sliderContainer = container;
             that.sliderOuter = $(that.sliderContainer).find(".slider-outer").first();
             that.sliderProgressBar = $(that.sliderContainer).find(".slider-inner").first();
-            
+
             var initializeSlider = function(){
                 var drag = false;
                 if(setPercentage !== "undefined"){
-                    that.updateSlider(-999,setPercentage);
+                    that.updateSlider(-999, isVertical, setPercentage);
                 }
-    
+
                 $(that.sliderOuter).on("mousedown",function(e){
                     drag = true;
-                    that.updateSlider(e.clientX);
+                    if(isVertical) that.updateSlider(e.clientY, true);
+                    else that.updateSlider(e.clientX, false);
+                    //that.updateSlider(e.clientX);
                     $(that.sliderContainer).trigger("slider:update",[that.percentage]);
                 });
-    
+
                 $(document).on("mousemove",function(e){
                     if(drag){
-                        that.updateSlider(e.clientX);
+                        if(isVertical) that.updateSlider(e.clientY, true);
+                        else that.updateSlider(e.clientX, false);
+                        //that.updateSlider(e.clientX);
                         $(that.sliderContainer).trigger("slider:update",[that.percentage]);
                     }
                 });
-    
+
                 $(document).on("mouseup",function(e){
                     drag = false;
                 });
             }
-    
+
             initializeSlider();
             that.init = true;
         }else{
             console.error("This module is already initialized");
         }
     },
-    updateSlider: function(x, percentAmount){
+    updateSlider: function(pos, isVertical = false, percentAmount){
         var that = this;
+        var position;
 
         if(percentAmount){
             that.percentage = percentAmount * 100;
         }else{
-            var position = x - $(that.sliderOuter).offset().left;
-            that.percentage = 100 * (position / $(that.sliderOuter).width());
+            if(isVertical){
+                position = $(that.sliderOuter).offset().top + $(that.sliderOuter).height() - pos;
+                that.percentage = 100 * (position / $(that.sliderOuter).height());
+            }else{
+                position = pos - $(that.sliderOuter).offset().left;
+                that.percentage = 100 * (position / $(that.sliderOuter).width());
+            }
+            //var position = x - $(that.sliderOuter).offset().left;
+            //that.percentage = 100 * (position / $(that.sliderOuter).width());
         }
 
         if(that.percentage > 100){
@@ -72,12 +84,27 @@ CustomSlider.prototype = {
             that.percentage = 0;
         }
 
-        $(that.sliderProgressBar).css("width",that.percentage + "%");
+        if(isVertical){
+            $(that.sliderProgressBar).css("height",that.percentage + "%");
+            //console.log(position, that.percentage);
+        }else{
+            $(that.sliderProgressBar).css("width",that.percentage + "%");
+        }
+
+        //$(that.sliderProgressBar).css("width",that.percentage + "%");
     }
 }
 
+/*
 var volumeSlider = new CustomSlider;
 volumeSlider.initialize($("#volume-slider"), 100);
+*/
+
+var leftVolumeSlider = new CustomSlider;
+leftVolumeSlider.initialize($("#volume-left-slider"), 1, true);
+
+var rightVolumeSlider = new CustomSlider;
+rightVolumeSlider.initialize($("#volume-right-slider"), 1);
 
 var durationSlider = new CustomSlider;
 durationSlider.initialize($("#duration-slider"), 0);
@@ -138,7 +165,7 @@ Player.prototype = {
 
         //fade in the track
         sound.fade(0, sound.volume(), 1000, id);
-        
+
         $(songTitle).text(data.title);
 
         self.index = index;
@@ -167,7 +194,7 @@ Player.prototype = {
     },
     skipTo: function(index){
         var self = this;
-        
+
         //stop the current track
         if(self.playlist[self.index].howl){
             self.playlist[self.index].howl.stop();
@@ -185,7 +212,7 @@ Player.prototype = {
         Howler.volume(val);
 
         //update on volume slider
-        volumeSlider.updateSlider(-999,val);
+        //rightVolumeSlider.updateSlider(-999,val);
     },
     seek: function(per){
         var self = this;
@@ -205,7 +232,7 @@ Player.prototype = {
         $(songTimer).text(self.formatTime(Math.round(seek)));
         //console.log((((seek / sound.duration())) || 0));
         //set song slider
-        durationSlider.updateSlider(-99, (((seek / sound.duration())) || 0));
+        durationSlider.updateSlider(-99, false, (((seek / sound.duration())) || 0));
 
         if(sound.playing()){
             requestAnimationFrame(self.step.bind(self));
@@ -233,7 +260,11 @@ var player = new Player([
     }
 ]);
 
-$("#volume-slider").on("slider:update",function(e,percentage){
+$("#volume-left-slider").on("slider:update",function(e,percentage){
+    player.volume(percentage / 100);
+});
+
+$("#volume-right-slider").on("slider:update",function(e,percentage){
     player.volume(percentage / 100);
 });
 
@@ -244,11 +275,13 @@ $("#duration-slider").on("slider:update",function(e,percentage){
 $(document).ready(function(){
     $("#play-toggle > input").change(function(){
         if(this.checked){
-            if(player) player.pause(); 
+            if(player) player.pause();
             $("#duration-slider").addClass("stop");
+            $("#disc").removeClass("spin-ani");
         }else{
             if(player) player.play();
             $("#duration-slider").removeClass("stop");
+            $("#disc").addClass("spin-ani");
         }
     });
 
@@ -291,7 +324,7 @@ $(document).ready(function(){
     function callback(response){}
     FB.ui(obj, callback);
     }
-    
+
     $("#share-btn").on('click',function(e){
         let image = $("#cover");
         let imageURL = "";

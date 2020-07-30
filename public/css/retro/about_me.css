@@ -1,0 +1,133 @@
+body{
+    background-color: #EEE9E3;
+}
+
+#first-page{
+
+}
+
+#second-page{
+    background-color: blue;
+}
+
+#hl-imd{
+    font-size: 100px;
+    margin-top: 20px;
+}
+
+#sc-f-dt{
+    font-size: 30px;
+    margin-top: 120px;
+    text-decoration: underline;
+}
+
+.slick-centered{
+    position: relative;
+
+  /* Using flexbox */
+  	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+.slick-child{
+    width: 950px;
+	order: 0;
+    flex: 0 1 auto;
+    align-self: center;
+}
+
+.slick-child, .slick-child *{
+    min-width: 0;
+    min-height: 0;
+}
+
+.first-cover{
+    width: 300px;
+    height: 500px;
+    background-color: #EDD3B2;
+    box-shadow: 10px 50px 1px 0px rgba(0,0,0,0.3);
+}
+
+/*https://stackoverflow.com/questions/30999076/how-add-spaces-between-slick-carousel-item*/
+
+.slick-slide {
+    margin: 10px 20px;
+}
+
+/* the parent */
+.slick-list {
+    margin: -10px -20px;
+}
+
+.slick-center {
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+@media screen and (max-width: 1400px){
+    .first-cover{
+        width: 150px;
+        height: 250px;
+    }
+
+    .slick-child{
+        width: 500px;
+    }
+
+    #hl-imd{
+        font-size: 80px;
+        margin-top: 20px;
+    }
+
+    #sc-f-dt{
+        font-size: 30px;
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .slick-centered{
+        margin-top: 50px;
+    }
+
+    #hl-imd{
+        font-size: 35px;
+        margin-top: 65px;
+    }
+
+    #sc-f-dt{
+        font-size: 18px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .first-cover{
+        width: 150px;
+        height: 250px;
+    }
+
+    .slick-slide {
+        margin: 50px 20px;
+    }
+
+    /* the parent */
+    .slick-list {
+        margin: -50px -20px;
+    }
+
+    #hl-imd{
+        font-size: 35px;
+        margin-top: 65px;
+    }
+
+    #sc-f-dt{
+        font-size: 18px;
+        margin-top: 30px;
+    }
+}

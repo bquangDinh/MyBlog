@@ -80,6 +80,7 @@ button{
     left: 0;
     right: 0;
     height: 55px;
+    z-index: 999;
 }
 
 .custom-navbar-item{
@@ -109,4 +110,30 @@ button{
     padding: 0 5px 0 5px;
     color: #3B221D;
     background-color: #CAEDD1;
+}
+
+body.dark-mode{
+    background-color: #17223B;
+}
+
+body.dark-mode .retro-border{
+    border-color: black;
+}
+
+body.dark-mode .custom-navbar-container{
+    background-color: #3B221D;
+}
+
+body.dark-mode .custom-navbar-container .custom-navbar-item{
+    background-color: #66872E;
+}
+
+body.dark-mode .custom-navbar-container .custom-navbar-item a{
+    color: #EEE9E3;
+}
+
+body.dark-mode #search-box,
+body.dark-mode #dark-mode-toggler{
+    background-color: #66872E;
+    color: #EEE9E3;
 }
