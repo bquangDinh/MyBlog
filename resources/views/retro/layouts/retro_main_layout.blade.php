@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse" id="navbardropdown">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item custom-navbar-item retro-border active">
-                            <a href="#" class="text-font mt-2">Home</a>
+                            <a href="{{ route('homepage') }}" class="text-font mt-2">Home</a>
                         </li>
                         <li class="nav-item custom-navbar-item retro-border">
-                            <a href="#" class="text-font mt-2">About me</a>
+                            <a href="{{ route('about_me') }}" class="text-font mt-2">About me</a>
                         </li>
                         <li class="nav-item custom-navbar-item retro-border">
-                            <a href="#" class="text-font mt-2">Projects</a>
+                            <a href="{{ route('projects_page') }}" class="text-font mt-2">Projects</a>
                         </li>
                     </ul>
                     <form class="form-inline">

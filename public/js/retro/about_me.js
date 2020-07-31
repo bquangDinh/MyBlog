@@ -77,7 +77,7 @@ $(document).ready(function(e){
         ]
     });
 
-    var type1= null, type2 = null, type3 = null, type4 = null;
+    var type1= null, type2 = null, type3 = null, type4 = null, type5 = null;
 
     $("#full-page").fullpage({
         scrollBar:true,
@@ -120,8 +120,8 @@ $(document).ready(function(e){
                 //enter section 5
                 type3 =  type3 == null ? new Typed('#typed-desti-3', {
                     strings: [
-                        "Improving again ^500and again",
-                        "Improving again ^500and again",
+                        "Improving again ^500and again.",
+                        "Improving again ^500and again.",
                     ],
                     showCursor: false,
                     cursorChar: '|',
@@ -136,6 +136,28 @@ $(document).ready(function(e){
                     strings: [
                         "My Minecraft has not yet ended. ^700It is just the beginning ;D",
                         "My Minecraft has not yet ended. ^700It is just the beginning ;D",
+                    ],
+                    showCursor: false,
+                    cursorChar: '|',
+                    typeSpeed: 40,
+                    backSpeed: 60,
+                  }) : {};
+            }
+
+            if(destination.index == (12 + 1)){
+                //enter section 12 + 1
+                //enter section 6
+                type5 =  type5 == null ? new Typed('#ending', {
+                    strings: [
+                        "Is this ^500the end of my story?",
+                        "Is this ^500the end of my story?",
+                        "No, it ^500isn't.",
+                        "This is my adventure ^700;D",
+                        "This is time to ^500dive deep and ^600explore ^500;D",
+                        "I hope ^600you will be a part of ^700my story.",
+                        "And I will be ^700a part of ^500YOUR story ^300!",
+                        "Contact me ^700now !",
+                        "buiquangdinh1751@gmail.com"
                     ],
                     showCursor: false,
                     cursorChar: '|',

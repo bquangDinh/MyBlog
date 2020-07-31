@@ -395,13 +395,81 @@ About me
             I am insprited, fascinated and motivated by
         </div>
         <div class="row mt-md-5 mt-2">
-            <div class="col-4">
+            <div class="col-md-4 col-12">
                 <div class="w-100 d-flex justify-content-center align-items-center">
-                    <div class="idl-cover"></div>
+                    <div class="row mt-md-0 mt-3 no-gutters">
+                        <div class="col-md-12 col-8">
+                            <div class="w-100 d-flex justify-content-center align-items-center">
+                                <div class="idl-cover retro-border retro-shadow"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-4">
+                            <div class="idl-name text-font text-center">Notch</div>
+                            <div class="idl-intro text-font text-center  d-none d-lg-block">Minecraft's First Creator</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-4"></div>
-            <div class="col-4"></div>
+            <div class="col-md-4 col-12">
+                <div class="w-100 d-flex justify-content-center align-items-center">
+                    <div class="row mt-md-0 mt-3 no-gutters">
+                        <div class="col-md-12 col-8">
+                            <div class="w-100 d-flex justify-content-center align-items-center">
+                                <div class="idl-cover retro-border retro-shadow"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-4">
+                            <div class="idl-name text-font text-center">Harold</div>
+                            <div class="idl-intro text-font text-center d-none d-lg-block">Creator of Untold Engine</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="w-100 d-flex justify-content-center align-items-center">
+                    <div class="row mt-md-0 mt-3 no-gutters">
+                        <div class="col-md-12 col-8">
+                            <div class="w-100 d-flex justify-content-center align-items-center">
+                                <div class="idl-cover retro-border retro-shadow"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-4">
+                            <div class="idl-name text-font text-center">Elon Musk</div>
+                            <div class="idl-intro text-font text-center d-none d-lg-block">King of Memes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="w-100 d-flex justify-content-center align-items-center">
+            <img class="wow animated bounce box-2" src="{{ URL::asset('sources/media/images/private/box_2.png') }}" alt="">
+        </div>
+        <div class="text-center text-font gr-intro">
+            And maybe more !
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="w-100 d-flex justify-content-center align-items-center">
+            <img class="wow animated bounce box-2" src="{{ URL::asset('sources/media/images/private/box_2.png') }}" alt="">
+        </div>
+        <div class="mt-5 text-font text-center typed" id="ending">
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="w-100 d-flex justify-content-center align-items-center">
+            <img class="wow animated bounce box-2 infinite" src="{{ URL::asset('sources/media/images/private/box_2.png') }}" alt="">
+        </div>
+        <div class="text-center mt-5">
+            <a href="{{  route('about_me') }}" class="text-font"><u>Want to read my story again? --></u></a>
+        </div>
+        <div class="text-center mt-5">
+            <a href="{{ route('homepage') }}" class="text-font"><u>Back to home --></u></a>
         </div>
     </div>
 </div>

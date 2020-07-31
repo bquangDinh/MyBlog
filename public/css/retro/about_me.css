@@ -331,7 +331,26 @@ body{
 }
 
 .idl-cover{
+    width: 250px;
+    background-color: #EDD3B2;
+}
 
+.idl-cover:after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.idl-name{
+    font-size: 2.5em;
+}
+
+.idl-intro{
+    font-size: 1.5em;
+}
+
+#ending{
+    font-size: 2em;
 }
 
 @keyframes blink{
@@ -586,6 +605,25 @@ body{
     .music-container .m-name{
         font-size: 1.5em;
     }
+
+    .idl-cover{
+        width: 150px;
+        background-color: #EDD3B2;
+    }
+
+    .idl-cover:after{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .idl-name{
+        font-size: 2em;
+    }
+
+    .idl-intro{
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 600px){
@@ -672,5 +710,13 @@ body{
 
     #m-cover-box{
         height: 250px;
+    }
+
+    .idl-name{
+        font-size: 1.3em;
+    }
+
+    .idl-cover{
+        width: 100px;
     }
 }
