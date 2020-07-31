@@ -112,6 +112,11 @@ button{
     background-color: #CAEDD1;
 }
 
+a, a:hover, a:focus{
+    text-decoration: none;
+    color: #3A3A3A;
+}
+
 body.dark-mode{
     background-color: #17223B;
 }
