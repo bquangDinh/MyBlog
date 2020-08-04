@@ -81,14 +81,23 @@ About me
         </div>
         <div class="w-100 mb-3 mt-2 sf-ig-outer-container wow animated pulse delay-5s">
             <div class="sf-ig-slick">
-                <div class="sf-ig retro-border retro-shadow"></div>
-                <div class="sf-ig retro-border retro-shadow"></div>
-                <div class="sf-ig retro-border retro-shadow"></div>
+                <div class="sf-ig retro-border retro-shadow">
+                    <img src="{{ URL::asset('sources/media/images/private/cpo_stage_1.png') }}" alt="cpo">
+                </div>
+                <div class="sf-ig retro-border retro-shadow">
+                    <img src="{{ URL::asset('sources/media/images/private/cpo_stage_2.png') }}" alt="cpo">
+                </div>
+                <div class="sf-ig retro-border retro-shadow">
+                    <img src="{{ URL::asset('sources/media/images/private/cpo_stage_3.png') }}" alt="cpo">
+                </div>
+                <div class="sf-ig retro-border retro-shadow">
+                    <img src="{{ URL::asset('sources/media/images/private/cpo_stage_4.png') }}" alt="cpo">
+                </div>
             </div>
         </div>
 
         <div class="w-100 text-center text-font">
-            <a href="#" class="text-font git-txt-sw">
+            <a href="https://github.com/bquangDinh/CPO" target="_blank" class="text-font git-txt-sw">
                 <u>See my github project --></u>
             </a>
         </div>
@@ -97,7 +106,7 @@ About me
     <div class="section">
         <div class="mb-gr">
             <div class="text-font text-left mb-cp wow animated fadeInUp delay-1s">MAYBE</div>
-            <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A Game engineer</div>
+            <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A game developer</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
         <div class="wow animated fadeInUp delay-2s text-center text-font gr-intro">
@@ -113,7 +122,9 @@ About me
         <div class="w-100 mt-5">
             <div class="row">
                 <div class="col-md-6 col-12">
-                    <div class="wow animated slideInLeft g-mn-ig-box retro-border retro-shadow"></div>
+                    <div class="wow animated slideInLeft g-mn-ig-box retro-border retro-shadow">
+                        <img src="{{ URL::asset('sources/media/images/private/minecraft_building.jpg') }}" alt="">
+                    </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="w-100 h-100 d-flex jusify-content-center align-items-center">
@@ -141,7 +152,9 @@ About me
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
-                    <div class="wow animated slideInRight g-mn-ig-box retro-border retro-shadow"></div>
+                    <div class="wow animated slideInRight g-mn-ig-box retro-border retro-shadow">
+                        <img src="{{ URL::asset('sources/media/images/private/minecraft_building_1.png') }}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,7 +167,9 @@ About me
         <div class="w-100 mt-5">
             <div class="row">
                 <div class="col-md-6 col-12">
-                    <div class="wow animated slideInLeft g-mn-ig-box retro-border retro-shadow"></div>
+                    <div class="wow animated slideInLeft g-mn-ig-box retro-border retro-shadow">
+                        <img src="{{ URL::asset('sources/media/images/private/minecraft_building_2.jpg') }}" alt="">
+                    </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="w-100 h-100 d-flex jusify-content-center align-items-center">
@@ -174,7 +189,7 @@ About me
         <div class="row">
             <div class="col-md-6 col-12">
                 <div class="w-100 text-center text-font mt-5 wow animated slideInLeft">
-                    <a href="">
+                    <a href="https://github.com/bquangDinh/MinecraftDemo2" target="_blank">
                         <u>
                             See my github project for C++, OpenGL Minecraft -->
                         </u>
@@ -183,7 +198,7 @@ About me
             </div>
             <div class="col-md-6 col-12">
                 <div class="w-100 text-center text-font mt-5 wow animated slideInRight">
-                    <a href="">
+                    <a href="https://github.com/bquangDinh/MinecraftWebGL" target="_blank">
                         <u>
                             See my github project for Javascript, WebGL Terrainize demo -->
                         </u>
@@ -196,7 +211,7 @@ About me
     <div class="section">
         <div class="mb-gr">
             <div class="text-font text-left mb-cp wow animated fadeInUp delay-1s">MAYBE</div>
-            <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A Web developer</div>
+            <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A web developer</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
         <div class="text-center text-font gr-intro">
@@ -216,7 +231,7 @@ About me
     <div class="section">
         <div class="mb-gr">
             <div class="text-font text-left mb-cp wow animated fadeInUp delay-1s">MAYBE</div>
-            <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A Gamer !!!</div>
+            <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A gamer !!!</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
         <div class="text-center text-font gr-intro">
@@ -229,7 +244,7 @@ About me
                     <div class="game-info-container">
                         <div class="game-cover-container">
                             <div class="game-cover-box retro-border retro-shadow">
-
+                                <img src="{{ URL::asset('sources/media/images/private/astroneer.png') }}" alt="astroneer">
                             </div>
                             <div class="game-no-box retro-border retro-shadow-sm">
                                 <div class="text-font no-number">1</div>
@@ -245,7 +260,7 @@ About me
                     <div class="game-info-container">
                         <div class="game-cover-container">
                             <div class="game-cover-box retro-border retro-shadow">
-
+                                <img src="{{ URL::asset('sources/media/images/private/minecraft.png') }}" alt="minecraft">
                             </div>
                             <div class="game-no-box retro-border retro-shadow-sm">
                                 <div class="text-font no-number">2</div>
@@ -261,7 +276,7 @@ About me
                     <div class="game-info-container">
                         <div class="game-cover-container">
                             <div class="game-cover-box retro-border retro-shadow">
-
+                                <img src="{{ URL::asset('sources/media/images/private/littlenightmare.png') }}" alt="little nightmare">
                             </div>
                             <div class="game-no-box retro-border retro-shadow-sm">
                                 <div class="text-font no-number">3</div>
@@ -309,6 +324,9 @@ About me
         <div class="text-center text-font gr-intro">
             Yay music. The art of sound wave
         </div>
+        <div class="mt-3 text-center text-font sw-guideline">
+            <-- Swipe -->
+        </div>
         <div class="row mt-5">
             <div class="col-md-2 d-none d-lg-block"></div>
             <div class="col-md-8 col-12">
@@ -320,13 +338,14 @@ About me
                             </div>
                             <div class="retro-border retro-shadow m-c-upper-layer">
                                 <!-- Image here -->
+                                <img src="{{ URL::asset('sources/media/images/private/ngot_band_non_border.png') }}" alt="ngot band">
                             </div>
-                            <img src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
+                            <img class="m-disc" src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
                         </div>
                         <div class="m-name text-font text-left mt-2">
                             Ngot Band
                         </div>
-                        <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up">
+                    <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up" data-m-target="ngot_band" data-m-cover="{{ URL::asset('sources/media/images/private/ngot_band_1.jpg') }}">
                             <u>Read more--></u>
                         </button>
                     </div>
@@ -337,13 +356,14 @@ About me
                             </div>
                             <div class="retro-border retro-shadow m-c-upper-layer">
                                 <!-- Image here -->
+                                <img src="{{ URL::asset('sources/media/images/private/ca_hoi_hoang.jpg') }}" alt="ca hoi hoang band">
                             </div>
-                            <img src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
+                            <img class="m-disc" src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
                         </div>
                         <div class="m-name text-font text-left mt-2">
-                            Ngot Band
+                            Ca hoi hoang
                         </div>
-                        <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up">
+                    <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up" data-m-target="ca_hoi_hoang" data-m-cover="{{ URL::asset('sources/media/images/private/ca_hoi_hoang_pp.jpg') }}">
                             <u>Read more--></u>
                         </button>
                     </div>
@@ -354,13 +374,52 @@ About me
                             </div>
                             <div class="retro-border retro-shadow m-c-upper-layer">
                                 <!-- Image here -->
+                                <img src="{{ URL::asset('sources/media/images/private/chillies_band_ab.png') }}" alt="chillies band">
                             </div>
-                            <img src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
+                            <img class="m-disc" src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
                         </div>
                         <div class="m-name text-font text-left mt-2">
-                            Ngot Band
+                            Chillies
                         </div>
-                        <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up">
+                        <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up" data-m-target="chillies" data-m-cover="{{ URL::asset('sources/media/images/private/chillies_cover_pp.jpg') }}">
+                            <u>Read more--></u>
+                        </button>
+                    </div>
+
+                    <div class="music-container">
+                        <div class="m-cover-gr">
+                            <div class="m-c-lower-layer retro-border retro-shadow">
+
+                            </div>
+                            <div class="retro-border retro-shadow m-c-upper-layer">
+                                <!-- Image here -->
+                                <img src="{{ URL::asset('sources/media/images/private/queen_band_ab.jpg') }}" alt="queen band">
+                            </div>
+                            <img class="m-disc" src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
+                        </div>
+                        <div class="m-name text-font text-left mt-2">
+                            Queen
+                        </div>
+                        <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up" data-m-target="queen" data-m-cover="{{ URL::asset('sources/media/images/private/queen_cover_pp.jpg') }}">
+                            <u>Read more--></u>
+                        </button>
+                    </div>
+
+                    <div class="music-container">
+                        <div class="m-cover-gr">
+                            <div class="m-c-lower-layer retro-border retro-shadow">
+
+                            </div>
+                            <div class="retro-border retro-shadow m-c-upper-layer">
+                                <!-- Image here -->
+                                <img src="{{ URL::asset('sources/media/images/private/coldplay_band_ab.png') }}" alt="coldplay band">
+                            </div>
+                            <img class="m-disc" src="{{ URL::asset('sources/media/images/private/disc.png') }}" alt="">
+                        </div>
+                        <div class="m-name text-font text-left mt-2">
+                            Coldplay
+                        </div>
+                        <button class="mt-5 m-read-story-btn text-font pop-up-open-btn" data-pp-target="#m-pop-up" data-m-target="coldplay"  data-m-cover="{{ URL::asset('sources/media/images/private/coldplay_cover_pp.jpg') }}">
                             <u>Read more--></u>
                         </button>
                     </div>
@@ -375,9 +434,11 @@ About me
             <div class="row">
                 <div class="col-md-3 col-1"></div>
                 <div class="col-md-6 col-10">
-                    <div id="m-cover-box" class="mt-5 retro-border retro-shadow"></div>
+                    <div id="m-cover-box" class="mt-5 retro-border retro-shadow">
+                        <img id="m-cover-img" src="{{ URL::asset('sources/media/images/private/ngot_band_1.jpg') }}" alt="something is here">
+                    </div>
                     <div id="m-message" class="text-font mt-4 px-2">
-                        In 2013, I decided to do something beyond my intellectual abilities. Something that would require determination and commitment, something that would shake me from within. Thus, I decided to develop a Game Engine from scratch.
+
                     </div>
                 </div>
                 <div class="col-md-3 col-1"></div>
@@ -392,7 +453,7 @@ About me
             <hr class="hr-line wow animated fadeInUp">
         </div>
         <div class="text-center text-font gr-intro">
-            I am insprited, fascinated and motivated by
+            I am inspired, fascinated and motivated by
         </div>
         <div class="row mt-md-5 mt-2">
             <div class="col-md-4 col-12">
@@ -400,7 +461,9 @@ About me
                     <div class="row mt-md-0 mt-3 no-gutters">
                         <div class="col-md-12 col-8">
                             <div class="w-100 d-flex justify-content-center align-items-center">
-                                <div class="idl-cover retro-border retro-shadow"></div>
+                                <div class="idl-cover retro-border retro-shadow">
+                                    <img src="{{ URL::asset('sources/media/images/private/notch.png') }}" alt="notch">
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12 col-4">
@@ -415,7 +478,9 @@ About me
                     <div class="row mt-md-0 mt-3 no-gutters">
                         <div class="col-md-12 col-8">
                             <div class="w-100 d-flex justify-content-center align-items-center">
-                                <div class="idl-cover retro-border retro-shadow"></div>
+                                <div class="idl-cover retro-border retro-shadow">
+                                    <img src="{{ URL::asset('sources/media/images/private/harold.png') }}" alt="harold">
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12 col-4">
@@ -430,7 +495,9 @@ About me
                     <div class="row mt-md-0 mt-3 no-gutters">
                         <div class="col-md-12 col-8">
                             <div class="w-100 d-flex justify-content-center align-items-center">
-                                <div class="idl-cover retro-border retro-shadow"></div>
+                                <div class="idl-cover retro-border retro-shadow">
+                                    <img src="{{ URL::asset('sources/media/images/private/elon.png') }}" alt="elon musk">
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12 col-4">

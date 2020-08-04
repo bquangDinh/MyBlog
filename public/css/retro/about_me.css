@@ -134,6 +134,12 @@ body{
     background-color: #D8CAED;
 }
 
+.sf-ig img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .typed::after{
     content: '|';
     display: inline;
@@ -151,6 +157,12 @@ body{
     width: 100%;
     height: 500px;
     background-color: #9791A1;
+}
+
+.g-mn-ig-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .g-mn-sen{
@@ -181,6 +193,12 @@ body{
     width: 250px;
     height: 250px;
     background-color: #9791A1;
+}
+
+.game-info-container .game-cover-container .game-cover-box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .game-info-container .game-cover-container .game-no-box{
@@ -259,13 +277,25 @@ body{
     background-color: #EDD3B2;
 }
 
-.music-container .m-cover-gr img{
+.music-container .m-cover-gr .m-c-upper-layer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.music-container .m-cover-gr .m-disc{
     position: absolute;
     top: 0;
-    right: -120px;
+    right: 0px;
     width: 300px;
     height: 300px;
+    transform: translateX(0) rotate(0deg);
+    transition: transform 1s;
     z-index: -1;
+}
+
+.music-container .m-cover-gr:hover .m-disc{
+    transform: translateX(120px) rotate(90deg);
 }
 
 .music-container .m-name{
@@ -326,11 +356,18 @@ body{
     background-color: #EDD3B2;
 }
 
+#m-cover-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #m-message{
     font-size: 1.2em;
 }
 
 .idl-cover{
+    position: relative;
     width: 250px;
     background-color: #EDD3B2;
 }
@@ -339,6 +376,13 @@ body{
     content: "";
     display: block;
     padding-bottom: 100%;
+}
+
+.idl-cover img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .idl-name{
@@ -593,7 +637,7 @@ body{
         background-color: #EDD3B2;
     }
 
-    .music-container .m-cover-gr img{
+    .music-container .m-cover-gr .m-disc{
         position: absolute;
         top: 0;
         right: -80px;

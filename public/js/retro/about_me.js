@@ -176,4 +176,35 @@ $(document).ready(function(e){
     $(".pop-up-open-btn").click(function(e){
         $($(this).data("pp-target")).show();
     });
+
+    var mData = {
+        'ngot_band': {
+            name: 'Ngot Band',
+            content: ''
+        },
+        'ca_hoi_hoang': {
+            name: 'Ca hoi hoang',
+            content: ''
+        },
+        'chillies': {
+            name: 'Chillies Band',
+            content: ''
+        },
+        'queen': {
+            name: 'Queen Band',
+            content: ''
+        },
+        'coldplay': {
+            name: 'Coldplay',
+            content: ''
+        }
+    };
+
+    $(".m-read-story-btn").click(function(e){
+        let index = $(this).data("m-target");
+        let cover = $(this).data("m-cover");
+        $("#m-name").text("-=- " + mData[index].name + " -=-");
+        $("#m-message").text(mData[index].content);
+        $("#m-cover-img").attr("src",cover);
+    });
 });
