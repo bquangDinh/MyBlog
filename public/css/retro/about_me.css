@@ -48,6 +48,12 @@ body{
     transition: transform .5s;
 }
 
+.first-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /*https://stackoverflow.com/questions/30999076/how-add-spaces-between-slick-carousel-item*/
 
 .fs-cv .slick-slide {

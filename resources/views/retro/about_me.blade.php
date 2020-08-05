@@ -26,9 +26,15 @@ About me
         <div class="slick-centered fs-cv">
             <div class="slick-child fs-cv-child">
                 <div id="first-covers-container" class="slick-container">
-                    <div class="first-cover retro-border"></div>
-                    <div class="first-cover retro-border"></div>
-                    <div class="first-cover retro-border"></div>
+                    <div class="first-cover retro-border">
+                        <img src="{{ URL::asset('sources/media/images/private/w_art.png') }}" alt="art">
+                    </div>
+                    <div class="first-cover retro-border">
+                        <img src="{{ URL::asset('sources/media/images/private/w_art_1.png') }}" alt="art">
+                    </div>
+                    <div class="first-cover retro-border">
+                        <img src="{{ URL::asset('sources/media/images/private/w_art_2.jpg') }}" alt="art">
+                    </div>
                 </div>
             </div>
         </div>
