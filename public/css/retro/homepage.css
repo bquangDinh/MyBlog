@@ -34,6 +34,8 @@
 
 .article-container .article-inner-container .cover-container .cover-inner{
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .article-container .article-inner-container .cover-container .cover-inner img{
