@@ -28,7 +28,7 @@
         <nav class="navbar-mobile" id="navbar-mobile" state="hide">
           <div class="d-flex justify-content-center align-items-center flex-column w-100 h-100 mt-5">
             <a href="{{ route('homepage') }}" class="navbar-anchor">@lang('messages.home_nav_btn')</a>
-            <a href="{{ route('projects_page') }}" class="navbar-anchor">@lang('messages.project_nav_btn')</a>
+            <a href="#" class="navbar-anchor">@lang('messages.project_nav_btn')</a>
             <a href="{{ route('about_me') }}" class="navbar-anchor">@lang('messages.about_me')</a>
             <button type="button" id="navbar-toggle-btn">
               <i class="fas fa-angle-down"></i>
@@ -46,7 +46,7 @@
         <div class="navbar-outer w-100 h-100 d-flex justify-content-around align-items-center flex-row">
           <a href="{{ route('homepage') }}" class="btn navbar-btn">@lang('messages.home_nav_btn')</a>
           <a href="{{ route('about_me') }}" class="btn navbar-btn">@lang('messages.about_me')</a>
-          <a href="{{ route('projects_page') }}" class="btn navbar-btn">@lang('messages.project_nav_btn')</a>
+          <a href="#" class="btn navbar-btn">@lang('messages.project_nav_btn')</a>
         </div>
       </div>
 

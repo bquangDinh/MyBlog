@@ -50,9 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return view('error');
+        //return view('retro.error');
 
         //comment this line when publish
-        //return parent::render($request, $exception);
+        return parent::render($request, $exception);
     }
 }

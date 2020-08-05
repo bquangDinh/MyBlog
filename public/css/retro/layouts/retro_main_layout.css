@@ -42,6 +42,14 @@ button{
     height: auto;
 }
 
+.navbar-toggler{
+    background-color: #CAEDD1;
+    border: 0;
+    border-radius: 0;
+    position: relative;
+    height: 100%;
+}
+
 #navbar-container{
     position: absolute;
     top: 0;
@@ -133,7 +141,8 @@ body.dark-mode .custom-navbar-container .custom-navbar-item{
     background-color: #66872E;
 }
 
-body.dark-mode .custom-navbar-container .custom-navbar-item a{
+body.dark-mode .custom-navbar-container .custom-navbar-item a,
+body.dark-mode .navbar-brand{
     color: #EEE9E3;
 }
 
@@ -142,3 +151,4 @@ body.dark-mode #dark-mode-toggler{
     background-color: #66872E;
     color: #EEE9E3;
 }
+

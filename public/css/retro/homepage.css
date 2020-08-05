@@ -1,3 +1,12 @@
+.full-size-container{
+    width: 100%;
+    height: calc(100vh - 55px);
+}
+
+.nth{
+    font-size: 3em;
+}
+
 .flex-row{
     display: flex;
     flex-wrap: wrap;
@@ -29,6 +38,8 @@
 
 .article-container .article-inner-container .cover-container .cover-inner img{
     object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .article-container .article-inner-container .cover-container .cover-inner .cover-tape{
@@ -77,10 +88,19 @@ body.dark-mode .article-inner-container .control-container .read-more-btn{
     background-color: #66872E;
     color: #EEE9E3;
 }
+
+body.dark-mode .nth{
+    color: #EEE9E3;
+}
+
 @media screen and (max-width: 800px){
     .flex-column{
         flex: 50%;
         max-width: 50%;
+    }
+
+    .nth{
+        font-size: 1.5em;
     }
 }
 

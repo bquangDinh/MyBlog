@@ -9,10 +9,10 @@ use App\Services\ProjectService;
 class PageController extends Controller
 {
     public function index(){
-        //$articles = ArticleService::get_published_articles();
+        $articles = ArticleService::get_published_articles();
         //return view('homepage')->with('articles',$articles);
 
-        return view('retro.homepage');
+        return view('retro.homepage')->with('articles',$articles);
     }
 
     public function show_about_me_page(){
@@ -26,7 +26,7 @@ class PageController extends Controller
             return redirect()->to("/");
         }
 
-        return view('reading_article')->with('article',$article);
+        return view('retro.reading_article')->with('article',$article);
     }
 
     public function show_projects_page(){

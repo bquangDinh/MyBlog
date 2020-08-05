@@ -79,7 +79,7 @@ class MediaService{
         $ext = $imageFile->getClientOriginalExtension();
         $name = uniqid('image_').'_'.time().'.'.$ext;
         $storedFolder = public_path(MediaService::MEDIA_FOLDER.'/'.MediaService::PICTURE_FOLDER.'/public');
-        
+
         if(!file_exists($storedFolder)){
             mkdir($storedFolder);
         }

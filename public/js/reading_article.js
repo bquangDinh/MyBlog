@@ -245,8 +245,6 @@ Player.prototype = {
     }
 }
 
-
-
 var player = new Player([
     {
         title: 'Subwoofer Lullaby',

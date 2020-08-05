@@ -1,7 +1,12 @@
 @extends('retro.layouts.retro_main_layout')
 
 @section('meta')
-
+<meta name="description" content="Just a few things about myself">
+<meta property="og:url"                content="{{ route('about_me') }}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="About me" />
+<meta property="og:description"        content="Just a few things about myself" />
+<meta property="og:image"              content="{{ URL::asset('sources/media/images/private/screenshot.png') }}" />
 @endsection
 
 @section('css')
@@ -253,7 +258,7 @@ About me
                                 Astroneer
                             </div>
                         </div>
-                        <button class="g-read-btn text-font pop-up-open-btn" data-pp-target="#g-pop-up">
+                        <button class="g-read-btn text-font pop-up-open-btn" data-pp-target="#g-pop-up"  data-g-target="astroneer">
                             Read more-->
                         </button>
                     </div>
@@ -269,7 +274,7 @@ About me
                                 Minecraft
                             </div>
                         </div>
-                        <button class="g-read-btn text-font pop-up-open-btn" data-pp-target="#g-pop-up">
+                        <button class="g-read-btn text-font pop-up-open-btn" data-pp-target="#g-pop-up" data-g-target="minecraft">
                             Read more-->
                         </button>
                     </div>
@@ -285,7 +290,7 @@ About me
                                 Little Nightmare
                             </div>
                         </div>
-                        <button class="g-read-btn text-font pop-up-open-btn" data-pp-target="#g-pop-up">
+                        <button class="g-read-btn text-font pop-up-open-btn" data-pp-target="#g-pop-up" data-g-target="little_nightmare">
                             Read more-->
                         </button>
                     </div>

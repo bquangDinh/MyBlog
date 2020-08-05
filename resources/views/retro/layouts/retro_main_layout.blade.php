@@ -20,9 +20,9 @@
         <div class="page wrapper container-fluid">
             <!--NAVIGATION BAR-->
             <div class="navbar navbar-expand-lg custom-navbar-container retro-border">
-                <a class="navbar-brand" href="#">ABC</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardropdown" aria-controls="navbardropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand text-font" href="{{ route('homepage') }}">BQD</a>
+                <button class="text-font navbar-toggler retro-border retro-shadow-sm" type="button" data-toggle="collapse" data-target="#navbardropdown" aria-controls="navbardropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    =
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbardropdown">
@@ -33,12 +33,16 @@
                         <li class="nav-item custom-navbar-item retro-border">
                             <a href="{{ route('about_me') }}" class="text-font mt-2">About me</a>
                         </li>
+                        <!--
                         <li class="nav-item custom-navbar-item retro-border">
-                            <a href="{{ route('projects_page') }}" class="text-font mt-2">Projects</a>
+                            <a href="" class="text-font mt-2">Projects</a>
                         </li>
+                    -->
                     </ul>
-                    <form class="form-inline">
-                        <input type="text" class="form-control retro-border text-font" id="search-box" type="search" placeholder="type here to search" aria-label="Search">
+                    <form class="form-inline" action="{{ route('search') }}" method="POST" role="search">
+                        @csrf
+                        <input type="text" name="term" class="form-control retro-border text-font" id="search-box" type="search" placeholder="type here to search" aria-label="Search">
+                        <button type="submit" style="display: none"></button>
                     </form>
                     <button id="dark-mode-toggler" class="retro-border text-font">
                         Dark mode

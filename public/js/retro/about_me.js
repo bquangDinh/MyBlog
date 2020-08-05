@@ -7,6 +7,8 @@ $(document).ready(function(e){
         dots: false,
         swipe: false,
         touchMove: false,
+        autoplay: true,
+        autoplaySpeed: 1500,
         responsive: [
             {
                 breakpoint: 600,
@@ -26,6 +28,8 @@ $(document).ready(function(e){
         slidesToShow: 2,
         arrows: false,
         dots: false,
+        autoplay: true,
+        autoplaySpeed: 1500,
         responsive: [
             {
                 breakpoint: 600,
@@ -52,7 +56,9 @@ $(document).ready(function(e){
                     swipe: true,
                     touchMove: true,
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
                 }
             }
         ]
@@ -67,6 +73,8 @@ $(document).ready(function(e){
         swipe: true,
         touchMove: true,
         centerMode: true,
+        autoplay: true,
+        autoplaySpeed: 1500,
         responsive: [
             {
                 breakpoint: 800,
@@ -177,14 +185,29 @@ $(document).ready(function(e){
         $($(this).data("pp-target")).show();
     });
 
+    var gData = {
+        'astroneer': {
+            name: 'Astroneer',
+            content: "I have felt in love with this game since I first saw it as beta version on Steam. This game was my child's dream when I was able to build my own city on another plannet and started my adventures to others. This is my most favorite game ever !!!!"
+        },
+        'minecraft': {
+            name: 'Minecraft',
+            content: "It likes Notch built this game for himself, and anyone feeling alone in this reality. It likes OASIS in the real world."
+        },
+        'little_nightmare':{
+            name: 'Litle Nightmare',
+            content: 'I love you, Six. Hope Little Nightmare chapter 2 will be on Steam soon.'
+        }
+    };
+
     var mData = {
         'ngot_band': {
             name: 'Ngot Band',
-            content: ''
+            content: "Every time I listen to Ngot's songs, it always a unique and fantastic feeling. Vu Trong Dinh Thang and his band bring up a musical style that I think no one else can. You hear a song and you know it is definitely Ngot's. Thanks to you and your team, you actually did a great work."
         },
         'ca_hoi_hoang': {
             name: 'Ca hoi hoang',
-            content: ''
+            content: 'Ca Hoi Hoang (The Wild Salmon) brings to its audiences a fresh water to their bad days by its life-filled style. I like most of their songs.'
         },
         'chillies': {
             name: 'Chillies Band',
@@ -206,5 +229,11 @@ $(document).ready(function(e){
         $("#m-name").text("-=- " + mData[index].name + " -=-");
         $("#m-message").text(mData[index].content);
         $("#m-cover-img").attr("src",cover);
+    });
+
+    $(".g-read-btn").click(function(e){
+        let index = $(this).data("g-target");
+        $("#g-name").text(gData[index].name);
+        $("#g-content").text(gData[index].content);
     });
 });

@@ -31,7 +31,7 @@ class ArticleService{
         $article->language_id = $language_id;
         $article->type_id = $type_id;
         $article->author_id = $author_id;
-        
+
         if($cover_id != ""){
             $article->cover_id = $cover_id;
         }else if($cover_file != null){
@@ -57,7 +57,7 @@ class ArticleService{
 
         $article_state->save();
 
-        //add music 
+        //add music
         $track_id = $request->track_id;
         $playlist_id = $request->playlist_id;
 
@@ -69,7 +69,7 @@ class ArticleService{
             if($playlist_id != ""){
                 $article_music->playlist_id = $playlist_id;
             }
-            
+
             if($track_id != ""){
                 $article_music->single_track_id = $track_id;
             }
@@ -78,7 +78,7 @@ class ArticleService{
         }
 
         return $article;
-    }   
+    }
 
     public static function get_published_articles(){
         $articles = array();
@@ -215,15 +215,15 @@ class ArticleService{
 
         $article_music = $article->music;
 
-        //add music 
+        //add music
         $track_id = $request->track_id;
         $playlist_id = $request->playlist_id;
-            
+
         if($article_music != null){
             if($playlist_id != ""){
                 $article_music->playlist_id = $playlist_id;
             }
-                
+
             if($track_id != ""){
                 $article_music->single_track_id = $track_id;
             }
@@ -232,22 +232,28 @@ class ArticleService{
         }else{
             if($playlist_id != "" || $track_id != ""){
                 $article_music = new ArticleMusic;
-    
+
                 $article_music->article_id = $article->id;
-    
+
                 if($playlist_id != ""){
                     $article_music->playlist_id = $playlist_id;
                 }
-                
+
                 if($track_id != ""){
                     $article_music->single_track_id = $track_id;
                 }
-    
+
                 $article_music->save();
             }
         }
 
         return $article;
+    }
+
+
+    public static function search_article($term){
+        $results = Article::where('title','LIKE','%'.$term.'%')->get();
+        return $results;
     }
 }
 

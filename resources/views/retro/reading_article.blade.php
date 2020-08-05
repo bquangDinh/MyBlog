@@ -1,10 +1,18 @@
 @extends('retro.layouts.retro_main_layout')
 
 @section('meta')
+<meta name="description" content="{{ $article->description }}">
+<meta property="og:url"                content="{{ route('reading_article',['id' => $article->id]) }}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="{{ $article->title }}" />
+<meta property="og:description"        content="{{ $article->description }}" />
+@if($article->cover != null)
+<meta property="og:image"              content="{{ $article->cover->url }}" />
+@endif
 @endsection
 
 @section('title')
-Astroneer 1.10.9
+{{ $article->title }}
 @endsection
 
 @section('css')
@@ -18,7 +26,24 @@ Astroneer 1.10.9
         <div class="col-md-1 d-none d-lg-block"></div>
         <div class="col-md-10 col-12">
             <div class="article-grid my-3">
-                <div class="article-cover retro-border retro-shadow"></div>
+                <div class="article-cover retro-border retro-shadow">
+                    @if($article->cover != null)
+                    <img src="{{ $article->cover->url }}" alt="article cover">
+                    @endif
+                </div>
+
+                @if($article->music != null)
+
+                @if($article->music->playlist != null)
+                @foreach($article->music->playlist->tracks as $mtrack)
+                <input type="text" class="track-source" value="{{ $mtrack->track->source }}" data-track-title="{{ $mtrack->track->title }}" style="display: none">
+                @endforeach
+                @endif
+
+                @if($article->music->track != null)
+                <input type="text" class="track-source" value="{{ $article->music->track->source }}" data-track-title="{{ $article->music->track->title }}" style="display: none">
+                @endif
+
                 <div class="article-media-container retro-shadow">
                     <div class="volume-big-screen-leftside-container retro-border">
                         <div class="h-100 w-100 d-flex justify-content-center align-items-center">
@@ -80,17 +105,28 @@ Astroneer 1.10.9
                                 </div>
                     </div>
                 </div>
+                @endif
+
                 <div class="article-content-container retro-border retro-shadow">
                     <p class="text-center text-font mt-5 article-title">
-                        Linh tinh về xây dựng Minecraft với OpenGL và C++
+                        {{ $article->title }}
                     </p>
                     <div class=" mt-4 w-100 d-flex justify-content-center align-items-center">
                         <div class="dashed-line"></div>
                     </div>
 
                     <div class=" w-100 mt-4 d-flex justify-content-center align-items-center">
-                        <span class="article-published-datetime text-font mr-4">2020-05-22 15:38:14</span>
-                        <b class="article-category text-font">Note</b>
+                        <!--
+                        <span class="article-published-datetime text-font mr-4">
+
+                        </span>
+                    -->
+                        <b class="article-category text-font">
+                            {{ $article->type->name }}
+                        </b>
+                    </div>
+                    <div class="text-font px-md-5 px-2 mt-3">
+                        {!! $article->content !!}
                     </div>
                 </div>
             </div>
