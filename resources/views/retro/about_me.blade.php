@@ -6,7 +6,7 @@
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="About me" />
 <meta property="og:description"        content="Just a few things about myself" />
-<meta property="og:image"              content="{{ URL::asset('sources/media/images/private/screenshot.png') }}" />
+<meta property="og:image"              content="{{ URL::asset('sources/media/images/private/screenshot_u.png') }}" />
 @endsection
 
 @section('css')
@@ -27,10 +27,10 @@ About me
             <div class="slick-child fs-cv-child">
                 <div id="first-covers-container" class="slick-container">
                     <div class="first-cover retro-border">
-                        <img src="{{ URL::asset('sources/media/images/private/w_art.png') }}" alt="art">
+                        <img src="{{ URL::asset('sources/media/images/private/w_art.jpg') }}" alt="art">
                     </div>
                     <div class="first-cover retro-border">
-                        <img src="{{ URL::asset('sources/media/images/private/w_art_1.png') }}" alt="art">
+                        <img src="{{ URL::asset('sources/media/images/private/w_art_1.jpg') }}" alt="art">
                     </div>
                     <div class="first-cover retro-border">
                         <img src="{{ URL::asset('sources/media/images/private/w_art_2.jpg') }}" alt="art">
@@ -123,7 +123,7 @@ About me
         <div class="wow animated fadeInUp delay-2s text-center text-font gr-intro">
             I started building my own Minecraft from scratch by learning and researching
         </div>
-        <p class="wow animated bounce infinite text-font text-center sc-f-dt">Scroll down to know my stories !</p>
+        <p class="wow animated bounce infinite text-font text-center sc-f-dt">Scroll down to know my story !</p>
     </div>
 
     <div class="section">
@@ -225,16 +225,16 @@ About me
             <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A web developer</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
-        <div class="text-center text-font gr-intro">
+        <div class="wow animated fadeInUp delay-2s text-center text-font gr-intro">
             I built a newspaper-and-forum website for my love science camping organization
         </div>
-        <div class="wow animated fadeInUp my-3 text-center text-font bd-name">
+        <div class="wow animated fadeInUp delay-3s my-3 text-center text-font bd-name">
             -=- Bong <span style="color: #f1c40f">Den</span> -=-
         </div>
         <div class="wow animated fadeOut text-center text-font pj-sd">
             <del>Sadly, this project always make me feel bad about myself....</del>
         </div>
-        <div class="wow animated slideInLeft delay-2s mt-5 text-center text-font m-blg">
+        <div class="wow animated slideInLeft delay-4s mt-5 text-center text-font m-blg">
             And yea this is it. You are reading my own fascinated blog !
         </div>
     </div>
@@ -245,7 +245,7 @@ About me
             <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A gamer !!!</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
-        <div class="text-center text-font gr-intro">
+        <div class="wow animated fadeInUp delay-2s text-center text-font gr-intro">
             What if this reality is just a game? Then I have to learn how to play it.
         </div>
 
@@ -332,7 +332,7 @@ About me
             <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A lazy guy listening to music</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
-        <div class="text-center text-font gr-intro">
+        <div class="wow animated fadeInUp delay-2s text-center text-font gr-intro">
             Yay music. The art of sound wave
         </div>
         <div class="mt-3 text-center text-font sw-guideline">
@@ -463,7 +463,7 @@ About me
             <div class="text-font text-left mb-name wow animated fadeInLeft delay-1s">A fan</div>
             <hr class="hr-line wow animated fadeInUp">
         </div>
-        <div class="text-center text-font gr-intro">
+        <div class="wow animated fadeInUp delay-2s text-center text-font gr-intro">
             I am inspired, fascinated and motivated by
         </div>
         <div class="row mt-md-5 mt-2">
@@ -525,7 +525,7 @@ About me
         <div class="w-100 d-flex justify-content-center align-items-center">
             <img class="wow animated bounce box-2" src="{{ URL::asset('sources/media/images/private/box_2.png') }}" alt="">
         </div>
-        <div class="text-center text-font gr-intro">
+        <div class="wow animated fadeIn delay-1s text-center text-font gr-intro">
             And maybe more !
         </div>
     </div>

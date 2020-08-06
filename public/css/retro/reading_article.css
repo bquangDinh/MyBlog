@@ -208,6 +208,13 @@
     content: 'Play';
 }
 
+.article-content img{
+    border-width: 2px 2px 3px 2px;
+    border-color: #3A3A3A;
+    border-style: solid;
+    box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.3);
+}
+
 body.dark-mode .article-cover{
     background: #382039;
 }

@@ -125,7 +125,7 @@
                             {{ $article->type->name }}
                         </b>
                     </div>
-                    <div class="text-font px-md-5 px-2 mt-3">
+                    <div class="article-content text-font px-md-5 px-2 mt-3">
                         {!! $article->content !!}
                     </div>
                 </div>
