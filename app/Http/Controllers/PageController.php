@@ -31,7 +31,7 @@ class PageController extends Controller
 
     public function show_projects_page(){
         $projects = ProjectService::get_projects_by_state("Published");
-        return view('projects')->with('projects',$projects);
+        return view('retro.experiments')->with('experiments',$projects);
     }
 
     public function show_portfolio_page(){
@@ -49,7 +49,7 @@ class PageController extends Controller
             return redirect()->to('/');
         }
 
-        return view('projects/'.$project->project_source_file);
+        return view('experiments.'.$project->project_source_file.'.index')->with('experiment',$project);
     }
 
     public function reading_project($id){
@@ -59,6 +59,6 @@ class PageController extends Controller
             return redirect()->to('/');
         }
 
-        return view('reading_project')->with('project',$project);
+        return view('retro.reading_experiment')->with('experiment',$project);
     }
 }

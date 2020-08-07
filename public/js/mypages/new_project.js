@@ -23,7 +23,7 @@ function initCustomSelect(){
             $(selectItems).addClass("hide");
         }else{
             //put all options to select-items div
-            $(selectElement).find('option').each(function(index){ 
+            $(selectElement).find('option').each(function(index){
                 let item = $(`<div data-value=${$(this).val()}>${$(this).text()}</div>`);
                 let that = this;
 
@@ -33,14 +33,14 @@ function initCustomSelect(){
                     $(item).addClass("same-as-selected");
                     $(parent).find(".select-selected > p").first().text($(this).text());
                 }
-                
+
                 $(item).on('click',function(e){
                     if($(this).hasClass("same-as-selected")){
                         return;
                     }
 
                     $(that).prop("selected",true);
-                    
+
                     //remove others which have same-as-selected class
                     $(selectItems).find("div.same-as-selected").first().removeClass("same-as-selected");
 
@@ -296,7 +296,7 @@ var MAX_FILE_SIZE = 2; // 2 MB
 function initCoverDropzone(){
     var dropzone = $("#droppable-file-zone");
     var fileInput = $("#cover-file");
-    
+
     function preventDefaultFunc(e){
         e.preventDefault();
         e.stopPropagation();
@@ -361,7 +361,7 @@ function initCoverDropzone(){
         $(dropzone).on(eventName,unhighlightDropzone);
     });
 
-    // 
+    //
 
     $(dropzone).on('drop',handleDrop);
 
@@ -403,7 +403,7 @@ $(document).ready(function(){
         let formTarget = $(this).data("form-target");
         $(".picking-form-container").addClass("hide");
         $("#" + formTarget).removeClass("hide");
-        
+
         $(".picking-btn").not(this).removeClass("active");
         $(this).addClass("active");
     });
@@ -464,7 +464,7 @@ $(document).ready(function(){
                 $(".picking-form-container").addClass("hide");
                 $(".picking-btn").removeClass("active");
 
-                
+
             }
         }else if(name == "playlist"){
             if(direction == "cancel"){
@@ -520,6 +520,7 @@ $(document).ready(function(){
     $(fileInput).change(handleFileChange);
 
     $("#project-form").on('submit',function(e){
+        /*
         if(fileInput == null || $(fileInput).length == 0){
             Swal.fire({
                 type: 'error',
@@ -537,10 +538,27 @@ $(document).ready(function(){
             });
             return false;
         }
+        */
 
         if(selectedImageID != null) $("#selected-image-id-input").val(selectedImageID);
         if(selectedPlaylistID != null) $("#selected-playlist-id-input").val(selectedPlaylistID);
         if(selectedTrackID != null) $("#selected-track-id-input").val(selectedTrackID);
+    });
+
+    $("#use-folder-switch").change(function(e){
+        if(this.checked){
+            $("#launchable-exp-textbox").show();
+        }else{
+            $("#launchable-exp-textbox").hide();
+        }
+    });
+
+    $("#github-url-switch").change(function(e){
+        if(this.checked){
+            $("#github-textbox").show();
+        }else{
+            $("#github-textbox").hide();
+        }
     });
 });
 

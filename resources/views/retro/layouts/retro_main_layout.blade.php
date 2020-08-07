@@ -33,11 +33,10 @@
                         <li class="nav-item custom-navbar-item retro-border">
                             <a href="{{ route('about_me') }}" class="text-font mt-2">About me</a>
                         </li>
-                        <!--
+
                         <li class="nav-item custom-navbar-item retro-border">
-                            <a href="" class="text-font mt-2">Projects</a>
+                            <a href="{{ route('experiments_page') }}" class="text-font mt-2">Experiments</a>
                         </li>
-                    -->
                     </ul>
                     <form class="form-inline" action="{{ route('search') }}" method="POST" role="search">
                         @csrf
