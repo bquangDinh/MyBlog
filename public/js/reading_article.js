@@ -146,7 +146,6 @@ Player.prototype = {
                     $(songTimer).text("0:00");
                     $("#loading-spinner").hide();
                     $("#play-toggle").show();
-                    console.log("Loaded");
                 },
                 onend: function(){
                     self.skip('next');
