@@ -82,7 +82,7 @@ class ArticleService{
 
     public static function get_published_articles(){
         $articles = array();
-        $states = ArticleState::where('current_state','Published')->get();
+        $states = ArticleState::where('current_state','Published')->orderBy('updated_at', 'desc')->get();
         foreach($states as $state){
             array_push($articles,$state->article);
         }

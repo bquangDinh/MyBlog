@@ -99,7 +99,7 @@ class ProjectService{
         }
 
         $projects = array();
-        $states = ProjectState::where('current_state',$state)->get();
+        $states = ProjectState::where('current_state',$state)->orderBy('updated_at', 'desc')->get();
         foreach($states as $state){
             array_push($projects,$state->project);
         }

@@ -28,7 +28,7 @@
             @if($article->music != null)
             <div class="text-font text-center mt-3">
                 Audio player will not be automatically and correctly played on Chrome because Chrome has recently changed its autoplay policy
-                <a href="https://github.com/goldfire/howler.js/issues/939" target="_blank">(source)</a>. Please hit Stop button on Audio Player to switch to Play, and hit Play again to get the player running correctly.
+                <a href="https://github.com/goldfire/howler.js/issues/939" target="_blank">(source)</a>. If the Audio Player isn't automatically play, please hit Stop button on Audio Player to switch to Play, and hit Play again to get the player running correctly.
                 Other browsers will work fine.
             </div>
             @endif
