@@ -34,14 +34,14 @@
 
                 @if($experiment->music != null)
 
-                @if($article->music->playlist != null)
-                @foreach($article->music->playlist->tracks as $mtrack)
+                @if($experiment->music->playlist != null)
+                @foreach($experiment->music->playlist->tracks as $mtrack)
                 <input type="text" class="track-source" value="{{ $mtrack->track->source }}" data-track-title="{{ $mtrack->track->title }}" style="display: none">
                 @endforeach
                 @endif
 
-                @if($article->music->track != null)
-                <input type="text" class="track-source" value="{{ $article->music->track->source }}" data-track-title="{{ $article->music->track->title }}" style="display: none">
+                @if($experiment->music->track != null)
+                <input type="text" class="track-source" value="{{ $experiment->music->track->source }}" data-track-title="{{ $experiment->music->track->title }}" style="display: none">
                 @endif
 
                 <div class="article-media-container retro-shadow">
@@ -69,10 +69,11 @@
                                     <button id="previous-song" class="track-direction-btn retro-border retro-shadow-sm text-font pb-2">
                                         <<
                                     </button>
-                                    <label for="play-toggle-checkbox" id="play-toggle" class="px-2">
+                                    <label for="play-toggle-checkbox" id="play-toggle" class="px-2" style="display: none">
                                         <input type="checkbox" id="play-toggle-checkbox">
                                         <div id="toggle-container" class="retro-border retro-shadow-sm"></div>
                                     </label>
+                                    <div class="text-font text-center" id="loading-spinner">Loading</div>
                                     <button id="next-song" class="track-direction-btn retro-border retro-shadow-sm text-font pb-2">
                                         >>
                                     </button>
@@ -114,7 +115,7 @@
                     <div class="row no-gutters w-100 h-100">
                         <div class="col-md-6 col-12 h-100">
                             @if($experiment->github_url != null)
-                            <a href="{{ $experiment->github_url }}" class="btn view-source-btn viewable retro-border text-font">
+                            <a href="{{ $experiment->github_url }}" target="_blank" class="btn view-source-btn viewable retro-border text-font">
                                 View source code
                             </a>
                             @else

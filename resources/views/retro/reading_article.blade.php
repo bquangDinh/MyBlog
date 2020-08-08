@@ -68,10 +68,11 @@
                                     <button id="previous-song" class="track-direction-btn retro-border retro-shadow-sm text-font pb-2">
                                         <<
                                     </button>
-                                    <label for="play-toggle-checkbox" id="play-toggle" class="px-2">
+                                    <label for="play-toggle-checkbox" id="play-toggle" class="px-2" style="display: none">
                                         <input type="checkbox" id="play-toggle-checkbox">
                                         <div id="toggle-container" class="retro-border retro-shadow-sm"></div>
                                     </label>
+                                    <div class="text-font text-center px-2" id="loading-spinner">...loading...</div>
                                     <button id="next-song" class="track-direction-btn retro-border retro-shadow-sm text-font pb-2">
                                         >>
                                     </button>

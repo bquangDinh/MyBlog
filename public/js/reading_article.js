@@ -143,8 +143,10 @@ Player.prototype = {
                 },
                 onload: function(){
                     $(songDuration).text(self.formatTime(Math.round(sound.duration())));
+                    $(songTimer).text("0:00");
                     $("#loading-spinner").hide();
                     $("#play-toggle").show();
+                    console.log("Loaded");
                 },
                 onend: function(){
                     self.skip('next');
@@ -245,6 +247,7 @@ Player.prototype = {
     }
 }
 
+
 var player = new Player([
     {
         title: 'Subwoofer Lullaby',
@@ -257,6 +260,9 @@ var player = new Player([
         howl: null
     }
 ]);
+
+
+//var player = new Player();
 
 $("#volume-left-slider").on("slider:update",function(e,percentage){
     player.volume(percentage / 100);
