@@ -232,6 +232,10 @@
     content: 'Play';
 }
 
+.article-content{
+    line-height: 2.2em;
+}
+
 .article-content img{
     border-width: 2px 2px 3px 2px;
     border-color: #3A3A3A;
