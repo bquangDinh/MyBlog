@@ -25,6 +25,13 @@
     <div class="row">
         <div class="col-md-1 d-none d-lg-block"></div>
         <div class="col-md-10 col-12">
+            @if($article->music != null)
+            <div class="text-font text-center mt-3">
+                Audio player will not be automatically and correctly played on Chrome because Chrome has recently changed its autoplay policy
+                <a href="https://github.com/goldfire/howler.js/issues/939" target="_blank">(source)</a>. Please hit Stop button on Audio Player to switch to Play, and hit Play again to get the player running correctly.
+                Other browsers will work fine.
+            </div>
+            @endif
             <div class="article-grid my-3">
                 <div class="article-cover retro-border retro-shadow">
                     @if($experiment->cover_id != null)
