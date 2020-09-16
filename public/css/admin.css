@@ -362,7 +362,7 @@ box-shadow:  5px 5px 10px #d0d2d4,
              -5px -5px 10px #ffffff;
   }
   
-  .point-deep-shadow:after{
+.point-deep-shadow:after{
     content: "";
     position: absolute;
     top: 10px;
@@ -371,25 +371,25 @@ box-shadow:  5px 5px 10px #d0d2d4,
     width: 10px;
     border-radius: 50%;
     background-color: #26272A;
-  }
+}
 
-  .container{
+.container{
     width: 95%;
     height: 95%;
     position: relative;
     border-radius: 20px;
     background: #F5F7F9;
-box-shadow:  10px 10px 20px #d0d2d4, 
+    box-shadow:  10px 10px 20px #d0d2d4, 
              -10px -10px 20px #ffffff;
   }
 
-  .container .container-title{
-      font-family: Nunito-Bold;
-      font-size: 2em;
-      color: #3E4251;
-  }
+.container .container-title{
+    font-family: Nunito-Bold;
+    font-size: 2em;
+    color: #3E4251;
+}
 
-  .disable-scrollbars::-webkit-scrollbar {
+.disable-scrollbars::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* Chrome/Safari/Webkit */
 }

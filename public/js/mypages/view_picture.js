@@ -34,7 +34,7 @@ function initPictureDropzone(){
     }
 
     function handleFileChange(e){
-
+        handleFile($(fileInput).prop("files"));
     }
 
     function handleServerCallback(img){
@@ -111,16 +111,31 @@ function initPictureDropzone(){
 }
 
 function initButtonEvent(){
+    function copyToClipBoard(value){
+        var tempInput = document.createElement("input");
+        tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+        tempInput.value = value;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+        
+        try{
+            document.execCommand("copy");
+        }catch(e){
+            return false;
+        }
+
+        document.body.removeChild(tempInput);
+
+        return true;
+    }
+
     $("#picture-container").on('click','.picture-copy-source-btn',function(e){
         var copyTarget = document.getElementById($(this).data("copy-target"));
         
-        copyTarget.select();
-        
-        //for mobiles
-        copyTarget.setSelectionRange(0, 99999);
+        console.log($(copyTarget).val());
 
-        try{
-            document.execCommand("copy");
+        if(copyToClipBoard($(copyTarget).val())){
             Swal.fire({
                 type: 'success',
                 title: 'Copied Source',
@@ -129,7 +144,7 @@ function initButtonEvent(){
                 timer: 3000,
                 showConfirmButton: false
             });
-        }catch(e){
+        }else{
             Swal.fire({
                 type: 'error',
                 title: 'Copied Source Failed',
