@@ -1,0 +1,158 @@
+@font-face{
+    font-family: FVF-Fernando;
+    src: url('../../../fonts/FVF-Fernando-08/FVF_Fernando_08.ttf');
+}
+
+body,html{
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+    background-color: #EEE9E3;
+}
+
+button, input[type='button'],input[type='submit']{
+    cursor: pointer;
+    border: 0;
+}
+
+button:focus, input:focus, textarea:focus{
+    outline: 0;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+.row.no-gutters{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class^=" col-"]{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.page-wrapper{
+    overflow-x: hidden;
+    height: auto;
+}
+
+.navbar-toggler{
+    background-color: #CAEDD1;
+    border: 0;
+    border-radius: 0;
+    position: relative;
+    height: 100%;
+}
+
+#navbar-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #A19689;
+}
+
+.retro-border{
+    border-width: 2px 2px 3px 2px;
+    border-color: #3A3A3A;
+    border-style: solid;
+}
+
+.retro-shadow{
+    box-shadow: 5px 5px 1px 0px rgba(0,0,0,0.3);
+}
+
+.retro-shadow-sm{
+    box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.3);
+}
+
+.text-font{
+    font-family: FVF-Fernando;
+}
+
+.navbar-margin{
+    height: 55px;
+}
+
+.custom-navbar-container{
+    background-color: #A19689;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    z-index: 999;
+}
+
+.custom-navbar-item{
+    height: 55px;
+    background-color: #CAEDD1;
+    text-align: center;
+}
+
+.custom-navbar-item a{
+    padding: 0 20px 0 20px;
+    margin: 0 auto;
+    display: block;
+    color: #3B221D;
+    letter-spacing: 3px;
+}
+
+#search-box{
+    height: 55px;
+    border-radius: 0;
+    background-color: #CAEDD1;
+    text-decoration: underline;
+    letter-spacing: 3px;
+}
+
+#dark-mode-toggler{
+    height: 55px;
+    padding: 0 5px 0 5px;
+    color: #3B221D;
+    background-color: #CAEDD1;
+}
+
+a, a:hover, a:focus{
+    text-decoration: none;
+    color: #3A3A3A;
+}
+
+#main-content{
+    position: relative;
+}
+
+body.dark-mode{
+    background-color: #17223B;
+}
+
+body.dark-mode .retro-border{
+    border-color: black;
+}
+
+body.dark-mode .custom-navbar-container{
+    background-color: #3B221D;
+}
+
+body.dark-mode .custom-navbar-container .custom-navbar-item{
+    background-color: #66872E;
+}
+
+body.dark-mode .custom-navbar-container .custom-navbar-item a,
+body.dark-mode .navbar-brand{
+    color: #EEE9E3;
+}
+
+body.dark-mode #search-box,
+body.dark-mode #dark-mode-toggler{
+    background-color: #66872E;
+    color: #EEE9E3;
+}
+

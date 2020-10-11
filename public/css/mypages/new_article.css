@@ -7,7 +7,7 @@
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Opera and Firefox */
   }
-  
+
 
 .form-group.hide{
     display: none;
@@ -25,7 +25,7 @@
     font-family: Nunito-Bold;
     background: #F5F7F9;
     transition: all .4s;
-    box-shadow:  6px 6px 12px #d0d2d4, 
+    box-shadow:  6px 6px 12px #d0d2d4,
              -6px -6px 12px #ffffff;
 }
 
@@ -35,12 +35,12 @@
 
 .manage-article-btn:first-child{
     background-color: #70CE5A;
-    box-shadow:  3px 3px 12px #d0d2d4, 
+    box-shadow:  3px 3px 12px #d0d2d4,
              -3px -3px 12px #ffffff;
 }
 
 .manage-article-btn:hover{
-    box-shadow:  12px 12px 24px #d0d2d4, 
+    box-shadow:  12px 12px 24px #d0d2d4,
              -12px -12px 24px #ffffff;
 }
 
@@ -50,7 +50,7 @@
     height: 80px;
     border-radius: 10px;
     background: #F5F7F9;
-    box-shadow:  5px 5px 10px #d0d2d4, 
+    box-shadow:  5px 5px 10px #d0d2d4,
              -5px -5px 10px #ffffff;
 }
 
@@ -84,7 +84,7 @@
     width: 60px;
     border-radius: 5px;
     background: #F5F7F9;
-    box-shadow: inset 5px 5px 10px #d0d2d4, 
+    box-shadow: inset 5px 5px 10px #d0d2d4,
             inset -5px -5px 10px #ffffff;
 }
 
@@ -115,7 +115,7 @@
     border-style: solid;
     border-color: white;
     background: #F5F7F9;
-    box-shadow:  11px 11px 22px #d0d2d4, 
+    box-shadow:  11px 11px 22px #d0d2d4,
              -11px -11px 22px #ffffff;
 }
 
@@ -131,7 +131,7 @@
     border-style: solid;
     border-color: white;
     background: #F5F7F9;
-    box-shadow:  11px 11px 22px #d0d2d4, 
+    box-shadow:  11px 11px 22px #d0d2d4,
              -11px -11px 22px #ffffff;
 }
 
@@ -151,7 +151,7 @@
     top: 3px;
     border-radius: 10px;
     background: #F5F7F9;
-    box-shadow: inset 5px 5px 10px #d0d2d4, 
+    box-shadow: inset 5px 5px 10px #d0d2d4,
             inset -5px -5px 10px #ffffff;
 }
 
@@ -167,7 +167,7 @@
     border-color: white;
     border-radius: 10px;
     background: #F5F7F9;
-    box-shadow:  5px 5px 10px #d0d2d4, 
+    box-shadow:  5px 5px 10px #d0d2d4,
              -5px -5px 10px #ffffff;
 }
 
@@ -198,8 +198,8 @@
     cursor: pointer;
     border-radius: 50%;
     background: #F5F7F9;
-    box-shadow: inset 5px 5px 10px #d0d2d4, 
-            inset -5px -5px 10px #ffffff;   
+    box-shadow: inset 5px 5px 10px #d0d2d4,
+            inset -5px -5px 10px #ffffff;
 }
 
 .custom-radio-box .checkmark i{
@@ -230,7 +230,7 @@
     height: 30px;
     border-radius: 7px;
     background: #F5F7F9;
-    box-shadow:  5px 5px 10px #d0d2d4, 
+    box-shadow:  5px 5px 10px #d0d2d4,
              -5px -5px 10px #ffffff;
 }
 
@@ -273,7 +273,7 @@
     width: 150px;
     border-radius: 10px;
     background: #F5F7F9;
-    box-shadow:  6px 6px 12px #d0d2d4, 
+    box-shadow:  6px 6px 12px #d0d2d4,
              -6px -6px 12px #ffffff;
 }
 
@@ -281,7 +281,7 @@
     width: 90%;
     border-radius: 10px;
     background: #F5F7F9;
-    box-shadow:  6px 6px 12px #d0d2d4, 
+    box-shadow:  6px 6px 12px #d0d2d4,
              -6px -6px 12px #ffffff;
 }
 
@@ -297,7 +297,7 @@
     border-radius: 10px;
     cursor: pointer;
     background: repeating-linear-gradient(45deg, #F5F7F9, #ecf0f3 15px, #ecf0f3 15px);
-    box-shadow: inset 6px 6px 12px #d0d2d4, 
+    box-shadow: inset 6px 6px 12px #d0d2d4,
             inset -6px -6px 12px #ffffff;
 }
 
@@ -312,4 +312,52 @@
 
 #file-name,#file-extension,#file-size{
     font-family: Nunito-Bold;
+}
+
+.neumor-switch input[type="checkbox"]{
+    display: none;
+}
+
+.neumor-switch .outer{
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    background: #F5F7F9;
+    box-shadow:  5px 5px 16px #dadcde,
+             -5px -5px 16px #ffffff;
+}
+
+.neumor-switch .outer .inner{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #CED6DF;
+    position: relative;
+    transition: background-color .5s;
+}
+
+.neumor-switch .outer .inner .switch-point{
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    transform: translateX(0);
+    transition: transform .5s;
+    cursor: pointer;
+    background: #F5F7F9;
+}
+
+.neumor-switch input[type="checkbox"]:checked + .outer .inner .switch-point{
+    transform: translateX(58px);
+}
+
+.neumor-switch input[type="checkbox"]:checked + .outer .inner{
+    background-color: #40ADFF;
+}
+
+.switch-title{
+    font-family: Nunito-Regular;
+    font-size: 1.2em;
 }

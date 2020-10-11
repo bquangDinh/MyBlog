@@ -64,6 +64,10 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'experiments' => [
+            'driver' => 'local',
+            'root' => public_path() . '/experiments',
+        ],
     ],
 
     /*

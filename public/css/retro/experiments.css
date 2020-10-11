@@ -1,0 +1,56 @@
+.experiment-container{
+    height: auto;
+    background-color: #EDD3B2;
+}
+
+.experiment-container:hover{
+    box-shadow: 5px 5px 1px 0px rgba(0,0,0,0.3);
+}
+
+.experiment-container .title{
+    font-size: 20px;
+    color: #3A3A3A;
+}
+
+.experiment-container .cover{
+    height: 350px;
+}
+
+.experiment-container .cover img{
+    object-fit: cover;
+}
+
+.experiment-container .launch-btn,
+.experiment-container .read-btn{
+    height: 50px;
+    border-radius: 0;
+}
+
+.experiment-container .launch-btn.launchable,
+.experiment-container .read-btn.read-only-btn{
+    background-color: #E74C3C;
+    color: #EEE9E3;
+}
+
+.experiment-container .launch-btn.unlaunchable{
+    background-color: #999999;
+    color: #EEE9E3;
+}
+
+.experiment-container .read-btn{
+    background-color: #CAEDD1;
+    color: #3A3A3A;
+}
+
+body.dark-mode .experiment-container{
+    background-color: #263859;
+}
+
+body.dark-mode .experiment-container .title{
+    color: #EDD3B2;
+}
+
+body.dark-mode .experiment-container .read-btn{
+    background-color: #66872E;
+    color: #EDD3B2;
+}

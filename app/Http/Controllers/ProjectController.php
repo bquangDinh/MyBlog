@@ -18,6 +18,7 @@ class ProjectController extends Controller
             'article_content' => 'string|required|not_in:'.$emptyContent
         ]);
             */
+
         $messageObj = array('header' => '', 'status' => '', 'content' => '');
 
         if(Auth::check()){
@@ -36,7 +37,7 @@ class ProjectController extends Controller
                 $msgContent = "Please create your project again. ".$e->getMessage();
 
                 $messageObj = array('header' => $msgHeader, 'status' => $msgStatus, 'content' => $msgContent);
-            }  
+            }
         }else{
             $msgStatus = "error";
             $msgHeader = "User is not authorized";
@@ -44,7 +45,7 @@ class ProjectController extends Controller
 
             $messageObj = array('header' => $msgHeader, 'status' => $msgStatus, 'content' => $msgContent);
         }
-        
+
         return view('mypages/notification_page')->with('message',(object)$messageObj);
     }
 }

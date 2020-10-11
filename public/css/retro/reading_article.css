@@ -1,0 +1,311 @@
+.article-grid{
+    display: grid;
+    grid-template-columns: 0.2fr 3fr 15px 5fr;
+    grid-template-rows: 220px 15px 30px auto;
+    width: 100%;
+}
+
+.article-grid > .article-cover{
+    grid-column: 1 / 3;
+    grid-row: 1 / 4;
+    background-color: #9791A1;
+    z-index: 1;
+}
+
+.article-grid > .article-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-grid > .article-media-container{
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    background-color: aquamarine;
+}
+
+.article-grid > .article-content-container{
+    grid-column: 2 / 5;
+    grid-row: 3 / 5;
+    background-color: #9791A1;
+}
+
+.article-content-container .article-title{
+    font-size: 1.6em;
+    color: black;
+}
+
+.article-content-container .dashed-line{
+    width: 50%;
+    height: 3px;
+
+    /*Generator: https://kovart.github.io/dashed-border-generator*/
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='7' stroke-dasharray='20%2c 20%2c 2' stroke-dashoffset='8' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.article-content-container .article-published-datetime{
+    padding-top: 10px;
+}
+
+.article-content-container .article-category{
+    font-size: 1.3em;
+}
+
+.article-media-container{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 220px;
+}
+
+.article-media-container .volume-big-screen-leftside-container{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: #9791A1;
+}
+
+.article-media-container .track-rightside-container{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background-color: #D8CAED;
+}
+
+.volume-big-screen-leftside-container img{
+    height: 170px;
+    width: 170px;
+    margin-left: 10px;
+}
+
+.slider-container input[type='range']{
+    display: none;
+}
+
+.slider-container .slider-outer{
+    position: relative;
+    border: 3px solid #3A3A3A;
+    background-color: #EDD3B2;
+}
+
+.slider-container .slider-outer .slider-inner{
+    position: absolute;
+    background-color: #A19689;
+    cursor: pointer;
+}
+
+#volume-left-slider .slider-outer .slider-inner{
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#volume-left-slider{
+    height: 90%;
+}
+
+#volume-left-slider .slider-outer{
+    height: 100%;
+    width: 12px;
+}
+
+#volume-left-slider .slider-outer .slider-inner .slider-point{
+    margin-left: -7px;
+}
+
+.slider-container .slider-outer .slider-inner .slider-point{
+    height: 20px;
+    width: 20px;
+    border: 3px solid #3A3A3A;
+    background-color: #CAEDD1;
+}
+
+.slider-container .slider-outer .slider-inner .slider-point.controlable-point{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slider-container .slider-outer .slider-inner .slider-point.controlable-point .line{
+    height: 1px;
+    width: 80%;
+    background-color: #3A3A3A;
+}
+
+.track-rightside-container .track-name{
+    color: black;
+    font-size: 1.3em;
+}
+
+.track-rightside-container .track-direction-btn{
+    background-color: #CAEDD1;
+    width: 120px;
+}
+
+#duration-slider{
+    width: 70%;
+}
+
+#duration-slider .slider-outer{
+    width: 100%;
+    height: 12px;
+}
+
+#duration-slider .slider-outer .slider-inner{
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#duration-slider .slider-outer .slider-point{
+    margin-top: -7px;
+}
+
+#volume-right-slider{
+    width: 70%;
+}
+
+#volume-right-slider .slider-outer{
+    width: 100%;
+    height: 12px;
+}
+
+#volume-right-slider .slider-outer .slider-inner{
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#volume-right-slider .slider-outer .slider-point{
+    margin-top: -7px;
+}
+
+#play-toggle-checkbox{
+    display: none;
+}
+
+#play-toggle{
+    position: relative;
+}
+
+#toggle-container{
+    width: 120px;
+    height: 40px;
+    background-color: #E74C3C;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#toggle-container:before{
+    content: 'Stop';
+    font-family: FVF-Fernando;
+}
+
+#play-toggle-checkbox:checked + #toggle-container{
+    background-color: #66872E;
+}
+
+#play-toggle-checkbox:checked + #toggle-container:before{
+    content: 'Play';
+}
+
+.article-content{
+    line-height: 2.2em;
+}
+
+.article-content img{
+    border-width: 2px 2px 3px 2px;
+    border-color: #3A3A3A;
+    border-style: solid;
+    box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.3);
+    max-width: 100% !important;
+    object-fit: contain;
+}
+
+body.dark-mode .article-cover{
+    background: #382039;
+}
+
+body.dark-mode .volume-big-screen-leftside-container{
+    background-color: #263859;
+}
+
+body.dark-mode .track-rightside-container{
+    background-color: #382039;
+}
+
+body.dark-mode .track-rightside-container .track-name,
+body.dark-mode #current-song-time,
+body.dark-mode #song-duration{
+    color: #EEE9E3;
+}
+
+body.dark-mode .article-content-container{
+    background-color: #263859;
+}
+
+body.dark-mode .article-content-container *{
+    color: #EEE9E3;
+}
+
+/*Animation*/
+.spin-ani{
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin{
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .article-media-container{
+        display: block;
+    }
+
+    .article-media-container > .volume-big-screen-leftside-container{
+        display: none;
+    }
+
+    .article-media-container > .track-rightside-container{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .article-grid{
+        display: block;
+    }
+
+    .article-grid > .article-cover{
+        margin: 10px 0 10px 0;
+        height: 250px;
+    }
+
+    .article-grid > .article-media-container{
+        margin: 10px 0 10px 0;
+        height: auto;
+    }
+
+    .article-grid > .article-media-container .track-rightside-container{
+        padding-bottom: 20px;
+    }
+
+    .track-rightside-container .track-name{
+        font-size: 18px;
+    }
+
+    .track-rightside-container .track-direction-btn{
+        font-size: 15px;
+        width: 35px;
+        height: 35px;
+    }
+
+    #current-song-time, #song-duration{
+        font-size: 10px;
+    }
+}

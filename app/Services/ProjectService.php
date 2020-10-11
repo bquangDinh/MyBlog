@@ -9,7 +9,11 @@ use App\Services\MediaService;
 use URL;
 use Exception;
 
+use Illuminate\Support\Facades\Storage;
+
 class ProjectService{
+    const EXPERIMENT_FOLDER = "experiments";
+
     public static function create_project($request,$author_id){
         $title = $request->project_name;
         $language_id = $request->project_language;
@@ -29,7 +33,7 @@ class ProjectService{
         $project->language_id = $language_id;
         $project->type_id = $type_id;
         $project->author_id = $author_id;
-        
+
         if($cover_id != ""){
             $project->cover_id = $cover_id;
         }else if($cover_file != null){
@@ -41,64 +45,28 @@ class ProjectService{
         $project->description = $description;
         $project->duration = $duration;
 
-        //add project folder source
-        $files = $request->file('project_folder');
+        if($request->is_launchable){
+            $project->project_source_file = $request->launchable_experiment_id;
+        }
 
-        if($request->hasFile('project_folder')){
-            $view_folder = resource_path('views');
-            $folder_name = $request->project_folder_name;
-            $folder_path = $view_folder.'/projects/'.$folder_name;
-            $resource_path = public_path('projects').'/'.$folder_name;
-
-            //find the index.blade.php
-            $isHasIndex = false;
-            foreach($files as $file){
-                if($file->getClientOriginalName() == "index.blade.php"){
-                    $isHasIndex = true;
-                    break;
-                }
-            }
-
-            if(!file_exists($folder_path)){
-                mkdir($folder_path);
-            }
-
-            if(!file_exists($resource_path)){
-                mkdir($resource_path);
-            }
-
-            if($isHasIndex == false){
-                throw new Exception('This folder doesnt contain a index blade file');
-            }
-
-            foreach($files as $file){
-                if($file->getClientOriginalName() == "index.blade.php"){
-                    $file->move($folder_path,"index.blade.php");
-                }else{
-                    $file->move($resource_path, $file->getClientOriginalName());
-                }
-            }
-
-            $project->project_source_file = $folder_name.'/index';
-
-        }else{
-            throw new Exception('File request is empty');
+        if($request->is_github_url){
+            $project->github_url = $request->github_url;
         }
 
         $project->save();
 
         $project_state = new ProjectState;
         $project_state->project_id = $project->id;
-        
+
         if($request->submit_btn == "publish"){
             $project_state->current_state = "Published";
         }else{
             $project_state->current_state = "Saved";
         }
-        
+
         $project_state->save();
 
-        //add music 
+        //add music
         $track_id = $request->track_id;
         $playlist_id = $request->playlist_id;
 
@@ -110,9 +78,9 @@ class ProjectService{
             if($playlist_id != ""){
                 $project_music->playlist_id = $playlist_id;
             }
-            
+
             if($track_id != ""){
-                $article_music->single_track_id = $track_id;
+                $project_music->single_track_id = $track_id;
             }
 
             $project_music->save();
@@ -131,7 +99,7 @@ class ProjectService{
         }
 
         $projects = array();
-        $states = ProjectState::where('current_state',$state)->get();
+        $states = ProjectState::where('current_state',$state)->orderBy('updated_at', 'desc')->get();
         foreach($states as $state){
             array_push($projects,$state->project);
         }

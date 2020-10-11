@@ -52,7 +52,7 @@
                         <button id="previous-song" class="song-direction-btn">
                             <i class="fas fa-backward"></i>
                         </button>
-                        @endif     
+                        @endif
                         <label id="play-toggle" class="px-3" style="display: none">
                             <input type="checkbox">
                             <div>
@@ -67,13 +67,13 @@
                         <button id="next-song" class="song-direction-btn">
                             <i class="fas fa-forward"></i>
                         </button>
-                        @endif     
+                        @endif
                     </div>
                     <div class="row mt-3 pb-4 no-gutters">
                         <div class="col-md-2 col-sm-3 col-10 px-5 px-md-0">
                             <div class="d-flex justify-content-end align-items-center w-100">
                                 <div id="volume-icon">
-                                    <i class="fas fa-volume-up"></i>    
+                                    <i class="fas fa-volume-up"></i>
                                 </div>
                                 <div class="slider-container w-75 px-2" id="volume-slider">
                                     <input type="range" min="0" max="100">

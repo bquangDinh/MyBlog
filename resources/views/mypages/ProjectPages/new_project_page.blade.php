@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-New Project
+New Experiment
 @endsection
 
 @section('css')
@@ -15,7 +15,7 @@ New Project
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">New Project</div>
+    <div class="container-title text-center mt-3">New Experiment</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
         <form id="project-form" action="{{ route('create_project') }}" class="w-100 custom-form" method="POST" enctype="multipart/form-data">
@@ -33,7 +33,7 @@ New Project
                 </div>
                 @enderror
                 <div class="input-field w-100">
-                    <input type="text" name="project_name" class="txt-input" placeholder="Project Name" tabindex="1" required>
+                    <input type="text" name="project_name" class="txt-input" placeholder="Experiment Name" tabindex="1" required>
                 </div>
             </div>
             <div class="form-group w-75">
@@ -53,11 +53,11 @@ New Project
                         <p></p>
                     </div>
                     <div class="select-items">
-                    
+
                     </div>
                     <select name="project_type" id="article-type-select">
                         @foreach($types as $type)
-                        <option value="{{ $type->id }}">{{ $type->name }}</option> 
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -68,7 +68,7 @@ New Project
                         <p></p>
                     </div>
                     <div class="select-items">
-                    
+
                     </div>
                     <select name="project_language" id="article-language-select">
                         @foreach($languages as $language)
@@ -256,6 +256,35 @@ New Project
                 </div>
             </div>
             <div class="form-group w-75">
+                <div class="row">
+                    <div class="col-3 switch-title">
+                        Launchable Experiment?
+                    </div>
+                    <div class="col-9">
+                        <label for="use-folder-switch" class="neumor-switch">
+                            <input type="checkbox" name="is_launchable" id="use-folder-switch">
+                            <div class="outer">
+                                <div class="inner">
+                                    <div class="switch-point"></div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group w-75" id="launchable-exp-textbox" style="display: none">
+                @error('launchable_experiment_id')
+                <div class="error-message-container ml-2 mb-2 w-100">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ $message }}</span>
+                </div>
+                @enderror
+                <div class="input-field w-100">
+                    <input type="text" name="launchable_experiment_id" class="txt-input" placeholder="Experiment's ID" tabindex="1">
+                </div>
+            </div>
+            <!--
+            <div class="form-group w-75" id="selected-folder-container" style="display: none">
                 <div class="folder-container">
                     <div class="d-flex justify-content-between">
                         <div class="mt-3 ml-3">
@@ -282,6 +311,35 @@ New Project
                         </div>
                     </div>
                     @enderror
+                </div>
+            </div>
+        -->
+            <div class="form-group w-75">
+                <div class="row">
+                    <div class="col-3 switch-title">
+                        Include github URL
+                    </div>
+                    <div class="col-9">
+                        <label for="github-url-switch" class="neumor-switch">
+                            <input type="checkbox" name="is_github_url" id="github-url-switch">
+                            <div class="outer">
+                                <div class="inner">
+                                    <div class="switch-point"></div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group w-75" id="github-textbox" style="display: none">
+                @error('is_github_url')
+                <div class="error-message-container ml-2 mb-2 w-100">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ $message }}</span>
+                </div>
+                @enderror
+                <div class="input-field w-100">
+                    <input type="text" name="github_url" class="txt-input" placeholder="Github URL" tabindex="1">
                 </div>
             </div>
             <div class="form-group w-75">

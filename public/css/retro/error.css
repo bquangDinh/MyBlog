@@ -1,0 +1,44 @@
+.error-container{
+    width: 100%;
+    height: calc(100vh - 55px);
+    position: relative;
+}
+
+.text-404{
+    font-size: 150px;
+}
+
+.text-idk{
+    font-size: 50px;
+}
+
+.pop-up-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.pop-up{
+    height: 250px;
+    background-color: #D8CAED;
+    position: relative;
+}
+
+#close-pp-btn{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+@media screen and (max-width: 800px){
+    .text-404{
+        font-size: 100px;
+    }
+
+    .text-idk{
+        font-size: 20px;
+    }
+}
