@@ -5,7 +5,7 @@ Edit Articles
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/edit_article_manager.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Articles/edit_article_manager.css') }}">
 @endsection
 
 @section('main-content')
@@ -19,10 +19,10 @@ Edit Articles
         </form>
         <div class="trash-can-container">
             <div class="trash-can-container__inner dropzone" id="trash-can">
-            <div class="trash-can-bottom-layer d-flex justify-content-center align-items-center">
-            <i class="far fa-trash-alt"></i>
-            </div>    
-            <div class="trash-can-upper-layer d-flex justify-content-center align-items-center hide">
+                <div class="trash-can-bottom-layer d-flex justify-content-center align-items-center">
+                    <i class="far fa-trash-alt"></i>
+                </div>    
+                <div class="trash-can-upper-layer d-flex justify-content-center align-items-center hide">
                     <i class="far fa-trash-alt"></i>
                 </div>
             </div>

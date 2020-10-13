@@ -5,7 +5,7 @@ View Article
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/view_article.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Articles/view_article.css') }}">
 @endsection
 
 @section('main-content')

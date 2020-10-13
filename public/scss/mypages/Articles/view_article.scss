@@ -1,0 +1,125 @@
+@use '../Base/base' as base;
+
+/*VARIABLES*/
+$saved-status-color: #3EA2E1;
+$published-status-color: #70CE5A;
+$hided-status-color: #F55F5E;
+/*---------*/
+
+
+.table-container{
+    height: 95%;
+    width: 95%;
+    scrollbar-color: #3E4251 #e8ebed;
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e8ebed;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3E4251;
+    border-radius: 3px;
+}
+
+#viewing-table{
+    &{
+        width: 100%;
+        height: auto;
+        border-collapse: separate;
+        border-spacing: 0 25px;
+    }
+
+    thead{
+        &{
+            font-family: Nunito-Regular;
+            color: base.$text-clr;
+            text-align: center;
+            height: 60px;
+        }
+
+        th{
+            &{
+                @include base.neumorphism(
+                    12px,
+                    base.$neumorphism-base-color,
+                    base.$neumorphism-shadow-tl-color,
+                    base.$neumorphism-shadow-br-color
+                );
+            }
+
+            &:first-child{
+                border-radius: 10px 0px 0px 10px;
+            }
+
+            &:last-child{
+                border-radius: 0px 10px 10px 0px;
+            }
+        }
+    }
+
+    tbody{
+        tr{
+            td{
+                &{
+                    height: 70px;
+                    font-family: Nunito-Regular;
+                    text-align: center;
+
+                    @include base.neumorphism(
+                        12px,
+                        base.$neumorphism-base-color,
+                        base.$neumorphism-shadow-tl-color,
+                        base.$neumorphism-shadow-br-color
+                    );
+                }
+
+                &:first-child{
+                    font-family: Nunito-Bold;
+                    border-radius: 10px 0px 0px 10px;
+                }
+
+                &:last-child{
+                    border-radius: 0px 10px 10px 0px;
+                }
+
+                &.status{
+                    &{
+                        position: relative;
+                        font-family: Nunito-Bold;
+                    }
+
+                    &:before{
+                        position: absolute;
+                        top: 23px;
+                        right: 20px;
+                        font-family: "Font Awesome 5 Free"; 
+                        font-weight: 900;
+                        font-size: 1.3em;
+                    }
+
+                    &[data-status='Saved']:before{
+                        content: '\f0c7';
+                        color: $saved-status-color;
+                    }
+
+                    &[data-status='Published']::before{
+                        content: '\f00c';
+                        color: $published-status-color;
+                    }
+
+                    &[data-status='Hided']:before{
+                        content: '\f056';
+                        color: $hided-status-color;
+                    }
+                }
+            }
+        }
+    }
+}

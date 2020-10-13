@@ -27,7 +27,7 @@ const imagePicking = Picking({
             <div class="row h-100">
                 <div class="col-1">
                     <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                        <label class="custom-radio-box">
+                        <label class="radio-box">
                             <input type="radio" name="image_radio" class="image-radio" data-image-id=${data.id}>
                             <span class="checkmark">
                                 <i class="fas fa-check-circle"></i>
@@ -66,7 +66,7 @@ const playlistPicking = Picking({
             <div class="row h-100">
                 <div class="col-1">
                     <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                        <label class="custom-radio-box">
+                        <label class="radio-box">
                             <input type="radio" name="playlist_radio" data-playlist-id=${data.id} class="playlist-radio">
                             <span class="checkmark">
                                 <i class="fas fa-check-circle"></i>
@@ -105,7 +105,7 @@ const singleTrackPicking = Picking({
             <div class="row h-100">
                 <div class="col-1">
                     <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                        <label class="custom-radio-box">
+                        <label class="radio-box">
                             <input type="radio" name="singletrack_radio" data-track-id="${data.id}" class="singletrack-radio">
                                 <span class="checkmark">
                                     <i class="fas fa-check-circle"></i>

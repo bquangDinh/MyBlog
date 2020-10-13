@@ -5,11 +5,11 @@
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/new_article.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Articles/new_article.css') }}">
 @endsection
 
 @section('main-content')
-<div class="new-article-container container animated slideInUp">
+<div class="new-article-container main-container animated slideInUp">
     <div class="point-deep-shadow" style="top: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
@@ -17,7 +17,7 @@
     <div class="container-title text-center mt-3">Edit Article</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
-        <form id="article-form" action="{{ route('update_article') }}" class="w-100 custom-form" method="POST" enctype="multipart/form-data">
+        <form id="article-form" action="{{ route('update_article') }}" class="w-100 flex-form" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="text" name="article_id" value="{{ $article->id }}" style="display: none">
             <input type="text" name="cover_id" id="selected-image-id-input" value="{{ $article->cover_id }}" style="display: none">
@@ -35,8 +35,8 @@
                     <span>{{ $message }}</span>
                 </div>
                 @enderror
-                <div class="input-field w-100">
-                    <input type="text" name="article_name" class="txt-input" placeholder="Article Name" tabindex="1" value="{{ $article->title }}" required>
+                <div class="text-field w-100">
+                    <input type="text" name="article_name" placeholder="Article Name" tabindex="1" value="{{ $article->title }}" required>
                 </div>
             </div>
             <div class="form-group w-75">
@@ -46,12 +46,12 @@
                     <span>{{ $message }}</span>
                 </div>
                 @enderror
-                <div class="input-field w-100">
-                    <input type="text" name="description" class="txt-input" placeholder="Description" tabindex="2" value="{{ $article->description }}">
+                <div class="text-field w-100">
+                    <input type="text" name="description" placeholder="Description" tabindex="2" value="{{ $article->description }}">
                 </div>
             </div>
             <div class="form-group w-75">
-                <div class="custom-select-field">
+                <div class="select-field">
                     <div class="select-selected" tabindex="2">
                         <p></p>
                     </div>
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="form-group w-75">
-                <div class="custom-select-field">
+                <div class="select-field">
                     <div class="select-selected" tabindex="3">
                         <p></p>
                     </div>
@@ -139,8 +139,8 @@
                 </div>
             </div>
             <div class="form-group w-75">
-                <div class="picking-form">
-                    <div id="cover-form" class="picking-form-container hide">
+                <div class="picking-form-container">
+                    <div id="cover-form" class="picking-form hide">
                         <div class="tab-container d-flex justify-content-center">
                             <div class="tab-outer mt-3" style="width: 50%">
                                 <div class="tab-slider" style="width: 40%;"></div>
@@ -163,7 +163,7 @@
                             </div>
                         </div>
                         <div class="panel-content w-100">
-                            <div id="database-picking-form" class="form-child w-100 d-flex justify-content-center align-items-center flex-column">
+                            <div id="database-picking-form" class="picking-form-main w-100 d-flex justify-content-center align-items-center flex-column">
                                 <div id="image-records" style="width: 90%">
                                 </div>
                                 <div class="picking-form-direction w-100 mt-3 mb-3 d-flex justify-content-end">
@@ -178,17 +178,17 @@
                                     </button>
                                 </div>
                             </div>
-                            <div id="computer-picking-form" class="form-hided form-child">
+                            <div id="computer-picking-form" class="picking-form-main hide">
                                 <div class="mt-3 w-100 d-flex justify-content-center align-items-center flex-column">
                                     <div class="w-100 d-flex justify-content-around file-info-container">
                                         <div>Name: <span id="file-name">None</span></div>
                                         <div>Ext: <span id="file-extension">None</span></div>
                                         <div>Size: <span id="file-size">None</span></div>
                                     </div>
-                                    <div id="cp-form-outer" class="mt-3">
-                                       <div id="cp-form-inner">
+                                    <div id="cp-form-outer" class="mt-3 drag-container">
+                                       <div id="cp-form-inner" class="drag-container__inner">
                                             <input type="file" id="cover-file" style="display: none" name="cover_file">
-                                           <div id="droppable-file-zone" class="d-flex justify-content-center align-items-center">
+                                           <div id="droppable-file-zone" class="droppable-zone d-flex justify-content-center align-items-center">
                                                 <i class="fas fa-plus"></i>
                                            </div>
                                        </div>
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="music-form" class="w-100 h-100 picking-form-container hide">
+                    <div id="music-form" class="w-100 h-100 picking-form hide">
                         <div class="tab-container d-flex justify-content-center">
                             <div class="tab-outer mt-3" style="width: 50%">
                                 <div class="tab-slider" style="width: 40%"></div>
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         <div class="panel-content w-100">
-                            <div id="playlist-picking-form" class="form-child w-100 d-flex justify-content-center align-items-center flex-column">
+                            <div id="playlist-picking-form" class="picking-form-main w-100 d-flex justify-content-center align-items-center flex-column">
                                 <div id="playlist-records" style="width: 90%">
                                 </div>
                                 <div class="picking-form-direction w-100 mt-3 mb-3 d-flex justify-content-end">
@@ -247,7 +247,7 @@
                                 </div>
                             </div>
 
-                            <div id="singletrack-picking-form" class="form-child form-hided d-flex justify-content-center align-items-center flex-column">
+                            <div id="singletrack-picking-form" class="picking-form-main hide d-flex justify-content-center align-items-center flex-column">
                                 <div id="singletrack-records" style="width: 90%">
                                 </div>
                                 <div class="picking-form-direction w-100 mt-3 mb-3 d-flex justify-content-end">
@@ -300,5 +300,5 @@
 <script src="https://cdn.tiny.cloud/1/j3z8kdc0di1465wji07upkwwuc7exvti07rixz2ewht51abv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ URL::asset('js/vendors/smooth-scrollbar.js') }}" charset="utf-8"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script src="{{ URL::asset('js/mypages/update_article.js') }}"></script>
+<script type="module" src="{{ URL::asset('js/mypages/update_article.js') }}"></script>
 @endsection
