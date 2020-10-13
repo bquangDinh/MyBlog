@@ -1,0 +1,343 @@
+@use '../Base//base' as base;
+@use '../Base/form' as form;
+
+*{
+    @extend %noselect;
+}
+
+/*Picking Button*/
+.picking-container{
+    &{
+        position: relative;
+        width: 180px;
+        height: 80px;
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            5px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color,
+        );
+    }
+
+    //tick
+    .used-icon{
+        display: none;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: #E6EBF0;
+    }
+
+    &.used{
+        &{
+            background-color: #70CE5A;
+        }
+
+        .used-icon{
+            display: block;
+        }
+
+        .picking-container-name{
+            color: #E6EBF0;
+        }
+    }
+
+    .picking-container-name{
+        font-family: Nunito-Regular;
+        font-size: 1.2em;
+        color: base.$text-clr;
+    }
+
+    .picking-btn-container{
+        &{
+            height: 80px;
+            width: 80px;
+        }
+
+        &__inner{
+            &{
+                height: 60px;
+                width: 60px;
+                border-radius: 5px;
+
+                @include base.neumorphism-inset(
+                    5px,
+                    base.$neumorphism-base-color,
+                    base.$neumorphism-shadow-tl-color,
+                    base.$neumorphism-shadow-br-color
+                );
+            }
+
+            .picking-btn{
+                &{
+                    height: 80%;
+                    width: 80%;
+                    border-radius: 5px;
+                    color: base.$text-clr;
+                    border: 1px dashed base.$text-clr;
+                }
+
+                &.active{
+                    border: 2px solid #2ecc71;
+                }
+            }
+        }
+    }
+}
+
+/*Picking Form*/
+.picking-form-container{
+    &{
+        width: 100%;
+        height: auto;
+    
+        @extend %neumorphism-border-form-field;
+    
+        border-radius: 10px;
+    
+        @include base.neumorphism(
+            11px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    .picking-form{
+        &.hide{
+            display: none !important;
+        }
+
+        .picking-form-main{
+            &.hide{
+                display: none !important;
+            }
+
+            .record{
+                &{
+                    width: 100%;
+                    height: 50px;
+                    
+                    @extend %neumorphism-border-form-field;
+                    
+                    @include base.neumorphism(
+                        5px,
+                        base.$neumorphism-base-color,
+                        base.$neumorphism-shadow-tl-color,
+                        base.$neumorphism-shadow-br-color
+                    );
+                }
+            }
+            
+            .radio-box{
+                &{
+                    position: relative;
+                }
+            
+                input{
+                    display: none;
+                }
+            
+                .checkmark{
+                    &{
+                        position: absolute;
+                        top: -3px;
+                        left: 0;
+                        height: 15px;
+                        width: 15px;
+                        cursor: pointer;
+                        border-radius: 50%;
+                        
+                        @include base.neumorphism-inset(
+                            5px,
+                            base.$neumorphism-base-color,
+                            base.$neumorphism-shadow-tl-color,
+                            base.$neumorphism-shadow-br-color
+                        );
+                    }
+            
+                    i{
+                        display: none;
+                        color: #70CE5A;
+                    }
+                }
+            
+                input[type='radio']:checked + .checkmark i{
+                    display: block;
+                }
+            }
+            
+            .pagination{
+                &{
+                    width: 100%;
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    list-style: none;
+                }
+            
+                li{
+                    &{
+                        margin: 10px;
+                    
+                        @extend %centered-container;
+            
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 7px;
+                        
+                        @include base.neumorphism(
+                            5px,
+                            base.$neumorphism-base-color,
+                            base.$neumorphism-shadow-tl-color,
+                            base.$neumorphism-shadow-br-color
+                        );
+                    }
+            
+                    i{
+                        color: base.$text-clr;
+                    }
+                }
+            }
+
+            .picking-form-direction{
+                .direction-btn{
+                    font-family: Nunito-Bold;
+                    font-size: 14px;
+                    height: 40px;
+                    width: 150px;
+                    border-radius: 10px;
+                    
+                    @include base.neumorphism(
+                        6px,
+                        base.$neumorphism-base-color,
+                        base.$neumorphism-shadow-tl-color,
+                        base.$neumorphism-shadow-br-color
+                    );
+                }
+            
+                button[data-direction='cancel'],button[data-direction='notused']{
+                    color: #ED5B5B;
+                    transition: background-color .3s;
+                }
+            
+                button[data-direction='cancel']:hover,button[data-direction='notused']:hover{
+                    color: #F5F7F9;
+                    background-color: #ED5B5B;
+                }
+            
+                button[data-direction='ok']{
+                    &{
+                        background-color: #70CE5A;
+                        color: #F5F7F9;
+                    }
+            
+                    &.disabled{
+                        opacity: 0.5;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+
+    &.hide{
+        display: none;
+    }
+}
+
+/*Tab Section*/
+.tab-outer{
+    &{
+        position: relative;
+        height: 50px;
+
+        @extend %neumorphism-border-form-field;
+
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            11px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    .tab-btn{
+        width: 90%;
+        height: 40px;
+        font-family: Nunito-Regular;
+        font-size: 16px;
+        color: base.$text-clr;
+        border-radius: 15px;
+    }
+
+    .tab-slider{
+        height: 40px;
+        position: absolute;
+        left: 15px;
+        top: 3px;
+        border-radius: 10px;
+        
+        @include base.neumorphism-inset(
+            5px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+}
+
+/*Drag Container*/
+.drag-container{
+    &{
+        width: 90%;
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            6px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    &__inner{
+        &{
+            width: 100%;
+            border-radius: 10px;
+            background-color: base.$neumorphism-base-color;
+        }
+
+        .droppable-zone{
+            height: 250px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+
+            @include base.neumorphism-inset(
+                6px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+
+            background: repeating-linear-gradient(45deg, #F5F7F9, #ecf0f3 15px, #ecf0f3 15px);
+        }
+    }
+}
+
+//overide pagination library style
+.paginationjs-prev.disabled{
+    opacity: 0.7;
+}
+
+.paginationjs-next.disabled{
+    opacity: 0.7;
+}
+

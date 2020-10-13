@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/vendors/bootstrap.min.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ URL::asset('css/admin.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/mypages/Master/admin.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/vendors/sweetalert2.min.css') }}">
         @yield('css')
     </head>
@@ -27,7 +27,7 @@
                 </button>
 
                 <!-- sidebar options -->
-                <div class="w-100 sidebar-options">
+                <div class="w-100 sidebar-options-container">
                     <div class="sidebar-btn-container active">
                         <button class="sidebar-btn active" data-panel-id="dashboard-panel">
                             <i class="fas fa-circle-notch"></i>

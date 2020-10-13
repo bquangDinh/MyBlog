@@ -13,11 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         //$this->call(UsersTableSeeder::class);
         /*Production Seeder*/
-        $this->call(ArticleLanguageSeeder::class);
-<<<<<<< HEAD
-        //$this->call(ArticleTypeSeeder::class);
-=======
+        //$this->call(ArticleLanguageSeeder::class);
         $this->call(ArticleTypeSeeder::class);
->>>>>>> origin/retro
     }
 }

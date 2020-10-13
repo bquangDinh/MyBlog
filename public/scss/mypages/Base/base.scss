@@ -1,0 +1,204 @@
+/*VARIABLES*/
+$font-path-base: '../../../../fonts/';
+$font-nunito: 'Nunito';
+
+$neumorphism-base-color: #F5F7F9;
+$neumorphism-shadow-tl-color: #d0d2d4;
+$neumorphism-shadow-br-color: #ffffff;
+
+$background-color: #E8ECF1;
+$point-deep-shadow-inner-clr: #26272A;
+$top-title-clr: #3E4251;
+$text-clr: #3E4251;
+/*---------*/
+
+
+/*Mixins*/
+@mixin neumorphism($shadow-size, $base-color, $shadow-tl-color, $shadow-br-color) {
+    background-color: $base-color;
+    box-shadow: $shadow-size $shadow-size ($shadow-size * 2)  $shadow-tl-color,
+                ($shadow-size * -1) (-$shadow-size * -1) ($shadow-size * 2) $shadow-br-color;
+}
+
+@mixin neumorphism-inset($shadow-size, $base-color, $shadow-tl-color, $shadow-br-color) {
+    background-color: $base-color;
+    box-shadow: inset $shadow-size $shadow-size ($shadow-size * 2)  $shadow-tl-color,
+                inset ($shadow-size * -1) (-$shadow-size * -1) ($shadow-size * 2) $shadow-br-color;
+}
+/*------*/
+
+/*Typography*/
+@font-face {
+    font-family: Nunito-Black;
+    src: url($font-path-base + $font-nunito + '/Nunito-Black.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-Bold;
+    src: url($font-path-base + $font-nunito + '/Nunito-Bold.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-ExtraBold;
+    src: url($font-path-base + $font-nunito +'/Nunito-ExtraBold.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-Regular;
+    src: url($font-path-base + $font-nunito +'/Nunito-Regular.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-Light;
+    src: url($font-path-base + $font-nunito +'/Nunito-Light.ttf');
+}
+/*--------------*/
+
+/*GENERAL STYLES*/
+body,html{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: $background-color;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+button,input[type='button'],input[type='submit']{
+    cursor: pointer;
+    border: 0;
+}
+  
+button:focus, input:focus, textarea:focus{
+    outline: 0;
+}
+
+button{
+    background: none;
+    border: none;
+}
+/*--------------*/
+
+
+/*UTILITIES*/
+%centered-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%neumorphism-border-form-field{
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+}
+
+%noselect{
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+.row.no-gutters{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class^=" col-"]{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.point-deep-shadow{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 0;
+    position: absolute;
+    
+    @include neumorphism(
+        6px, 
+        $neumorphism-base-color, 
+        $neumorphism-shadow-tl-color, 
+        $neumorphism-shadow-br-color
+        );
+}
+
+.point-deep-shadow:after{
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: $point-deep-shadow-inner-clr;
+}
+
+.main-container{
+    width: 95%;
+    height: 95%;
+    position: relative;
+    border-radius: 20px;
+    
+    @include neumorphism(
+        10px, 
+        $neumorphism-base-color, 
+        $neumorphism-shadow-tl-color, 
+        $neumorphism-shadow-br-color
+        );
+}
+
+.main-container .top-title{
+    font-family: Nunito-Bold;
+    font-size: 2em;
+    color: $top-title-clr;
+}
+
+.disable-scrollbars::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+/*Tippy box settings*/
+.tippy-box[data-theme~='neumorphism'] {
+    color: #3E4251;
+    font-family: Nunito-Bold;
+    padding: 5px;
+    border-radius: 10px;
+    background: #F5F7F9;
+    box-shadow:  5px 5px 10px #d0d2d4, 
+             -5px -5px 10px #ffffff;
+}
+
+.tippy-box[data-theme~='neumorphism'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: $neumorphism-base-color;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-top-color: $neumorphism-base-color;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='left'] > .tippy-arrow::before {
+    border-top-color: $neumorphism-base-color;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='right'] > .tippy-arrow::before {
+    border-top-color: $neumorphism-base-color;
+}
+/*----END UTILITIES-----*/

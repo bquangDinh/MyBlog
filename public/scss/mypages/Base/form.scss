@@ -1,0 +1,367 @@
+@use 'base' as base;
+
+/*FORM UTILITIES*/
+.form-container{
+    overflow: auto;
+    height: 80%;
+}
+
+.flex-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*FORM > text field*/
+.text-field{
+    &{
+        height: 70px;
+
+        @extend %centered-container;
+        @extend %neumorphism-border-form-field;
+
+        transition: all .4s;
+        
+        @include base.neumorphism(
+            5px, 
+            base.$neumorphism-base-color, 
+            base.$neumorphism-shadow-tl-color, 
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    &:hover{
+        @include base.neumorphism(
+            21px, 
+            base.$neumorphism-base-color, 
+            base.$neumorphism-shadow-tl-color, 
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    &:focus-within{
+        @include base.neumorphism-inset(
+            5px, 
+            base.$neumorphism-base-color, 
+            base.$neumorphism-shadow-tl-color, 
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    input[type='text']{
+        height: 100%;
+        width: 90%;
+        border: 0;
+        background-color: transparent;
+        font-family: Nunito-Regular;
+        font-size: 20px;
+        color: base.$text-clr;;
+    }
+}
+
+/*Form > select field*/
+.select-field{
+    &{
+        position: relative;
+        font-family: Nunito-Bold;
+        letter-spacing: 1px;
+        font-size: 1.2em;
+        height: 70px;
+        
+        @extend %neumorphism-border-form-field;
+
+        @include base.neumorphism(
+            5px, 
+            base.$neumorphism-base-color, 
+            base.$neumorphism-shadow-tl-color, 
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    &:hover{
+        @include base.neumorphism(
+            21px, 
+            base.$neumorphism-base-color, 
+            #b7c3cf, 
+            #f7ffff
+        );
+    }
+
+    select{
+        display: none;
+    }
+
+    .select-selected{
+        &{
+            height: 70px;
+            color: #49ADE6;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        &:after{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            content: "\f107";
+            font-size: 1.5em;
+            position: absolute;
+            top: 12px;
+            right: 26px;
+        }
+
+        &:focus{
+            outline: 0;
+    
+            @include base.neumorphism-inset(
+                12px, 
+                base.$neumorphism-base-color, 
+                #b7c3cf, 
+                #f7ffff
+            );
+        }
+
+        &.select-arrow-active:after{
+            content: "\f106";
+        }
+
+        p{
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+    }
+
+    .select-items{
+        &{
+            position: absolute;
+            top: 120%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+
+            @extend %neumorphism-border-form-field;
+
+            border-radius: 20px;
+
+            @include base.neumorphism(
+                12px, 
+                base.$neumorphism-base-color, 
+                base.$neumorphism-shadow-tl-color, 
+                base.$neumorphism-shadow-br-color
+            );
+        }
+
+        & div{
+            &{
+                background-color: #F5F7F9;
+                border-radius: 5px;
+                padding: 10px;
+                color: base.$text-clr;
+                cursor: pointer;
+            }
+
+            &:first-child{
+                margin-top: 10px;
+            }
+
+            &:last-child{
+                margin-bottom: 10px;
+            }
+
+            &:hover:not(.same-as-selected){
+                background-color: #e8f1fa;
+                color: #49ADE6; 
+            }
+        }
+
+        &.hide{
+            display: none;
+        }
+
+        .same-as-selected{
+            background-color: #D7E5F3;
+            color: #49ADE6;
+        }
+    }
+}
+
+/* FORM > text area field */
+.textarea-field{
+    &{
+        min-height: 350px;
+
+        @extend %neumorphism-border-form-field;
+
+        @include base.neumorphism(
+            5px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    &__inner{
+        margin: 10px;
+        height: 100%;
+    }
+}
+
+/* FORM > drop zone */
+.dropzone-field__outer{
+    &{
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            6px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    &__inner{
+        &{
+            width: 100%;
+            border-radius: 10px;
+            background: base.$neumorphism-base-color;
+        }
+
+        input[type='file']{
+            display: none;
+        }
+    }
+
+    .dropzone-field{
+        &{
+            height: 250px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            
+            @extend %centered-container;
+
+            @include base.neumorphism-inset(
+                6px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+
+            //will fall back to base color when on older browers if gradient doesn't work
+            background: repeating-linear-gradient(45deg, #F5F7F9, #ecf0f3 15px, #ecf0f3 15px);
+        }
+
+        i{
+            font-size: 2em;
+            color: base.$text-clr;
+        }
+    }
+}
+
+/* FORM > folder  */
+.folder-field{
+    &{
+        height: auto;
+        width: 100%;
+        
+        @extend %neumorphism-border-form-field;
+
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            7px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    input[type='file']{
+        display: none;
+    }
+
+    .folder-icon{
+        color: #5964FF;
+        font-size: 2.5em;
+    }
+
+    .upload-folder-btn{
+        margin-top: 15px;
+        width: 40px;
+        height: 40px;
+        color: base.$text-clr;
+
+        @extend %neumorphism-border-form-field;
+
+        border-radius: 5px;
+        
+        @include base.neumorphism(
+            5px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    .folder-name{
+        color: base.$text-clr;
+        font-family: Nunito-Bold;
+        font-size: 1.1em;
+    }
+
+    .folder-count-files{
+        color: rgba(62, 66, 81, 0.664);
+        font-family: Nunito-Regular;
+        font-size: 16px;
+    }
+
+    .folder-additional-message{
+        width: 90%;
+        height: auto;
+
+        @extend %neumorphism-border-form-field;
+
+        border-radius: 5px;
+
+        @include base.neumorphism(
+            5px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+}
+
+.form-submit-btn{
+    &{
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        font-family: Nunito-Bold; 
+        transition: all .4s;
+        
+        @include base.neumorphism(
+            6px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    &[value="save"]{
+        @include base.neumorphism(
+            3px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+
+        background-color: #70CE5A;
+    }
+}
+/*--------------*/
