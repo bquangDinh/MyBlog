@@ -1,0 +1,28 @@
+@use '../Base/base';
+@use '../Base/form';
+
+.dropzone-field__outer{
+    .dropzone-field__inner{
+        .dropzone-field{
+            &.highlighted{
+                border: 2px solid #70CE5A;
+                background: repeating-linear-gradient(45deg, #F5F7F9, #70CE5A 15px,#70CE5A 15px, #F5F7F9 15px);
+                opacity: 0.5;
+            }
+        }
+
+        input[type='file']{
+            display: none;
+        }
+    }
+}
+
+.file-info-container{
+    &{
+        font-family: Nunito-Regular;
+    }
+
+    span{
+        font-family: Nunito-Bold;
+    }
+}

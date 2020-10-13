@@ -1,5 +1,9 @@
 @use 'base' as base;
 
+/*VARIABLES*/
+$error-message-color: #e74c3c;
+/*---------*/
+
 /*FORM UTILITIES*/
 .form-container{
     overflow: auto;
@@ -363,5 +367,75 @@
 
         background-color: #70CE5A;
     }
+}
+
+.error-message-container{
+    &{
+        font-family: Nunito-Bold;
+    }
+
+    i{
+        color: $error-message-color;
+    }
+}
+
+.neumor-switch{
+    input[type='checkbox']{
+        &{
+            display: none;
+        }
+
+        &:checked + .outer .inner .switch-point{
+            transform: translateX(58px);
+        }
+
+        &:checked + .outer .inner{
+            background-color: #40ADFF;
+        }
+    }
+
+    .outer{
+        &{
+            width: 100px;
+            height: 40px;
+            border-radius: 30px;
+
+            @include base.neumorphism(
+                5px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+        }
+
+        .inner{
+            &{
+                width: 100%;
+                height: 100%;
+                border-radius: 30px;
+                background-color: #CED6DF;
+                position: relative;
+                transition: background-color .5s;
+            }
+
+            .switch-point{
+                width: 35px;
+                height: 35px;
+                border-radius: 25px;
+                position: absolute;
+                top: 2px;
+                left: 3px;
+                transform: translateX(0);
+                transition: transform .5s;
+                cursor: pointer;
+                background: base.$neumorphism-base-color
+            }
+        }
+    }
+}
+
+.switch-title{
+    font-family: Nunito-Regular;
+    font-size: 1.2em;
 }
 /*--------------*/

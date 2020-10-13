@@ -1,0 +1,104 @@
+@use '../Base/base' as base;
+
+*{
+    @extend %noselect;
+}
+
+.playlist-container{
+    &{
+        width: 90%;
+        height: 60px;
+        
+        @extend %neumorphism-border-form-field;
+
+        @include base.neumorphism(
+            8px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    .playlist-name{
+        font-family: Nunito-Bold;
+        color: base.$text-clr;
+        font-size: 18px;
+    }
+
+    .edit-playlist-btn{
+        font-family: Nunito-Bold;
+        width: 120px;
+        height: 40px;
+        
+        @extend %neumorphism-border-form-field;
+
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            6px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+}
+
+.playlist-detail-panel{
+    .track-record{
+        &{
+            height: 50px;
+            
+            @extend %neumorphism-border-form-field;
+
+            @include base.neumorphism(
+                8px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+        }
+
+        .track-name,.track-type{
+            color: base.$text-clr;
+        }
+
+        .track-type{
+            font-family: Nunito-Regular;
+            font-size: 18px;
+        }
+
+        .track-name{
+            font-family: Nunito-Bold;
+            font-size: 1.2em;
+        }
+
+        .play-track-toggle{
+            input[type='checkbox']{
+                &{
+                    display: none;
+                }
+
+                &:checked + div:after{
+                    content: '\f04c';
+                }
+            }
+
+            div{
+                &{
+                    padding-top: 8px;
+                }
+
+                &:after{
+                    font-family: "Font Awesome 5 Free"; 
+                    font-weight: 900;
+                    content: "\f04b";
+                    color: #455478;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+            }
+
+
+        }
+    }
+}

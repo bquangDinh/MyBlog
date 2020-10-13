@@ -153,7 +153,7 @@ function initPlaylist(){
     player = new Player(trackList);
 }
 
-$(document).ready(function(e){
+$(function(){
     $(".playlists").attachDragger();
     initPlaylist();
 });

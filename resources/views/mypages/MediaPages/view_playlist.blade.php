@@ -5,7 +5,7 @@ View playlist
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/view_playlist.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Medias/view_playlist.css') }}">
 @endsection
 
 @section('main-content')
@@ -79,5 +79,5 @@ View playlist
 @section('js')
 <script src="{{ URL::asset('js/vendors/howler.min.js') }}"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script src="{{ URL::asset('js/mypages/view_playlist.js') }}"></script>
+<script src="{{ URL::asset('js/mypages/Medias/view_playlist.js') }}"></script>
 @endsection

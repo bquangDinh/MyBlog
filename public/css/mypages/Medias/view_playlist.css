@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/*VARIABLES*/
+/*---------*/
+/*Mixins*/
+/*------*/
+/*Typography*/
+@font-face {
+  font-family: Nunito-Black;
+  src: url("../../../../fonts/Nunito/Nunito-Black.ttf");
+}
+@font-face {
+  font-family: Nunito-Bold;
+  src: url("../../../../fonts/Nunito/Nunito-Bold.ttf");
+}
+@font-face {
+  font-family: Nunito-ExtraBold;
+  src: url("../../../../fonts/Nunito/Nunito-ExtraBold.ttf");
+}
+@font-face {
+  font-family: Nunito-Regular;
+  src: url("../../../../fonts/Nunito/Nunito-Regular.ttf");
+}
+@font-face {
+  font-family: Nunito-Light;
+  src: url("../../../../fonts/Nunito/Nunito-Light.ttf");
+}
+/*--------------*/
+/*GENERAL STYLES*/
+body, html {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #E8ECF1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input[type=button], input[type=submit] {
+  cursor: pointer;
+  border: 0;
+}
+
+button:focus, input:focus, textarea:focus {
+  outline: 0;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+/*--------------*/
+/*UTILITIES*/
+.playlist-container, .playlist-container .edit-playlist-btn, .playlist-detail-panel .track-record {
+  border-width: 2px 0px 0px 2px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px;
+}
+
+* {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome, Opera and Firefox */
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row.no-gutters > [class^=col-],
+.row.no-gutters > [class^=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.point-deep-shadow {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 0;
+  position: absolute;
+  background-color: #F5F7F9;
+  box-shadow: 6px 6px 12px #d0d2d4, -6px 6px 12px #ffffff;
+}
+
+.point-deep-shadow:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #26272A;
+}
+
+.main-container {
+  width: 95%;
+  height: 95%;
+  position: relative;
+  border-radius: 20px;
+  background-color: #F5F7F9;
+  box-shadow: 10px 10px 20px #d0d2d4, -10px 10px 20px #ffffff;
+}
+
+.main-container .top-title {
+  font-family: Nunito-Bold;
+  font-size: 2em;
+  color: #3E4251;
+}
+
+.disable-scrollbars::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+/*Tippy box settings*/
+.tippy-box[data-theme~=neumorphism] {
+  color: #3E4251;
+  font-family: Nunito-Bold;
+  padding: 5px;
+  border-radius: 10px;
+  background: #F5F7F9;
+  box-shadow: 5px 5px 10px #d0d2d4, -5px -5px 10px #ffffff;
+}
+
+.tippy-box[data-theme~=neumorphism][data-placement^=top] > .tippy-arrow::before {
+  border-top-color: #F5F7F9;
+}
+
+.tippy-box[data-theme~=tomato][data-placement^=bottom] > .tippy-arrow::before {
+  border-top-color: #F5F7F9;
+}
+
+.tippy-box[data-theme~=tomato][data-placement^=left] > .tippy-arrow::before {
+  border-top-color: #F5F7F9;
+}
+
+.tippy-box[data-theme~=tomato][data-placement^=right] > .tippy-arrow::before {
+  border-top-color: #F5F7F9;
+}
+
+/*----END UTILITIES-----*/
+.playlist-container {
+  width: 90%;
+  height: 60px;
+  background-color: #F5F7F9;
+  box-shadow: 8px 8px 16px #d0d2d4, -8px 8px 16px #ffffff;
+}
+.playlist-container .playlist-name {
+  font-family: Nunito-Bold;
+  color: #3E4251;
+  font-size: 18px;
+}
+.playlist-container .edit-playlist-btn {
+  font-family: Nunito-Bold;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #F5F7F9;
+  box-shadow: 6px 6px 12px #d0d2d4, -6px 6px 12px #ffffff;
+}
+
+.playlist-detail-panel .track-record {
+  height: 50px;
+  background-color: #F5F7F9;
+  box-shadow: 8px 8px 16px #d0d2d4, -8px 8px 16px #ffffff;
+}
+.playlist-detail-panel .track-record .track-name, .playlist-detail-panel .track-record .track-type {
+  color: #3E4251;
+}
+.playlist-detail-panel .track-record .track-type {
+  font-family: Nunito-Regular;
+  font-size: 18px;
+}
+.playlist-detail-panel .track-record .track-name {
+  font-family: Nunito-Bold;
+  font-size: 1.2em;
+}
+.playlist-detail-panel .track-record .play-track-toggle input[type=checkbox] {
+  display: none;
+}
+.playlist-detail-panel .track-record .play-track-toggle input[type=checkbox]:checked + div:after {
+  content: "";
+}
+.playlist-detail-panel .track-record .play-track-toggle div {
+  padding-top: 8px;
+}
+.playlist-detail-panel .track-record .play-track-toggle div:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  color: #455478;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=view_playlist.css.map */
