@@ -1,0 +1,67 @@
+@use '../Base/base' as base;
+
+/*VARIABLES*/
+$play-btn-color: #455478;
+/*---------*/
+
+
+*{
+    @extend %noselect;
+}
+
+.track-container{
+    &{
+        width: 90%;
+        height: 50px;
+        
+        @extend %neumorphism-border-form-field;
+
+        border-radius: 10px;
+
+        @include base.neumorphism(
+            8px,
+            base.$neumorphism-base-color,
+            base.$neumorphism-shadow-tl-color,
+            base.$neumorphism-shadow-br-color
+        );
+    }
+
+    .track-name, .track-type{
+        font-family: Nunito-Bold;
+        font-size: 1.2em;
+        color: base.$text-clr;
+    }
+
+    .track-type{
+        font-family: Nunito-Regular;
+        font-size: 18px;
+    }
+
+    .play-track-toggle{
+        input[type='checkbox']{
+            &{
+                display: none;
+            }
+
+            &:checked + div:after{
+                content: '\f04c';
+            }
+        }
+
+        div{
+            &{
+                padding-top: 8px;
+            }
+
+            &:after{
+                font-family: "Font Awesome 5 Free"; 
+                font-weight: 900;
+                content: "\f04b";
+                color: $play-btn-color;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+
+    }
+}

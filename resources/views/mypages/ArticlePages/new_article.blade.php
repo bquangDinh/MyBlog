@@ -286,5 +286,5 @@ New Article
 <script src="https://cdn.tiny.cloud/1/j3z8kdc0di1465wji07upkwwuc7exvti07rixz2ewht51abv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ URL::asset('js/vendors/smooth-scrollbar.js') }}" charset="utf-8"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script type="module" src="{{ URL::asset('js/mypages/new_article.js') }}"></script>
+<script type="module" src="{{ URL::asset('js/mypages/Articles/new_article.js') }}"></script>
 @endsection

@@ -5,16 +5,16 @@ Musics Viewer
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/view_picture.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Medias/view_picture.css') }}">
 @endsection
 
 @section('main-content')
-<div class="picture-whole-container container animated slideInUp">
+<div class="picture-whole-container main-container animated slideInUp">
     <div class="point-deep-shadow" style="top: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">Pictures</div>
+    <div class="top-title text-center mt-3">Pictures</div>
 
     <div class="pictures-container w-100 mt-2 mb-2 disable-scrollbars">
         <div class="row" id="picture-container">
@@ -45,5 +45,5 @@ Musics Viewer
 @endsection
 
 @section('js')
-<script src="{{ URL::asset('js/mypages/view_picture.js') }}"></script>
+<script type="module" src="{{ URL::asset('js/mypages/Medias/view_picture.js') }}"></script>
 @endsection

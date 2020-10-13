@@ -9,12 +9,12 @@ View playlist
 @endsection
 
 @section('main-content')
-<div class="playlists-container container animated slideInUp">
+<div class="playlists-container main-container animated slideInUp">
     <div class="point-deep-shadow" style="top: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">Playlists</div>
+    <div class="top-title text-center mt-3">Playlists</div>
 
     <div class="playlists w-100 mt-2 mb-2 disable-scrollbars d-flex justify-content-center align-items-center flex-column">
         @foreach($playlists as $playlist)

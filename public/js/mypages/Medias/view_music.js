@@ -135,7 +135,7 @@ function initTrackList(){
         //init play toggle event
         let toggle = $(this).find(".play-track-toggle > input").first();
         
-        $(toggle).change(function(e){
+        $(toggle).on('change',function(e){
             if(this.checked){
                 //play this track
                 if(currentTrackCheckBox == null) currentTrackCheckBox = this;
@@ -153,7 +153,7 @@ function initTrackList(){
     player = new Player(tracklist);
 }
 
-$(document).ready(function(e){
+$(function(){
     $(".music-whole-container").attachDragger();
     initTrackList();
 });

@@ -5,16 +5,16 @@ Musics Viewer
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/music_viewer.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Medias/view_music.css') }}">
 @endsection
 
 @section('main-content')
-<div class="music-whole-container container animated slideInUp">
+<div class="music-whole-container main-container animated slideInUp">
     <div class="point-deep-shadow" style="top: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">Tracks List</div>
+    <div class="top-title text-center mt-3">Tracks List</div>
 
     <div class="tracks-list w-100 mt-2 mb-2 disable-scrollbars d-flex justify-content-center align-items-center flex-column">
         @foreach($tracks as $track)
@@ -52,5 +52,5 @@ Musics Viewer
 
 @section('js')
 <script src="{{ URL::asset('js/vendors/howler.min.js') }}"></script>
-<script src="{{ URL::asset('js/mypages/view_music.js') }}"></script>
+<script src="{{ URL::asset('js/mypages/Medias/view_music.js') }}"></script>
 @endsection

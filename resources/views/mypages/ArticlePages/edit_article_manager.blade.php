@@ -85,5 +85,5 @@ Edit Articles
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/plugins/collidable.js"></script>
-<script src="{{ URL::asset('js/mypages/edit_article_manager.js') }}"></script>
+<script src="{{ URL::asset('js/mypages/Articles/edit_article_manager.js') }}"></script>
 @endsection

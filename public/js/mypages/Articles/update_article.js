@@ -1,4 +1,4 @@
-import { NeumorphismSelect, TextEditor, Tab, Picking, DropZone } from '../mypages/Base/form.js';
+import { NeumorphismSelect, TextEditor, Tab, Picking, DropZone } from '../Base/form.js';
 
 /*INTIIALIZE FORM COMPONENTS*/
 const neumorphismSelect = NeumorphismSelect();

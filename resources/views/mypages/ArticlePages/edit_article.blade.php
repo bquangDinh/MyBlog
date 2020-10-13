@@ -14,7 +14,7 @@
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="container-title text-center mt-3">Edit Article</div>
+    <div class="top-title text-center mt-3">Edit Article</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
         <form id="article-form" action="{{ route('update_article') }}" class="w-100 flex-form" method="POST" enctype="multipart/form-data">
@@ -300,5 +300,5 @@
 <script src="https://cdn.tiny.cloud/1/j3z8kdc0di1465wji07upkwwuc7exvti07rixz2ewht51abv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ URL::asset('js/vendors/smooth-scrollbar.js') }}" charset="utf-8"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script type="module" src="{{ URL::asset('js/mypages/update_article.js') }}"></script>
+<script type="module" src="{{ URL::asset('js/mypages/Articles/update_article.js') }}"></script>
 @endsection
