@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-Musics Viewer
+Your galary
 @endsection
 
 @section('css')
@@ -17,7 +17,7 @@ Musics Viewer
     <div class="top-title text-center mt-3">Pictures</div>
 
     <div class="pictures-container w-100 mt-2 mb-2 disable-scrollbars">
-        <div class="row" id="picture-container">
+        <div class="row mx-2" id="picture-container">
             @foreach($images as $image)
             <div class="col-4 my-3">
                 <div class="picture-container d-flex justify-content-center align-items-center">

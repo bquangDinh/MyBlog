@@ -44,6 +44,7 @@ $.fn.attachDragger = function(){
     });
 };
 
+/*Detect which panel are being used by URL*/
 if(typeof URL === "undefined"){
     var parse_query_string = function(query){
       var vars = query.split("&");
@@ -91,8 +92,9 @@ if(typeof URL === "undefined"){
     }
   }
 
-$(document).ready(function(e){
-    $(".sidebar-btn").click(function(){
+//document loaded
+$(function(){
+    $(".sidebar-btn").on('click',function(){
         let panelId = $(this).data("panel-id");
         let parentContainer = $(this).parent();
 
@@ -110,13 +112,15 @@ $(document).ready(function(e){
         $(parentContainer).addClass("active");
     });
 
-    $("#collapse-menu-btn").click(function(e){
+    $("#collapse-menu-btn").on('click',function(e){
         animateCSSJquery($("#open-menubar-btn"), "jackInTheBox",function(){
             $("#open-menubar-btn").show();
         });
+
+        $(".left-container").css('flex','0.0001');
+
         animateCSSJquery($("#menubar"), "slideOutLeft",function(){
             $("#menubar").hide();
-            $("#main-content").css("margin-left","0px");
             $("#open-menubar-btn").show();
         });
     });
@@ -125,24 +129,41 @@ $(document).ready(function(e){
         let that = this;
         $(that).fadeOut("fast");
         $("#menubar").show();
-        $("#main-content").css("margin-left","280px");
+        $(".left-container").css('flex','1');
         animateCSSJquery($("#menubar"), "slideInLeft", function(){  
         });
     });
 
-    $("#close-author-panel-btn").click(function(){
+    $("#close-author-panel-btn").on('click',function(){
+        $(".author-container").css('flex','0.0001');
+        
+        $(".author-panel__inner").fadeOut('fast', function(){
+            $(this).hide();
+            $('.author-animated-item').removeClass('show');
+        });
+
+        $("#author-mini-panel").removeClass("deactive");
+
+        animateCSSJquery($("#author-mini-panel"),"slideInRight");
+
         animateCSSJquery($("#author-panel"), "slideOutRight",function(){
-            $("#author-panel").addClass("deactive");
-            $("#author-mini-panel").removeClass("deactive");
-            animateCSSJquery($("#author-mini-panel"),"slideInRight");
+            $("#author-panel").addClass("deactive");     
         });
     });
 
-    $("#open-author-panel").click(function(){
+    $("#open-author-panel").on('click',function(){
+        $(".author-container").css('flex','1');
+
+        $("#author-panel").removeClass("deactive");
+
+        animateCSSJquery($("#author-panel"), "slideInRight", function(){
+            $(".author-panel__inner").show();
+
+            $(".author-animated-item").addClass('show');
+        });
+
         animateCSSJquery($("#author-mini-panel"), "slideOutRight", function(){
             $("#author-mini-panel").addClass("deactive");
-            $("#author-panel").removeClass("deactive");
-            animateCSSJquery($("#author-panel"), "slideInRight");
         });
     });
 

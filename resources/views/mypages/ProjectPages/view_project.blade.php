@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-View Article
+Your experiments
 @endsection
 
 @section('css')
@@ -26,14 +26,18 @@ View Article
             <col style="width:30%">
         </colgroup>  
         <tbody>
-            @foreach($articles as $article)
+            @foreach($projects as $project)
             <tr>
                 <td>
-                    <a href="{{ route('edit_article',['id' => $article->id]) }}">{{ $article->title }}</a>
+                    <i class="fab fa-github" style="{{ $project->project_source_file ? 'color: #e74c3c' : ''}}"></i>
+                    <i class="fas fa-rocket" style="{{ $project->github_url ? 'color: #e74c3c' : ''}}"></i>
+                    <a href="{{ route('edit_project',['id' => $project->id]) }}">
+                    {{ $project->title }}
+                    </a>
                 </td>
-                <td>{{ $article->type->name }}</td>
-                <td>{{ $article->formattedCreatedAt() }}</td>
-                <td class="status" data-status="{{ $article->state->current_state }}">{{ $article->state->current_state }}</td>
+                <td>{{ $project->type->name }}</td>
+                <td>{{ $project->formattedCreatedAt() }}</td>
+                <td class="status" data-status="{{ $project->state->current_state }}">{{ $project->state->current_state }}</td>
             </tr>
             @endforeach
         </tbody>

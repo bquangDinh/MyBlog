@@ -2,7 +2,7 @@ import { NeumorphismSelect, TextEditor, Tab, Picking, DropZone } from '../Base/f
 
 /*INTIIALIZE FORM COMPONENTS*/
 const neumorphismSelect = NeumorphismSelect();
-neumorphismSelect.initialize();
+neumorphismSelect.initialize(true);
 
 if(tinymce === 'undefined'){
     console.error("No such text editor found. Please add one");

@@ -151,6 +151,8 @@ button{
     position: relative;
     border-radius: 20px;
     
+    transition: width .8s;
+    
     @include neumorphism(
         10px, 
         $neumorphism-base-color, 

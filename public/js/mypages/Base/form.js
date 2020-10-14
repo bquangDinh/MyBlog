@@ -8,7 +8,7 @@ export const NeumorphismSelect = function(_properties){
     var properties = Object.assign(defaultProperties, _properties);
 
     return {
-        initialize: function(){
+        initialize: function(preloaded = false){
             var that = this;
             $(properties.selectContainer).each(function(index){
                 let parent = this;
@@ -29,7 +29,7 @@ export const NeumorphismSelect = function(_properties){
                         let item = $(`<div data-value=${$(option).val()}>${$(option).text()}</div>`);
                         
                         //set default to the first option
-                        if(index === 0){
+                        if(index === 0 && preloaded == false){
                             $(option).prop('selected',true);
                             $(item).addClass('same-as-selected');
                             $(parent).find(properties.selectSelected + ' > p').first().text($(option).text());
@@ -48,7 +48,7 @@ export const NeumorphismSelect = function(_properties){
                             
                             $(this).addClass('same-as-selected');
 
-                            $(parent).find('.same-as-selected > p').first().text($(this).text())
+                            $(parent).find('.select-selected > p').first().text($(this).text())
                         });
 
                         //append to selectItems
@@ -59,7 +59,6 @@ export const NeumorphismSelect = function(_properties){
                         e.stopPropagation();
                         that.closeAllSelects(this);
                         $(selectItems).toggleClass('hide');
-                        
                     });
                 }
             });

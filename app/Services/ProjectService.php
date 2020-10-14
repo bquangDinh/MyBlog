@@ -106,5 +106,93 @@ class ProjectService{
 
         return $projects;
     }
+
+    public static function update_project($request){
+        $project = Project::findOrFail($request->project_id);
+        $project_state = $project->state;
+
+        if($project_state == null){
+            throw new Exception("Unable to find article state");
+        }
+
+        $title = $request->project_name;
+        $language_id = $request->project_language;
+        $type_id = $request->project_type;
+        $cover_id = $request->cover_id;
+        $cover_file = $request->file('cover_file');
+        $content = $request->project_content;
+        $description = $request->description;
+        $project_source_file = $request->launchable_experiment_id;
+        $github_url = $request->github_url;
+
+        //calculate reading time
+        $time = str_word_count($content) / 300;
+        $total_seconds = intval($time) * 60 + intval(($time - intval($time)) * 60);
+        $duration = $total_seconds;
+
+        $project->title = $title;
+        $project->language_id = $language_id;
+        $project->type_id = $type_id;
+        $project->project_source_file = $project_source_file;
+        $project->github_url = $github_url;
+
+        if($cover_id != "" && $cover_id != $project->cover_id){
+            //it means I really did update it
+            $project->cover_id = $cover_id;
+        }else if($cover_file != null){
+            $image = MediaService::add_image($cover_file);
+            $project->cover_id = $image->id;
+        }
+
+        $project->content = $content;
+        $project->description = $description;
+        $project->duration = $duration;
+
+        $project->save();
+
+        if($request->submit_btn == "publish"){
+            $project_state->current_state = "Published";
+        }else{
+            $project_state->current_state = "Saved";
+        }
+
+        $project_state->save();
+
+        $project_music = $project->music;
+
+        //add music
+        $track_id = $request->track_id;
+        $playlist_id = $request->playlist_id;
+
+        if($project_music != null){
+            if($playlist_id != ""){
+                $project_music->playlist_id = $playlist_id;
+            }
+
+            if($track_id != ""){
+                $project_music->single_track_id = $track_id;
+            }
+
+            $project_music->save();
+        }else{
+            if($playlist_id != "" || $track_id != ""){
+                $project_music = new ArticleMusic;
+
+                $project_music->project_id = $project->id;
+
+                if($playlist_id != ""){
+                    $project_music->playlist_id = $playlist_id;
+                }
+
+                if($track_id != ""){
+                    $project_music->single_track_id = $track_id;
+                }
+
+                $project_music->save();
+            }
+        }
+
+        return $project;
+    }
 }
 ?>

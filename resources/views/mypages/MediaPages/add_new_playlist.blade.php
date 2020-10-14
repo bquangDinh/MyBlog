@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-Add new track
+New playlist
 @endsection
 
 @section('css')

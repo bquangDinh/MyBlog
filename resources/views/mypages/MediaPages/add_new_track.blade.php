@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-Add new track
+New track
 @endsection
 
 @section('css')

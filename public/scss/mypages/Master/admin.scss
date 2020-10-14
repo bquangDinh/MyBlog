@@ -3,6 +3,13 @@
 /*VARIABLES*/
 $sidebar-btn-color: #FF73A1;
 $menubar-title-color: #8E99A8;
+
+$menubar-panel-title-clr: #2c3e50;
+
+/*icon color set*/
+$published-icon-color: #2ecc71;
+$saved-icon-color: #3498db;
+$hided-icon-color: #e74c3c;
 /*---------*/
 
 .page-wrapper{
@@ -12,76 +19,129 @@ $menubar-title-color: #8E99A8;
     display: flex;
 }
 
-.sidebar{
+.flex-item{
+    transition: all .8s ease;
+}
+
+.left-container{
     &{
         position: relative;
-        height: 100vh;
-        width: 80px;
-        z-index: 1;
-        border-top-right-radius: 40px;
-        border-bottom-right-radius: 40px;
-
-        @include base.neumorphism(
-            11px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
+        min-width: 80px;
+        flex: 1;
+        width: auto;
     }
 
-    &-options-container{
+    .sidebar{
         &{
-            margin-top: 150px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100vh;
+            width: 80px;
+            z-index: 1;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+    
+            @include base.neumorphism(
+                11px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
         }
-
-        .sidebar-btn-container{
+    
+        &-options-container{
             &{
-                height: 80px;
-                width: 80px;
+                margin-top: 150px;
             }
     
-            &.active{
-                border-radius: 10px;
+            .sidebar-btn-container{
+                &{
+                    height: 80px;
+                    width: 80px;
+                }
+        
+                &.active{
+                    border-radius: 10px;
+        
+                    @include base.neumorphism(
+                        12px,
+                        base.$neumorphism-base-color,
+                        base.$neumorphism-shadow-tl-color,
+                        base.$neumorphism-shadow-br-color
+                    );
+                }
+        
+                .sidebar-btn{
+                    &{
+                        height: 100%;
+                        width: 100%;
+                        color: $sidebar-btn-color;
+                        font-size: 1.5em;
+                    }
+        
+                    &.active{
+                        border: 2px solid #ECF0F3;
+                        border-radius: 10px;
+        
+                        @include base.neumorphism-inset(
+                            5px,
+                            base.$neumorphism-base-color,
+                            base.$neumorphism-shadow-tl-color,
+                            base.$neumorphism-shadow-br-color
+                        );
+                    }
+                }
+            }
+        }
     
+        .head-logo{
+            &{
+                height: 70px;
+                width: 70px;
+                border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                
                 @include base.neumorphism(
-                    12px,
+                    5px,
                     base.$neumorphism-base-color,
                     base.$neumorphism-shadow-tl-color,
                     base.$neumorphism-shadow-br-color
                 );
             }
     
-            .sidebar-btn{
-                &{
-                    height: 100%;
-                    width: 100%;
-                    color: $sidebar-btn-color;
-                    font-size: 1.5em;
-                }
+            &__inner{
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                height: 65px;
+                width: 65px;
+                border-radius: 50%;
     
-                &.active{
-                    border: 2px solid #ECF0F3;
-                    border-radius: 10px;
-    
-                    @include base.neumorphism-inset(
-                        5px,
-                        base.$neumorphism-base-color,
-                        base.$neumorphism-shadow-tl-color,
-                        base.$neumorphism-shadow-br-color
-                    );
-                }
+                @include base.neumorphism-inset(
+                    5px,
+                    #FF73A1,
+                    #d96289,
+                    #ff84b9
+                );
             }
         }
-    }
-
-    .head-logo{
-        &{
-            height: 70px;
-            width: 70px;
-            border-radius: 50%;
+    
+        #open-menubar-btn{
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 90px;
+            left: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #F55E5E;
+            font-size: 1.2em;
+            z-index: 99;
+            transition: all .3s;
+            border: 2px solid white;
             
             @include base.neumorphism(
                 5px,
@@ -90,291 +150,291 @@ $menubar-title-color: #8E99A8;
                 base.$neumorphism-shadow-br-color
             );
         }
-
-        &__inner{
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            height: 65px;
-            width: 65px;
-            border-radius: 50%;
-
-            @include base.neumorphism-inset(
-                5px,
-                #FF73A1,
-                #d96289,
-                #ff84b9
+    }
+    
+    .menubar{
+        &{
+            position: relative;
+            z-index: 0;
+            height: 100vh;
+            width: 350px;
+            border-radius: 40px;
+    
+            @include base.neumorphism(
+                19px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
             );
         }
-    }
-
-    #open-menubar-btn{
-        position: absolute;
-        top: 90px;
-        left: 15px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        color: #F55E5E;
-        font-size: 1.2em;
-        z-index: 99;
-        transition: all .3s;
-        border: 2px solid white;
-        
-        @include base.neumorphism(
-            5px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
-    }
-}
-
-.menubar{
-    &{
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 0;
-        height: 100vh;
-        width: 350px;
-        border-radius: 40px;
-
-        @include base.neumorphism(
-            19px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
-    }
-
-    .panel{
-        &{
-            width: 100%;
-            margin-left: 80px;
-            margin-top: 100px;
-        }
-
-        .title{
-            font-family: Nunito-ExtraBold;
-            font-size: 2em;
-            color: base.$text-clr;
-            margin-left: 35px;
-        }
-
-        .sub-option-container{
+    
+        .panel{
             &{
+                width: 100%;
+                margin-left: 80px;
+                padding-top: 100px;
+            }
+    
+            .title{
+                font-family: Nunito-ExtraBold;
+                font-size: 2em;
+                color: $menubar-panel-title-clr;
                 margin-left: 35px;
             }
-
-            .sub-option-title{
-                font-family: Nunito-Regular;
-                color: $menubar-title-color;
-                font-size: 18px;
-            }
-
-            .sub-option-list{
+    
+            .sub-option-container{
                 &{
-                    margin-top: 30px;
+                    margin-left: 35px;
                 }
-
-                li{
-                    margin-bottom: 10px;
+    
+                .sub-option-title{
+                    font-family: Nunito-Regular;
+                    color: $menubar-title-color;
+                    font-size: 18px;
                 }
-            }
+    
+                .sub-option-list{
+                    &{
+                        margin-top: 30px;
+                    }
+    
+                    li{
+                        margin-bottom: 10px;
+                    }
 
-            .sub-option{
-                &{
-                    font-size: 15px;
-                    text-decoration: none;
-                    color: base.$text-clr;
-                    letter-spacing: 1px;
-                    transition: color .2s;
+                    .menu-icon{
+                        &[data-icon='saved']{
+                            color: $saved-icon-color;
+                        }
+
+                        &[data-icon='published']{
+                            color: $published-icon-color;
+                        }
+
+                        &[data-icon='hided']{
+                            color: $hided-icon-color;
+                        }
+                    }
                 }
-
-                &.unavailabled{
-                    opacity: 0.5;
-                    cursor: default;
-                }
-
-                &:not(.unavailabled):hover{
-                    color: #FF73A1;
-                }
-
-                span{
-                    padding-left: 20px;
-                    font-family: Nunito-Bold;
+    
+                .sub-option{
+                    &{
+                        font-size: 15px;
+                        text-decoration: none;
+                        color: base.$text-clr;
+                        letter-spacing: 1px;
+                        transition: color .2s;
+                    }
+    
+                    &.unavailabled{
+                        opacity: 0.5;
+                        cursor: default;
+                    }
+    
+                    &:not(.unavailabled):hover{
+                        color: #FF73A1;
+                    }
+    
+                    span{
+                        padding-left: 20px;
+                        font-family: Nunito-Bold;
+                    }
                 }
             }
         }
-    }
-
-    #collapse-menu-btn{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        color: #F55E5E;
-        font-size: 1.2em;
-        z-index: 99;
-        transition: all .3s;
-        border: 2px solid white;
-
-        @include base.neumorphism(
-            5px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
+    
+        #collapse-menu-btn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #F55E5E;
+            font-size: 1.2em;
+            z-index: 99;
+            transition: all .3s;
+            border: 2px solid white;
+    
+            @include base.neumorphism(
+                5px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+        }
     }
 }
 
 /*The section other pages will use*/
 .main-content{
     position: relative;
-    flex-grow: 2;
+    flex: 3;
+
+    @extend %centered-container;
 }
 
-.author-panel{
+.author-container{
     &{
         position: relative;
-    
-        @extend %centered-container;
-
-        flex-direction: column;
-        z-index: 0;
-        width: 350px;
-        height: 100vh;
-        border-radius: 35px;
-        border: 2px solid white;
-
-        @include base.neumorphism(
-            19px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
+        flex: 1;
+        min-width: 50px;
     }
 
-    &.deactive{
-        display: none;
-    }
-
-    .upper-panel{
+    .author-panel{
         &{
+            position: relative;
+            @extend %centered-container;
+            
+            flex-direction: column;
+            z-index: 0;
             width: 100%;
-            height: 300px;
+            height: 100vh;
+            border-top-left-radius: 35px;
+            border-bottom-left-radius: 35px;
+            border: 2px solid white;
+            
+
+            @include base.neumorphism(
+                19px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+        }
+    
+        &.deactive{
+            display: none;
         }
         
-        .author-avatar{
-            &{
-                position: relative;
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                border: 2px solid white;
+        &__inner{
+            .upper-panel{
+                &{
+                    width: 100%;
+                    height: 300px;
+                }
+                
+                .author-avatar{
+                    &{
+                        position: relative;
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        border: 2px solid white;
+        
+                        @include base.neumorphism(
+                            19px,
+                            base.$neumorphism-base-color,
+                            base.$neumorphism-shadow-tl-color,
+                            base.$neumorphism-shadow-br-color
+                        );
+                    }
+        
+                    img{
+                        position: absolute;
+                        width: 140px;
+                        height: 140px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        top: 3px;
+                        left: 3px;
+                    }
+                }
+        
+                .author-name{
+                    font-family: Nunito-Bold;
+                    font-size: 1.5em;
+                    color: base.$text-clr;
+                    margin-top: 20px;
+                }
+        
+                .date{
+                    font-family: Nunito-Regular;
+                    font-size: 18px;
+                    color: #8E99A8;
+                    margin-top: 5px;
+                }
 
+                .author-animated-item{
+                    &{
+                        transform: scale(0);
+                        transition: transform .5s ease;
+                        transition-delay: calc(0.095s * var(--index));
+                    }
+
+                    &.show{
+                        transform: scale(1);
+                    }
+                }
+            }
+        
+            .line{
+                height: 5px;
+                border-radius: 3px;
+        
                 @include base.neumorphism(
-                    19px,
+                    2px,
                     base.$neumorphism-base-color,
                     base.$neumorphism-shadow-tl-color,
                     base.$neumorphism-shadow-br-color
                 );
             }
-
-            img{
-                position: absolute;
-                width: 140px;
-                height: 140px;
-                border-radius: 50%;
-                object-fit: cover;
-                top: 3px;
-                left: 3px;
-            }
+        } 
+    
+        #close-author-panel-btn{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            color: #F55E5E;
+            font-size: 1.2em;
+            border-radius: 50%;
+            transition: all .3s;
+            border: 2px solid white;
+    
+            @include base.neumorphism(
+                5px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
         }
-
-        .author-name{
-            font-family: Nunito-Bold;
-            font-size: 1.5em;
+    }
+    
+    //when the big author panel collapses, show this instead
+    #author-mini-panel{
+        &{
+            position: absolute;
+    
+            @extend %centered-container;
+    
+            flex-direction: column;
+    
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 50px;
+            border-top-left-radius: 35px;
+            border-bottom-left-radius: 35px;
+            
+            @include base.neumorphism(
+                19px,
+                base.$neumorphism-base-color,
+                base.$neumorphism-shadow-tl-color,
+                base.$neumorphism-shadow-br-color
+            );
+        }
+    
+        &.deactive{
+            display: none;
+        }
+    
+        #open-author-panel{
+            height: 100%;
+            width: 50px;
+            font-size: 1.3em;
             color: base.$text-clr;
-            margin-top: 20px;
         }
-
-        .date{
-            font-family: Nunito-Regular;
-            font-size: 18px;
-            color: #8E99A8;
-            margin-top: 5px;
-        }
-    }
-
-    .line{
-        height: 5px;
-        border-radius: 3px;
-
-        @include base.neumorphism(
-            2px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
-    }
-
-    #close-author-panel-btn{
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 50px;
-        height: 50px;
-        color: #F55E5E;
-        font-size: 1.2em;
-        border-radius: 50%;
-        transition: all .3s;
-        border: 2px solid white;
-
-        @include base.neumorphism(
-            5px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
-    }
-}
-
-//when the big author panel collapses, show this instead
-#author-mini-panel{
-    &{
-        position: relative;
-
-        @extend %centered-container;
-
-        flex-direction: column;
-
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 50px;
-        border-top-left-radius: 35px;
-        border-bottom-left-radius: 35px;
-        
-        @include base.neumorphism(
-            19px,
-            base.$neumorphism-base-color,
-            base.$neumorphism-shadow-tl-color,
-            base.$neumorphism-shadow-br-color
-        );
-    }
-
-    &.deactive{
-        display: none;
-    }
-
-    #open-author-panel{
-        height: 100%;
-        width: 50px;
-        font-size: 1.3em;
-        color: base.$text-clr;
     }
 }

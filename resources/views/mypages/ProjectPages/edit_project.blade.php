@@ -1,42 +1,43 @@
 @extends('admin')
 
 @section('title')
-{{ $article->title }}
+{{ $project->title }}
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/mypages/Articles/new_article.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/mypages/Projects/new_project.css') }}">
 @endsection
 
 @section('main-content')
-<div class="new-article-container main-container animated slideInUp">
+<div class="new-project-container main-container animated slideInUp">
     <div class="point-deep-shadow" style="top: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="top: 10px; right: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; left: 10px"></div>
     <div class="point-deep-shadow" style="bottom: 10px; right: 10px"></div>
-    <div class="top-title text-center mt-3">Edit Article</div>
+    <div class="top-title text-center mt-3">Edit Experiment</div>
 
     <div class="form-container w-100 mt-2 mb-2 disable-scrollbars">
-        <form id="article-form" action="{{ route('update_article') }}" class="w-100 flex-form" method="POST" enctype="multipart/form-data">
+        <form id="project-form" action="{{ route('update_project') }}" class="w-100 flex-form" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="text" name="article_id" value="{{ $article->id }}" style="display: none">
-            <input type="text" name="cover_id" id="selected-image-id-input" value="{{ $article->cover_id }}" style="display: none">
-            @if(isset($article->music))
-            <input type="text" name="track_id" id="selected-track-id-input" value="{{ $article->music->single_track_id }}" style="display: none">
-            <input type="text" name="playlist_id" id="selected-playlist-id-input" value="{{ $article->music->playlist_id }}" style="display: none">
+            <input type="text" name="project_id" value="{{ $project->id }}" style="display: none">
+            <input type="text" name="cover_id" id="selected-image-id-input" value="{{ $project->cover_id }}" style="display: none">
+            @if(isset($project->music))
+            <input type="text" name="track_id" id="selected-track-id-input" value="{{ $project->music->single_track_id }}" style="display: none">
+            <input type="text" name="playlist_id" id="selected-playlist-id-input" value="{{ $project->music->playlist_id }}" style="display: none">
             @else
             <input type="text" name="track_id" id="selected-track-id-input" value="" style="display: none">
             <input type="text" name="playlist_id" id="selected-playlist-id-input" value="" style="display: none">
             @endif
+
             <div class="form-group w-75">
-                @error('article_name')
+                @error('project_name')
                 <div class="error-message-container ml-2 mb-2 w-100">
                     <i class="fas fa-exclamation-circle"></i>
                     <span>{{ $message }}</span>
                 </div>
                 @enderror
                 <div class="text-field w-100">
-                    <input type="text" name="article_name" placeholder="Article Name" tabindex="1" value="{{ $article->title }}" required>
+                    <input type="text" name="project_name" value="{{ $project->title }}" placeholder="Experiment Name" tabindex="1" required>
                 </div>
             </div>
             <div class="form-group w-75">
@@ -47,22 +48,22 @@
                 </div>
                 @enderror
                 <div class="text-field w-100">
-                    <input type="text" name="description" placeholder="Description" tabindex="2" value="{{ $article->description }}">
+                    <input type="text" name="description" value="{{ $project->description }}" placeholder="Description" tabindex="2">
                 </div>
             </div>
             <div class="form-group w-75">
                 <div class="select-field">
                     <div class="select-selected" tabindex="2">
                         <p>
-                            {{ $article->type->name }}
+                            {{ $project->type->name }}
                         </p>
                     </div>
                     <div class="select-items">
-                    
+
                     </div>
-                    <select name="article_type" id="article-type-select">
+                    <select name="project_type" id="article-type-select">
                         @foreach($types as $type)
-                        @if($article->type_id == $type->id)
+                        @if($project->type_id == $type->id)
                         <option value="{{ $type->id }}" selected>{{ $type->name }}</option>
                         @else
                         <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -74,14 +75,16 @@
             <div class="form-group w-75">
                 <div class="select-field">
                     <div class="select-selected" tabindex="3">
-                        <p>{{ $article->language->name }}</p>
+                        <p>
+                            {{ $project->language->name }}
+                        </p>
                     </div>
                     <div class="select-items">
-                    
+
                     </div>
-                    <select name="article_language" id="article-language-select">
+                    <select name="project_language" id="article-language-select">
                         @foreach($languages as $language)
-                        @if($article->language_id == $language->id)
+                        @if($project->language_id == $language->id)
                         <option value="{{ $language->id }}" selected>{{ $language->name }}</option>
                         @else
                         <option value="{{ $language->id }}">{{ $language->name }}</option>
@@ -90,10 +93,11 @@
                     </select>
                 </div>
             </div>
+
             <div class="form-group w-75">
                 <div class="row">
                     <div class="col-6">
-                        <div class="picking-container {{ $article->cover_id != '' ? 'used' : '' }}" id="cover-picking-container">
+                        <div class="picking-container {{ $project->cover_id != '' ? 'used' : '' }}" id="cover-picking-container">
                             <i class="fas fa-check-circle used-icon"></i>
                             <div class="row">
                                 <div class="col-6">
@@ -116,7 +120,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                    <div class="picking-container {{ isset($article->music) ? 'used' : '' }}" id="music-picking-container">
+                    <div class="picking-container {{ isset($project->music) ? 'used' : '' }}" id="music-picking-container">
                             <i class="fas fa-check-circle used-icon"></i>
                             <div class="row">
                                 <div class="col-6">
@@ -268,8 +272,98 @@
                     </div>
                 </div>
             </div>
+            <!--
+            <div class="form-group w-75" id="selected-folder-container" style="display: none">
+                <div class="folder-container">
+                    <div class="d-flex justify-content-between">
+                        <div class="mt-3 ml-3">
+                            <i class="fas fa-folder folder-icon"></i>
+                        </div>
+                        <button class="upload-folder-btn mr-3" type="button" data-target-input="project-folder">
+                            <i class="fas fa-upload"></i>
+                        </button>
+                    </div>
+                    <div class="folder-name ml-3 mt-2" id="folder-name">
+                        No folder selected
+                    </div>
+                    <div class="folder-count-files px-3 py-3" id="folder-files-count">
+                        None
+                    </div>
+                    <input type="file" name="project_folder[]" id="project-folder" webkitdirectory multiple>
+                    @error('project_folder')
+                    <div class="d-flex justify-content-center py-3">
+                        <div class="folder-additional-message">
+                            <div class="error-message-container px-2 py-2 w-100">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>{{ $message }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+            </div>
+        --> 
+
             <div class="form-group w-75">
-                @error('article_content')
+                <div class="row">
+                    <div class="col-3 switch-title">
+                        Launchable Experiment?
+                    </div>
+                    <div class="col-9">
+                        <label for="use-folder-switch" class="neumor-switch">
+                            <input type="checkbox" name="is_launchable" id="use-folder-switch" {{ $project->project_source_file ? 'checked' : ''}}>
+                            <div class="outer">
+                                <div class="inner">
+                                    <div class="switch-point"></div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group w-75" id="launchable-exp-textbox" style="{{ !$project->project_source_file ? 'display: none;' : '' }}">
+                @error('launchable_experiment_id')
+                <div class="error-message-container ml-2 mb-2 w-100">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ $message }}</span>
+                </div>
+                @enderror
+                <div class="text-field w-100">
+                    <input type="text" name="launchable_experiment_id" value="{{ $project->project_source_file }}" placeholder="Experiment's ID" tabindex="1">
+                </div>
+            </div>
+
+            <div class="form-group w-75">
+                <div class="row">
+                    <div class="col-3 switch-title">
+                        Include github URL
+                    </div>
+                    <div class="col-9">
+                        <label for="github-url-switch" class="neumor-switch">
+                            <input type="checkbox" name="is_github_url" id="github-url-switch" {{ $project->github_url ? 'checked' : '' }} >
+                            <div class="outer">
+                                <div class="inner">
+                                    <div class="switch-point"></div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group w-75" id="github-textbox" style="{{ !$project->github_url ? 'display: none;' : '' }}">
+                @error('is_github_url')
+                <div class="error-message-container ml-2 mb-2 w-100">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ $message }}</span>
+                </div>
+                @enderror
+                <div class="text-field w-100">
+                    <input type="text" name="github_url" value="{{ $project->github_url }}" placeholder="Github URL" tabindex="1">
+                </div>
+            </div>
+
+            <div class="form-group w-75">
+                @error('project_content')
                 <div class="error-message-container ml-2 mb-2 w-100">
                     <i class="fas fa-exclamation-circle"></i>
                     <span>{{ $message }}</span>
@@ -277,8 +371,8 @@
                 @enderror
                 <div class="custom-textarea-field">
                     <div class="text-area__inner">
-                        <textarea name="article_content" id="article_content" tabindex="4">
-                            {{ $article->content }}
+                        <textarea name="project_content" id="article_content" tabindex="4">
+                            {{ $project->content }}
                         </textarea>
                     </div>
                 </div>
@@ -302,5 +396,5 @@
 <script src="https://cdn.tiny.cloud/1/j3z8kdc0di1465wji07upkwwuc7exvti07rixz2ewht51abv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{ URL::asset('js/vendors/smooth-scrollbar.js') }}" charset="utf-8"></script>
 <script src="{{ URL::asset('js/vendors/pagination.min.js') }}"></script>
-<script type="module" src="{{ URL::asset('js/mypages/Articles/update_article.js') }}"></script>
+<script type="module" src="{{ URL::asset('js/mypages/Projects/update_project.js') }}"></script>
 @endsection

@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('title')
-Edit Articles
+Article Manager
 @endsection
 
 @section('css')

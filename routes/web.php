@@ -63,8 +63,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     });
 
     Route::prefix('project')->group(function(){
+        Route::get('/overview/{state?}','AdminController@show_overview_projects')->name('overview_projects');
         Route::get('/new_project','AdminController@show_new_project_page')->name('new_project');
         Route::post('/create_project','ProjectController@create')->name('create_project');
+        Route::get('/edit_project/{id}','AdminController@show_editing_project_page')->name('edit_project');
+        Route::post('/update_project','ProjectController@update_project')->name('update_project');
     });
 
     Route::prefix('action')->group(function(){
