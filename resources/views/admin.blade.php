@@ -59,15 +59,15 @@
                     </button>
                     
                     <div id="dashboard-panel" class="panel">
-                        <div class="title">
+                        <div class="title menubar-animated-item show" style="--index: 0;">
                             Dashboard
                         </div>
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 View
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="#" class="sub-option">
                                         <i class="far fa-eye"></i>
                                         <span>Overview</span>
@@ -77,23 +77,23 @@
                         </div>
 
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 Manage
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="#" class="sub-option">
                                         <i class="fas fa-plus"></i>
                                         <span>New Article</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 3;">
                                     <a href="#" class="sub-option">
                                         <i class="fas fa-minus-circle"></i>
                                         <span>Hided</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 4;">
                                     <a href="#" class="sub-option">
                                         <i class="far fa-trash-alt"></i>
                                         <span>Deleted</span>
@@ -104,33 +104,33 @@
                     </div>
 
                     <div id="article-panel" class="panel" style="display: none">
-                        <div class="title">
+                        <div class="title menubar-animated-item show" style="--index: 0;">
                             Article
                         </div>
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 View
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="{{ route('overview_articles') }}?panel=article-panel" class="sub-option">
                                         <i class="far fa-eye menubar-icon" data-icon="overview"></i>
                                         <span>Overview</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 3;">
                                     <a href="{{ route('overview_articles') }}/Published?panel=article-panel" class="sub-option">
                                         <i class="fas fa-upload menu-icon" data-icon="published"></i>
                                         <span>Published</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 4;">
                                     <a href="{{ route('overview_articles') }}/Hided?panel=article-panel" class="sub-option">
                                         <i class="fas fa-minus-circle menu-icon" data-icon="hided"></i>
                                         <span>Hided</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 5;">
                                     <a href="{{ route('overview_articles') }}/Saved?panel=article-panel" class="sub-option">
                                         <i class="far fa-save menu-icon" data-icon="saved"></i>
                                         <span>Saved</span>
@@ -140,17 +140,17 @@
                         </div>
 
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 Manage
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="{{ route('new_article') }}?panel=article-panel" class="sub-option">
                                         <i class="fas fa-plus"></i>
                                         <span>New</span>
                                     </a>
                                 </li> 
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 3;">
                                     <a href="{{ route('editing_manager') }}?panel=article-panel" class="sub-option">
                                         <i class="far fa-edit"></i>
                                         <span>Manager</span>
@@ -161,33 +161,33 @@
                     </div>
 
                     <div id="media-panel" class="panel" style="display: none">
-                        <div class="title">
+                        <div class="title menubar-animated-item show" style="--index: 0;">
                             Media
                         </div>
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 View
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="{{ route('picture_viewer') }}?panel=media-panel" class="sub-option">
                                         <i class="far fa-image"></i>
                                         <span>Pictures</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 3;">
                                     <a href="#" class="sub-option unavailabled">
                                         <i class="fas fa-video"></i>
                                         <span>Videos</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 4;">
                                     <a href="{{ route('music_viewer') }}?panel=media-panel" class="sub-option">
                                         <i class="fas fa-music"></i>
                                         <span>Musics</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 5;">
                                     <a href="{{ route('playlist_viewer') }}?panel=media-panel" class="sub-option">
                                         <i class="fas fa-compact-disc"></i>
                                         <span>Playlists</span>
@@ -197,17 +197,17 @@
                         </div>
 
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 Manage
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 1;">
                                     <a href="{{ route('adding_track_page') }}?panel=media-panel" class="sub-option">
                                         <i class="fas fa-plus"></i>
                                         <span>New track</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="{{ route('adding_playlist_page') }}?panel=media-panel" class="sub-option">
                                         <i class="fas fa-plus"></i>
                                         <span>New playlist</span>
@@ -218,33 +218,33 @@
                     </div>
 
                     <div id="project-panel" class="panel" style="display: none">
-                        <div class="title">
+                        <div class="title menubar-animated-item show" style="--index: 0;">
                             Project
                         </div>
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 View
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="{{ route('overview_projects') }}?panel=project-panel" class="sub-option">
                                         <i class="far fa-eye menu-icon" data-icon="overview"></i>
                                         <span>Overview</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 3;">
                                     <a href="{{ route('overview_projects') }}/Published?panel=project-panel" class="sub-option">
                                         <i class="fas fa-upload menu-icon" data-icon="published"></i>
                                         <span>Published</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 4;">
                                     <a href="{{ route('overview_projects') }}/Hided?panel=project-panel" class="sub-option">
                                         <i class="fas fa-minus-circle menu-icon" data-icon="hided"></i>
                                         <span>Hided</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 5;">
                                     <a href="{{ route('overview_projects') }}/Saved?panel=project-panel" class="sub-option">
                                         <i class="far fa-save menu-icon" data-icon="saved"></i>
                                         <span>Saved</span>
@@ -254,11 +254,11 @@
                         </div>
 
                         <div class="sub-option-container mt-5">
-                            <div class="sub-option-title">
+                            <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
                                 Manage
                             </div>
                             <ul class="sub-option-list list-unstyled">
-                                <li>
+                                <li class="menubar-animated-item show" style="--index: 2;">
                                     <a href="{{ route('new_project') }}?panel=media-panel" class="sub-option">
                                         <i class="fas fa-plus"></i>
                                         <span>New Project</span>

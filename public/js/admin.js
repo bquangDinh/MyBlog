@@ -44,6 +44,8 @@ $.fn.attachDragger = function(){
     });
 };
 
+var currentPanel = "#dashboard-panel";
+
 /*Detect which panel are being used by URL*/
 if(typeof URL === "undefined"){
     var parse_query_string = function(query){
@@ -89,6 +91,7 @@ if(typeof URL === "undefined"){
         $("#" + initform).fadeIn("slow");
         $(sidebarBtn).addClass("active");
         $(parentContainer).addClass("active");
+        currentPanel = "#" + initform;
     }
   }
 
@@ -96,6 +99,8 @@ if(typeof URL === "undefined"){
 $(function(){
     $(".sidebar-btn").on('click',function(){
         let panelId = $(this).data("panel-id");
+        currentPanel = "#" + panelId;
+        console.log(currentPanel);
         let parentContainer = $(this).parent();
 
         $(".panel").each(function(index){
@@ -114,10 +119,15 @@ $(function(){
 
     $("#collapse-menu-btn").on('click',function(e){
         animateCSSJquery($("#open-menubar-btn"), "jackInTheBox",function(){
-            $("#open-menubar-btn").show();
+            $("#open-menubar-btn").show(); 
         });
 
         $(".left-container").css('flex','0.0001');
+        
+        $(currentPanel).fadeOut('fast',function(){
+            $(this).hide();
+            $(this).find('.menubar-animated-item').removeClass('show');
+        });
 
         animateCSSJquery($("#menubar"), "slideOutLeft",function(){
             $("#menubar").hide();
@@ -130,7 +140,10 @@ $(function(){
         $(that).fadeOut("fast");
         $("#menubar").show();
         $(".left-container").css('flex','1');
-        animateCSSJquery($("#menubar"), "slideInLeft", function(){  
+        animateCSSJquery($("#menubar"), "slideInLeft", function(){ 
+            $(currentPanel).show();
+            console.log(currentPanel);
+            $(".menubar-animated-item").addClass('show');
         });
     });
 

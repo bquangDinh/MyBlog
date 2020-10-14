@@ -164,6 +164,7 @@ button {
 
 .left-container {
   position: relative;
+  z-index: 999;
   min-width: 80px;
   flex: 1;
   width: auto;
@@ -244,10 +245,18 @@ button {
   position: relative;
   z-index: 0;
   height: 100vh;
-  width: 350px;
+  width: 100%;
   border-radius: 40px;
   background-color: #F5F7F9;
   box-shadow: 19px 19px 38px #d0d2d4, -19px 19px 38px #ffffff;
+}
+.left-container .menubar .menubar-animated-item {
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  transition-delay: calc(0.095s * var(--index));
+}
+.left-container .menubar .menubar-animated-item.show {
+  transform: scale(1);
 }
 .left-container .menubar .panel {
   width: 100%;
